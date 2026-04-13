@@ -1,0 +1,2611 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dermatologisches Laserzentrum Häusler-Mehlhorn | Chemnitz</title>
+  <meta name="description" content="Ihr Dermatologisches Laserzentrum in Chemnitz. Ästhetische Medizin, Lasertherapie, Botox & Hyaluronsäure – von Expertinnen für Ihre Schönheit.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    /* ========================================
+       DESIGN TOKENS
+       ======================================== */
+    :root {
+      /* Primary Palette – derived from poli.png */
+      --teal-deep: #5A9E98;
+      --teal: #7BBAB5;
+      --teal-light: #A8D5D1;
+      --teal-mist: #D4EDEA;
+      --teal-whisper: #EAF6F4;
+      --teal-glass: rgba(123, 186, 181, 0.12);
+
+      /* Rosé / Blush Palette */
+      --rose: #E8B4B8;
+      --rose-light: #F0D0CC;
+      --rose-mist: #FBE8E5;
+      --rose-whisper: #FFF4F2;
+      --blush: #D4A094;
+      --blush-light: #EACCC6;
+
+      /* Neutrals */
+      --white: #FFFFFF;
+      --off-white: #FAFBFC;
+      --cream: #FFF8F6;
+      --gray-50: #F8F9FA;
+      --gray-100: #F0F1F3;
+      --gray-200: #E2E4E8;
+      --gray-300: #C8CCD2;
+      --gray-400: #9BA1AB;
+      --gray-500: #6E7580;
+      --gray-600: #4A5160;
+      --gray-700: #343A46;
+      --gray-800: #1F2937;
+      --gray-900: #111827;
+
+      /* Gradients */
+      --gradient-primary: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 50%, var(--rose-light) 100%);
+      --gradient-soft: linear-gradient(135deg, var(--teal-mist) 0%, var(--rose-whisper) 100%);
+      --gradient-hero: linear-gradient(160deg, var(--teal-whisper) 0%, var(--cream) 40%, var(--rose-whisper) 100%);
+      --gradient-button: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 60%, var(--rose) 100%);
+      --gradient-button-hover: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal) 60%, var(--rose) 100%);
+      --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.3) 100%);
+
+      /* Typography */
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Spacing Scale (8px base) */
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 24px;
+      --space-6: 32px;
+      --space-7: 40px;
+      --space-8: 48px;
+      --space-9: 64px;
+      --space-10: 80px;
+      --space-11: 96px;
+      --space-12: 128px;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.03);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+      --shadow-xl: 0 20px 60px rgba(0,0,0,0.1), 0 8px 20px rgba(0,0,0,0.05);
+      --shadow-glow-teal: 0 8px 32px rgba(123, 186, 181, 0.25);
+      --shadow-glow-rose: 0 8px 32px rgba(232, 180, 184, 0.2);
+
+      /* Border Radius */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-2xl: 32px;
+      --radius-full: 9999px;
+
+      /* Transitions */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+      --duration-fast: 150ms;
+      --duration-normal: 250ms;
+      --duration-slow: 400ms;
+    }
+
+    /* ========================================
+       RESET & BASE
+       ======================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--gray-700);
+      background: var(--off-white);
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+
+    ul, ol { list-style: none; }
+
+    /* ========================================
+       LOADING SCREEN
+       ======================================== */
+    .loading-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--off-white);
+      transition: opacity 0.6s var(--ease-out), visibility 0.6s;
+    }
+
+    .loading-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loading-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .loading-logo {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: var(--teal-deep);
+      opacity: 0;
+      animation: loadFadeIn 0.8s var(--ease-out) 0.2s forwards;
+    }
+
+    .loading-bar-track {
+      width: 160px;
+      height: 2px;
+      background: var(--gray-100);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      opacity: 0;
+      animation: loadFadeIn 0.6s var(--ease-out) 0.5s forwards;
+    }
+
+    .loading-bar-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--gradient-button);
+      border-radius: var(--radius-full);
+      animation: loadProgress 1.8s var(--ease-in-out) 0.6s forwards;
+    }
+
+    .loading-tagline {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      opacity: 0;
+      animation: loadFadeIn 0.6s var(--ease-out) 0.8s forwards;
+    }
+
+    @keyframes loadFadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes loadProgress {
+      0% { width: 0%; }
+      40% { width: 60%; }
+      100% { width: 100%; }
+    }
+
+    /* ========================================
+       BACKGROUND EFFECTS
+       ======================================== */
+    .bg-effects {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .bg-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.35;
+      animation: blobFloat 20s var(--ease-in-out) infinite alternate;
+    }
+
+    .bg-blob--teal {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--teal-mist) 0%, transparent 70%);
+      top: -10%;
+      right: -5%;
+    }
+
+    .bg-blob--rose {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--rose-mist) 0%, transparent 70%);
+      bottom: 20%;
+      left: -8%;
+      animation-delay: -7s;
+    }
+
+    .bg-blob--mint {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--teal-whisper) 0%, transparent 70%);
+      top: 50%;
+      right: 20%;
+      animation-delay: -14s;
+    }
+
+    @keyframes blobFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -20px) scale(1.05); }
+      66% { transform: translate(-20px, 15px) scale(0.95); }
+      100% { transform: translate(10px, -10px) scale(1.02); }
+    }
+
+    /* ========================================
+       LAYOUT UTILITIES
+       ======================================== */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-5);
+    }
+
+    .container--wide {
+      max-width: 1400px;
+    }
+
+    .section {
+      position: relative;
+      z-index: 1;
+      padding: var(--space-11) 0;
+    }
+
+    .section--sm {
+      padding: var(--space-9) 0;
+    }
+
+    /* ========================================
+       TYPOGRAPHY
+       ======================================== */
+    .heading-display {
+      font-family: var(--font-display);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--gray-900);
+      letter-spacing: -0.01em;
+    }
+
+    .heading-display--xl {
+      font-size: clamp(40px, 5.5vw, 72px);
+    }
+
+    .heading-display--lg {
+      font-size: clamp(32px, 4vw, 52px);
+    }
+
+    .heading-display--md {
+      font-size: clamp(28px, 3vw, 40px);
+    }
+
+    .text-body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--gray-500);
+    }
+
+    .text-body--lg {
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .text-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .text-accent {
+      color: var(--teal-deep);
+    }
+
+    .text-gradient {
+      background: var(--gradient-button);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ========================================
+       BUTTONS
+       ======================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      border: none;
+      cursor: pointer;
+      transition: all var(--duration-normal) var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.4) 45%, rgba(255,255,255,0.1) 50%, transparent 55%);
+      transform: translateX(-100%);
+      transition: transform 0.6s var(--ease-out);
+    }
+
+    .btn:hover::before {
+      transform: translateX(100%);
+    }
+
+    /* Primary CTA */
+    .btn--primary {
+      background: var(--gradient-button);
+      color: var(--white);
+      padding: 16px 36px;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-glow-teal);
+      min-height: 52px;
+    }
+
+    .btn--primary:hover {
+      background: var(--gradient-button-hover);
+      box-shadow: 0 12px 40px rgba(123, 186, 181, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .btn--primary:active {
+      transform: translateY(0);
+      box-shadow: var(--shadow-glow-teal);
+    }
+
+    /* Secondary CTA */
+    .btn--secondary {
+      background: var(--gradient-glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: var(--teal-deep);
+      padding: 14px 32px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(123, 186, 181, 0.25);
+      box-shadow: var(--shadow-sm);
+      min-height: 48px;
+    }
+
+    .btn--secondary:hover {
+      background: rgba(123, 186, 181, 0.08);
+      border-color: var(--teal-light);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    /* Ghost / Outline */
+    .btn--ghost {
+      background: transparent;
+      color: var(--teal-deep);
+      padding: 12px 28px;
+      border-radius: var(--radius-full);
+      border: 1.5px solid var(--teal-light);
+      min-height: 44px;
+    }
+
+    .btn--ghost:hover {
+      background: var(--teal-glass);
+      border-color: var(--teal);
+      transform: translateY(-1px);
+    }
+
+    /* Pill / Chip */
+    .btn--pill {
+      background: var(--teal-glass);
+      color: var(--teal-deep);
+      padding: 8px 20px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 500;
+      border: 1px solid rgba(123, 186, 181, 0.15);
+      min-height: 36px;
+    }
+
+    .btn--pill:hover {
+      background: rgba(123, 186, 181, 0.15);
+      border-color: var(--teal-light);
+    }
+
+    .btn--pill.active {
+      background: var(--gradient-button);
+      color: var(--white);
+      border-color: transparent;
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* ========================================
+       NAVIGATION
+       ======================================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: all var(--duration-normal) var(--ease-out);
+    }
+
+    .nav.scrolled {
+      padding: 12px 0;
+      background: rgba(250, 251, 252, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(123, 186, 181, 0.1);
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav__logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--gray-800);
+      letter-spacing: 0.02em;
+    }
+
+    .nav__logo span {
+      color: var(--teal-deep);
+    }
+
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+    }
+
+    .nav__link {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--gray-500);
+      transition: color var(--duration-fast) var(--ease-out);
+      position: relative;
+    }
+
+    .nav__link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--gradient-button);
+      transition: width var(--duration-normal) var(--ease-out);
+    }
+
+    .nav__link:hover {
+      color: var(--gray-800);
+    }
+
+    .nav__link:hover::after {
+      width: 100%;
+    }
+
+    .nav__cta {
+      margin-left: var(--space-4);
+    }
+
+    .nav__mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .nav__mobile-toggle span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--gray-700);
+      transition: all var(--duration-normal) var(--ease-out);
+      position: absolute;
+    }
+
+    .nav__mobile-toggle span:first-child { transform: translateY(-6px); }
+    .nav__mobile-toggle span:last-child { transform: translateY(6px); }
+
+    .nav__mobile-toggle.open span:first-child {
+      transform: rotate(45deg);
+    }
+    .nav__mobile-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav__mobile-toggle.open span:last-child {
+      transform: rotate(-45deg);
+    }
+
+    /* Mobile Nav Overlay */
+    .nav__mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(250, 251, 252, 0.97);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-6);
+      opacity: 0;
+      transition: opacity var(--duration-slow) var(--ease-out);
+    }
+
+    .nav__mobile-menu.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .nav__mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--gray-700);
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+
+    .nav__mobile-menu a:hover {
+      color: var(--teal-deep);
+    }
+
+    /* ========================================
+       HERO SECTION
+       ======================================== */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: var(--space-12) 0 var(--space-10);
+      overflow: hidden;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero__bg-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: right center;
+    }
+
+    /* Soft gradient overlay on left for text readability */
+    .hero__bg-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg,
+          rgba(234, 246, 244, 0.92) 0%,
+          rgba(234, 246, 244, 0.82) 25%,
+          rgba(234, 246, 244, 0.5) 45%,
+          rgba(234, 246, 244, 0.15) 60%,
+          transparent 75%
+        );
+      z-index: 1;
+    }
+
+    /* Subtle bottom fade for section transition */
+    .hero__bg-overlay::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(to top, var(--off-white), transparent);
+      z-index: 2;
+    }
+
+    .hero__grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-9);
+      align-items: center;
+    }
+
+    .hero__content {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: heroReveal 0.9s var(--ease-out) 2.6s forwards;
+    }
+
+    .hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal-glass);
+      border: 1px solid rgba(123, 186, 181, 0.15);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-6);
+    }
+
+    .hero__badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      animation: pulse 2s ease infinite;
+    }
+
+    .hero__badge-text {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal-deep);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero__title {
+      margin-bottom: var(--space-5);
+    }
+
+    .hero__title em {
+      font-style: italic;
+      color: var(--teal-deep);
+    }
+
+    .hero__subtitle {
+      margin-bottom: var(--space-7);
+      max-width: 480px;
+    }
+
+    .hero__actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .hero__trust {
+      margin-top: var(--space-8);
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+      padding-top: var(--space-6);
+      border-top: 1px solid rgba(90, 158, 152, 0.2);
+    }
+
+    .hero__trust-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .hero__trust-value {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--gray-800);
+    }
+
+    .hero__trust-label {
+      font-size: 12px;
+      color: var(--gray-400);
+      letter-spacing: 0.03em;
+    }
+
+    .hero__trust-divider {
+      width: 1px;
+      height: 40px;
+      background: var(--gray-200);
+    }
+
+    /* Hero – right column is empty spacer to keep content on left */
+    .hero__visual {
+      position: relative;
+    }
+
+    /* Float card positioned in the lower right area of hero */
+    .hero__float-card {
+      position: absolute;
+      bottom: var(--space-9);
+      right: var(--space-7);
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: var(--radius-lg);
+      padding: 18px 24px;
+      box-shadow: var(--shadow-lg);
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: heroReveal 0.7s var(--ease-out) 3.4s forwards;
+    }
+
+    .hero__float-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: var(--gradient-button);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hero__float-icon svg {
+      width: 20px;
+      height: 20px;
+      color: var(--white);
+    }
+
+    .hero__float-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero__float-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gray-800);
+    }
+
+    .hero__float-desc {
+      font-size: 12px;
+      color: var(--gray-400);
+    }
+
+    @keyframes heroReveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* (heroImageReveal removed – image is now background) */
+
+    /* ========================================
+       TREATMENTS SECTION
+       ======================================== */
+    .treatments {
+      background: var(--white);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto var(--space-10);
+    }
+
+    .section-header .text-label {
+      margin-bottom: var(--space-3);
+      display: block;
+    }
+
+    .section-header .heading-display {
+      margin-bottom: var(--space-4);
+    }
+
+    .treatments__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-5);
+    }
+
+    .treatment-card {
+      background: var(--off-white);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius-xl);
+      padding: var(--space-7);
+      transition: all var(--duration-normal) var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .treatment-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-button);
+      opacity: 0;
+      transition: opacity var(--duration-normal) var(--ease-out);
+    }
+
+    .treatment-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: transparent;
+      background: var(--white);
+    }
+
+    .treatment-card:hover::before {
+      opacity: 1;
+    }
+
+    .treatment-card__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background: var(--gradient-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space-5);
+    }
+
+    .treatment-card__icon svg {
+      width: 24px;
+      height: 24px;
+      color: var(--teal-deep);
+    }
+
+    .treatment-card__title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--gray-800);
+      margin-bottom: var(--space-3);
+    }
+
+    .treatment-card__desc {
+      font-size: 14px;
+      color: var(--gray-500);
+      line-height: 1.65;
+      margin-bottom: var(--space-5);
+    }
+
+    .treatment-card__meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--gray-100);
+    }
+
+    .treatment-card__meta-item {
+      font-size: 12px;
+      color: var(--gray-400);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .treatment-card__meta-item svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* ========================================
+       PHILOSOPHY / WHY US SECTION
+       ======================================== */
+    .philosophy {
+      background: var(--gradient-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .philosophy::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 60%;
+      height: 120%;
+      background: radial-gradient(ellipse, rgba(123, 186, 181, 0.08) 0%, transparent 60%);
+      border-radius: 50%;
+    }
+
+    .philosophy__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-10);
+      align-items: center;
+    }
+
+    .philosophy__content .heading-display {
+      margin-bottom: var(--space-5);
+    }
+
+    .philosophy__content .text-body {
+      margin-bottom: var(--space-7);
+    }
+
+    .philosophy__features {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    .philosophy__feature {
+      display: flex;
+      gap: var(--space-4);
+      align-items: flex-start;
+    }
+
+    .philosophy__feature-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .philosophy__feature-icon svg {
+      width: 20px;
+      height: 20px;
+      color: var(--teal);
+    }
+
+    .philosophy__feature-content h4 {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gray-800);
+      margin-bottom: 2px;
+    }
+
+    .philosophy__feature-content p {
+      font-size: 14px;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    /* Stats cards */
+    .philosophy__stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--duration-normal) var(--ease-out);
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .stat-card__value {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--teal-deep);
+      margin-bottom: var(--space-1);
+    }
+
+    .stat-card__label {
+      font-size: 13px;
+      color: var(--gray-500);
+      line-height: 1.4;
+    }
+
+    /* ========================================
+       PROCESS / STEPS SECTION
+       ======================================== */
+    .process {
+      background: var(--white);
+    }
+
+    .process__steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+      position: relative;
+    }
+
+    .process__steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--teal-light), var(--rose-light), transparent);
+    }
+
+    .process-step {
+      text-align: center;
+      position: relative;
+    }
+
+    .process-step__number {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--teal-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-5);
+      position: relative;
+      z-index: 1;
+      transition: all var(--duration-normal) var(--ease-out);
+    }
+
+    .process-step:hover .process-step__number {
+      background: var(--gradient-button);
+      border-color: transparent;
+      box-shadow: var(--shadow-glow-teal);
+    }
+
+    .process-step__number span {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--teal-deep);
+      transition: color var(--duration-normal) var(--ease-out);
+    }
+
+    .process-step:hover .process-step__number span {
+      color: var(--white);
+    }
+
+    .process-step__title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--gray-800);
+      margin-bottom: var(--space-2);
+    }
+
+    .process-step__desc {
+      font-size: 14px;
+      color: var(--gray-500);
+      line-height: 1.6;
+      max-width: 240px;
+      margin: 0 auto;
+    }
+
+    /* ========================================
+       TECHNOLOGY SECTION
+       ======================================== */
+    .technology {
+      background: var(--gradient-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .technology__inner {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: var(--space-10);
+      align-items: center;
+    }
+
+    .technology__visual {
+      position: relative;
+    }
+
+    .technology__card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .technology__card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--gradient-button);
+      color: var(--white);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-5);
+    }
+
+    .technology__card h3 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--gray-800);
+      margin-bottom: var(--space-3);
+    }
+
+    .technology__card p {
+      font-size: 15px;
+      color: var(--gray-500);
+      line-height: 1.7;
+      margin-bottom: var(--space-6);
+    }
+
+    .technology__features-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+    }
+
+    .technology__features-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--gray-600);
+    }
+
+    .technology__features-list li svg {
+      width: 16px;
+      height: 16px;
+      color: var(--teal);
+      flex-shrink: 0;
+    }
+
+    .technology__content .heading-display {
+      margin-bottom: var(--space-5);
+    }
+
+    .technology__content .text-body {
+      margin-bottom: var(--space-6);
+    }
+
+    .technology__benefits {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .technology__benefit {
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
+    }
+
+    .technology__benefit-check {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--teal-glass);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .technology__benefit-check svg {
+      width: 14px;
+      height: 14px;
+      color: var(--teal-deep);
+    }
+
+    .technology__benefit p {
+      font-size: 15px;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    .technology__benefit strong {
+      color: var(--gray-800);
+    }
+
+    /* ========================================
+       TESTIMONIALS
+       ======================================== */
+    .testimonials {
+      background: var(--white);
+    }
+
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5);
+    }
+
+    .testimonial-card {
+      background: var(--off-white);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      transition: all var(--duration-normal) var(--ease-out);
+    }
+
+    .testimonial-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: transparent;
+    }
+
+    .testimonial-card__stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: var(--space-4);
+    }
+
+    .testimonial-card__stars svg {
+      width: 16px;
+      height: 16px;
+      color: var(--blush);
+    }
+
+    .testimonial-card__text {
+      font-size: 15px;
+      color: var(--gray-600);
+      line-height: 1.7;
+      margin-bottom: var(--space-5);
+      font-style: italic;
+    }
+
+    .testimonial-card__author {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--gray-100);
+    }
+
+    .testimonial-card__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gradient-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 16px;
+      color: var(--teal-deep);
+      font-weight: 500;
+    }
+
+    .testimonial-card__name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gray-800);
+    }
+
+    .testimonial-card__role {
+      font-size: 12px;
+      color: var(--gray-400);
+    }
+
+    /* ========================================
+       FAQ SECTION
+       ======================================== */
+    .faq {
+      background: var(--gradient-soft);
+    }
+
+    .faq__grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: var(--space-10);
+      align-items: start;
+    }
+
+    .faq__intro .heading-display {
+      margin-bottom: var(--space-4);
+    }
+
+    .faq__intro .text-body {
+      margin-bottom: var(--space-6);
+    }
+
+    .faq__items {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .faq-item {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--duration-normal) var(--ease-out);
+    }
+
+    .faq-item:hover {
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-item__question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-5);
+      cursor: pointer;
+      gap: var(--space-4);
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: var(--font-body);
+    }
+
+    .faq-item__question h4 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--gray-800);
+      line-height: 1.4;
+    }
+
+    .faq-item__question-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--teal-glass);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all var(--duration-normal) var(--ease-out);
+    }
+
+    .faq-item__question-icon svg {
+      width: 16px;
+      height: 16px;
+      color: var(--teal-deep);
+      transition: transform var(--duration-normal) var(--ease-out);
+    }
+
+    .faq-item.open .faq-item__question-icon {
+      background: var(--gradient-button);
+    }
+
+    .faq-item.open .faq-item__question-icon svg {
+      color: var(--white);
+      transform: rotate(45deg);
+    }
+
+    .faq-item__answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--duration-slow) var(--ease-out);
+    }
+
+    .faq-item.open .faq-item__answer {
+      max-height: 300px;
+    }
+
+    .faq-item__answer p {
+      padding: 0 var(--space-5) var(--space-5);
+      font-size: 14px;
+      color: var(--gray-500);
+      line-height: 1.7;
+    }
+
+    /* ========================================
+       FINAL CTA SECTION
+       ======================================== */
+    .final-cta {
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta__inner {
+      position: relative;
+      background: var(--gradient-hero);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-10) var(--space-9);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .final-cta__inner::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 80%;
+      background: radial-gradient(circle, rgba(123, 186, 181, 0.1) 0%, transparent 60%);
+      border-radius: 50%;
+    }
+
+    .final-cta__inner .heading-display {
+      margin-bottom: var(--space-4);
+      position: relative;
+    }
+
+    .final-cta__inner .text-body {
+      max-width: 540px;
+      margin: 0 auto var(--space-7);
+      position: relative;
+    }
+
+    .final-cta__actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .final-cta__contact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-8);
+      margin-top: var(--space-7);
+      position: relative;
+    }
+
+    .final-cta__contact-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: 14px;
+      color: var(--gray-500);
+    }
+
+    .final-cta__contact-item svg {
+      width: 16px;
+      height: 16px;
+      color: var(--teal);
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+    .footer {
+      background: var(--gray-900);
+      padding: var(--space-10) 0 var(--space-6);
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: var(--space-8);
+      margin-bottom: var(--space-8);
+    }
+
+    .footer__brand .nav__logo {
+      color: var(--white);
+      margin-bottom: var(--space-4);
+      display: block;
+    }
+
+    .footer__brand p {
+      font-size: 14px;
+      color: var(--gray-400);
+      line-height: 1.65;
+      max-width: 280px;
+    }
+
+    .footer__col h5 {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gray-300);
+      margin-bottom: var(--space-4);
+    }
+
+    .footer__col ul {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .footer__col a {
+      font-size: 14px;
+      color: var(--gray-400);
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+
+    .footer__col a:hover {
+      color: var(--teal-light);
+    }
+
+    .footer__bottom {
+      padding-top: var(--space-6);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+
+    .footer__bottom p {
+      font-size: 13px;
+      color: var(--gray-500);
+    }
+
+    .footer__social {
+      display: flex;
+      gap: var(--space-3);
+    }
+
+    .footer__social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+
+    .footer__social a:hover {
+      background: var(--teal-deep);
+    }
+
+    .footer__social svg {
+      width: 16px;
+      height: 16px;
+      color: var(--gray-400);
+    }
+
+    .footer__social a:hover svg {
+      color: var(--white);
+    }
+
+    /* ========================================
+       SCROLL ANIMATIONS
+       ======================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.35s; }
+    .reveal-delay-5 { transition-delay: 0.4s; }
+
+    /* ========================================
+       RESPONSIVE
+       ======================================== */
+    @media (max-width: 1024px) {
+      .hero__grid {
+        grid-template-columns: 1fr 0.6fr;
+        gap: var(--space-5);
+      }
+
+      .hero__float-card {
+        right: var(--space-4);
+        bottom: var(--space-7);
+      }
+
+      .treatments__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .treatments__screening {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+      }
+
+      .process__steps {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-7);
+      }
+
+      .process__steps::before {
+        display: none;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-6);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav__links {
+        display: none;
+      }
+
+      .nav__mobile-toggle {
+        display: flex;
+      }
+
+      .hero {
+        padding-top: var(--space-11);
+        min-height: 80vh;
+      }
+
+      .hero__bg-image {
+        object-position: 70% center;
+      }
+
+      .hero__bg-overlay {
+        background:
+          linear-gradient(90deg,
+            rgba(234, 246, 244, 0.95) 0%,
+            rgba(234, 246, 244, 0.88) 35%,
+            rgba(234, 246, 244, 0.55) 60%,
+            rgba(234, 246, 244, 0.2) 80%,
+            transparent 100%
+          );
+      }
+
+      .hero__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+      }
+
+      .hero__visual {
+        display: none;
+      }
+
+      .hero__content {
+        text-align: center;
+      }
+
+      .hero__subtitle {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero__actions {
+        justify-content: center;
+      }
+
+      .hero__trust {
+        justify-content: center;
+      }
+
+      .hero__float-card {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        left: auto;
+        display: none;
+      }
+
+      .treatments__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .philosophy__grid,
+      .technology__inner,
+      .faq__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-7);
+      }
+
+      .philosophy__stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .testimonials__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process__steps {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      .final-cta__inner {
+        padding: var(--space-8) var(--space-5);
+      }
+
+      .final-cta__contact {
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+      }
+
+      .footer__bottom {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero__trust {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-4);
+      }
+
+      .hero__trust-divider {
+        display: none;
+      }
+
+      .hero__actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .hero__actions .btn {
+        width: 100%;
+      }
+
+      .philosophy__stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .technology__features-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ========================================
+       REDUCED MOTION
+       ======================================== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      html { scroll-behavior: auto; }
+
+      .bg-blob { animation: none; }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+
+      .hero__content,
+      .hero__float-card {
+        opacity: 1;
+        transform: none;
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ LOADING SCREEN ============ -->
+  <div class="loading-screen" id="loadingScreen" role="status" aria-label="Seite wird geladen">
+    <div class="loading-inner">
+      <div class="loading-logo">Häusler-Mehlhorn</div>
+      <div class="loading-bar-track">
+        <div class="loading-bar-fill"></div>
+      </div>
+      <div class="loading-tagline">Dermatologie &middot; Ästhetik &middot; Laser</div>
+    </div>
+  </div>
+
+  <!-- ============ BACKGROUND EFFECTS ============ -->
+  <div class="bg-effects" aria-hidden="true">
+    <div class="bg-blob bg-blob--teal"></div>
+    <div class="bg-blob bg-blob--rose"></div>
+    <div class="bg-blob bg-blob--mint"></div>
+  </div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="nav" id="nav">
+    <div class="container container--wide">
+      <div class="nav__inner">
+        <a href="#" class="nav__logo">Häusler<span>-</span>Mehlhorn</a>
+        <div class="nav__links">
+          <a href="#treatments" class="nav__link">Behandlungen</a>
+          <a href="#philosophy" class="nav__link">Philosophie</a>
+          <a href="#technology" class="nav__link">Technologie</a>
+          <a href="#testimonials" class="nav__link">Stimmen</a>
+          <a href="#faq" class="nav__link">FAQ</a>
+          <a href="#contact" class="btn btn--primary nav__cta">Termin buchen</a>
+        </div>
+        <button class="nav__mobile-toggle" id="mobileToggle" aria-label="Menü öffnen" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav__mobile-menu" id="mobileMenu">
+    <a href="#treatments" onclick="closeMobileMenu()">Behandlungen</a>
+    <a href="#philosophy" onclick="closeMobileMenu()">Philosophie</a>
+    <a href="#technology" onclick="closeMobileMenu()">Technologie</a>
+    <a href="#testimonials" onclick="closeMobileMenu()">Stimmen</a>
+    <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+    <a href="#contact" class="btn btn--primary" onclick="closeMobileMenu()">Termin buchen</a>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero__bg" aria-hidden="true">
+      <img src="poli.png" alt="" class="hero__bg-image" aria-hidden="true">
+      <div class="hero__bg-overlay"></div>
+    </div>
+    <div class="container container--wide">
+      <div class="hero__grid">
+
+        <div class="hero__content">
+          <div class="hero__badge">
+            <span class="hero__badge-dot"></span>
+            <span class="hero__badge-text">Dermatologie & Ästhetik</span>
+          </div>
+
+          <h1 class="heading-display heading-display--xl hero__title">
+            Ihre Haut.<br>
+            Unsere <em>Expertise.</em>
+          </h1>
+
+          <p class="text-body text-body--lg hero__subtitle">
+            Modernste Lasertechnologie und ästhetische Medizin – individuell auf Ihre Bedürfnisse abgestimmt. Von Expertinnen, die Ihre Schönheit verstehen.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#contact" class="btn btn--primary">
+              Beratungstermin vereinbaren
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#treatments" class="btn btn--secondary">
+              Behandlungen entdecken
+            </a>
+          </div>
+
+          <div class="hero__trust">
+            <div class="hero__trust-item">
+              <span class="hero__trust-value">3</span>
+              <span class="hero__trust-label">Fachärztinnen</span>
+            </div>
+            <div class="hero__trust-divider"></div>
+            <div class="hero__trust-item">
+              <span class="hero__trust-value">20+</span>
+              <span class="hero__trust-label">Jahre Erfahrung</span>
+            </div>
+            <div class="hero__trust-divider"></div>
+            <div class="hero__trust-item">
+              <span class="hero__trust-value">ALMA</span>
+              <span class="hero__trust-label">Premium Laser</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spacer column – keeps content left, image visible right -->
+        <div class="hero__visual">
+          <div class="hero__float-card">
+            <div class="hero__float-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <div class="hero__float-text">
+              <span class="hero__float-title">Premium Technologie</span>
+              <span class="hero__float-desc">ALMA Harmony XL PRO</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TREATMENTS ============ -->
+  <section class="section treatments" id="treatments">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="text-label">Unsere Behandlungen</span>
+        <h2 class="heading-display heading-display--lg">Ästhetik trifft <em>Dermatologie</em></h2>
+        <p class="text-body">Individuell abgestimmte Behandlungen auf höchstem medizinischen Niveau – für Ihre natürliche Schönheit und das Wohlbefinden Ihrer Haut.</p>
+      </div>
+
+      <div class="treatments__grid">
+
+        <!-- Card 1: Botulinumtoxin -->
+        <div class="treatment-card reveal reveal-delay-1">
+          <div class="treatment-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <h3 class="treatment-card__title">Botulinumtoxin</h3>
+          <p class="treatment-card__desc">Gezielte Faltenreduktion für Zornesfalte, Augen und Mundwinkel. Sanfte, natürliche Ergebnisse nach wenigen Tagen.</p>
+          <div class="treatment-card__meta">
+            <span class="treatment-card__meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              10 – 30 Min.
+            </span>
+            <span class="treatment-card__meta-item">ab 379 €</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Filler -->
+        <div class="treatment-card reveal reveal-delay-2">
+          <div class="treatment-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <h3 class="treatment-card__title">Filler</h3>
+          <p class="treatment-card__desc">Hyaluronsäure-Filler für Wangen, Lippen und Jawline. Natürlicher Volumenaufbau und Verjüngung – Ergebnisse bis zu 9 Monate.</p>
+          <div class="treatment-card__meta">
+            <span class="treatment-card__meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              20 – 45 Min.
+            </span>
+            <span class="treatment-card__meta-item">ab 290 €</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Lasertherapie -->
+        <div class="treatment-card reveal reveal-delay-3">
+          <div class="treatment-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </div>
+          <h3 class="treatment-card__title">Lasertherapie</h3>
+          <p class="treatment-card__desc">Premium ALMA Diodenlaser für Pigmentflecken, Rosacea und Pigmentstörungen – präzise und schonend.</p>
+          <div class="treatment-card__meta">
+            <span class="treatment-card__meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              15 – 120 Min.
+            </span>
+            <span class="treatment-card__meta-item">Erstberatung verfügbar</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Operationen -->
+        <div class="treatment-card reveal reveal-delay-1">
+          <div class="treatment-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="treatment-card__title">Operationen</h3>
+          <p class="treatment-card__desc">Schonende Entfernung von Muttermalen und atypischen Hautveränderungen unter Lokalanästhesie – minimal-invasiv und sicher.</p>
+          <div class="treatment-card__meta">
+            <span class="treatment-card__meta-item">Minimal-invasiv</span>
+          </div>
+        </div>
+
+        <!-- Card 5: Haarentfernung -->
+        <div class="treatment-card reveal reveal-delay-2">
+          <div class="treatment-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 12a11.05 11.05 0 00-22 0zm0 0a11.05 11.05 0 01-22 0"/><line x1="12" y1="2" x2="12" y2="22"/></svg>
+          </div>
+          <h3 class="treatment-card__title">Haarentfernung</h3>
+          <p class="treatment-card__desc">Dauerhafte Haarentfernung mit ALMA Diodenlaser – effektive Ergebnisse für Körper und Gesicht.</p>
+          <div class="treatment-card__meta">
+            <span class="treatment-card__meta-item">Premium ALMA Diodenlaser</span>
+          </div>
+        </div>
+
+        <!-- Card 6: Besenreiser -->
+        <div class="treatment-card reveal reveal-delay-3">
+          <div class="treatment-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3 class="treatment-card__title">Besenreiser</h3>
+          <p class="treatment-card__desc">Gezielte Verödung oder Lasertherapie zur Behandlung unschöner Besenreiser – für ein gleichmäßiges, klares Hautbild.</p>
+          <div class="treatment-card__meta">
+            <span class="treatment-card__meta-item">Verödung oder Lasertherapie</span>
+          </div>
+        </div>
+
+        <!-- Card 7: Tattooentfernung -->
+        <div class="treatment-card reveal reveal-delay-1">
+          <div class="treatment-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg>
+          </div>
+          <h3 class="treatment-card__title">Tattooentfernung / Cover-Up</h3>
+          <p class="treatment-card__desc">Professionelle Tattooentfernung mittels modernster Lasertechnologie – auch als Vorbereitung für ein Cover-Up.</p>
+          <div class="treatment-card__meta">
+            <span class="treatment-card__meta-item">Mittels Lasertherapie</span>
+          </div>
+        </div>
+
+        <!-- Card 8: Hydrafacial -->
+        <div class="treatment-card reveal reveal-delay-2">
+          <div class="treatment-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
+          </div>
+          <h3 class="treatment-card__title">Hydrafacial</h3>
+          <p class="treatment-card__desc">Die ALMA Pflege für strahlende Haut – tiefenwirksame Reinigung, Hydration und Verjüngung in einer Behandlung.</p>
+          <div class="treatment-card__meta">
+            <span class="treatment-card__meta-item">Der ALMA Pflege</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Hautscreening – separate highlight -->
+      <div class="treatments__screening reveal" style="margin-top: var(--space-8); background: var(--gradient-soft); border: 1px solid var(--gray-100); border-radius: var(--radius-xl); padding: var(--space-7); display: grid; grid-template-columns: auto 1fr auto; gap: var(--space-6); align-items: center;">
+        <div class="treatment-card__icon" style="margin-bottom: 0;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div>
+          <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--gray-800); margin-bottom: 4px;">Hautkrebsvorsorge</h3>
+          <p style="font-size: 14px; color: var(--gray-500); line-height: 1.6; max-width: 600px;">Gründliche Untersuchung der Haut von Kopf bis Fuß zur Früherkennung von schwarzem und hellem Hautkrebs. Als Kassenleistung alle 2 Jahre kostenlos.</p>
+        </div>
+        <a href="#contact" class="btn btn--ghost">Termin vereinbaren</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PHILOSOPHY ============ -->
+  <section class="section philosophy" id="philosophy">
+    <div class="container">
+      <div class="philosophy__grid">
+
+        <div class="philosophy__content reveal">
+          <span class="text-label" style="display:block; margin-bottom: var(--space-3);">Unsere Philosophie</span>
+          <h2 class="heading-display heading-display--lg">Von Frauen geführt.<br>Mit <em>Feingefühl</em> behandelt.</h2>
+          <p class="text-body text-body--lg">Unser rein weibliches Ärztinnenteam verbindet höchste medizinische Kompetenz mit echtem Einfühlungsvermögen. Wir nehmen uns Zeit für Sie – bei jedem Besuch.</p>
+
+          <div class="philosophy__features">
+            <div class="philosophy__feature">
+              <div class="philosophy__feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="philosophy__feature-content">
+                <h4>Medizinische Exzellenz</h4>
+                <p>Drei Fachärztinnen mit jahrzehntelanger Erfahrung in Dermatologie, Venerologie und Andrologie.</p>
+              </div>
+            </div>
+            <div class="philosophy__feature">
+              <div class="philosophy__feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+              </div>
+              <div class="philosophy__feature-content">
+                <h4>Einfühlsame Beratung</h4>
+                <p>Wir hören zu und beraten individuell – damit Sie sich sicher und verstanden fühlen.</p>
+              </div>
+            </div>
+            <div class="philosophy__feature">
+              <div class="philosophy__feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M16 12a4 4 0 01-8 0"/><line x1="12" y1="8" x2="12" y2="8.01"/></svg>
+              </div>
+              <div class="philosophy__feature-content">
+                <h4>Barrierefrei & Inklusiv</h4>
+                <p>Rollstuhlgerechter Zugang, Stillraum und ein wertschätzendes Umfeld für alle.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="philosophy__stats reveal reveal-delay-2">
+          <div class="stat-card">
+            <div class="stat-card__value">3</div>
+            <div class="stat-card__label">Erfahrene Fachärztinnen</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__value">248+</div>
+            <div class="stat-card__label">Google Bewertungen</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__value">100%</div>
+            <div class="stat-card__label">Weiblich geführt</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__value">8+</div>
+            <div class="stat-card__label">Buchbare Ästhetik-Termine</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS / STEPS ============ -->
+  <section class="section process" id="process">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="text-label">Ihr Weg zu uns</span>
+        <h2 class="heading-display heading-display--lg">Vier Schritte zu Ihrem <em>Wunschergebnis</em></h2>
+        <p class="text-body">Von der ersten Beratung bis zum Ergebnis – wir begleiten Sie mit höchster Sorgfalt durch den gesamten Prozess.</p>
+      </div>
+
+      <div class="process__steps">
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-step__number"><span>01</span></div>
+          <h3 class="process-step__title">Erstberatung</h3>
+          <p class="process-step__desc">Persönliches Gespräch und gründliche Hautanalyse – wir nehmen uns Zeit für Ihre Wünsche.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-step__number"><span>02</span></div>
+          <h3 class="process-step__title">Behandlungsplan</h3>
+          <p class="process-step__desc">Individueller Plan, abgestimmt auf Ihren Hauttyp und Ihre persönlichen Ziele.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+          <div class="process-step__number"><span>03</span></div>
+          <h3 class="process-step__title">Behandlung</h3>
+          <p class="process-step__desc">Schonende Durchführung mit modernster Technologie – sicher, präzise und komfortabel.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-4">
+          <div class="process-step__number"><span>04</span></div>
+          <h3 class="process-step__title">Nachsorge</h3>
+          <p class="process-step__desc">Persönliche Betreuung und optimale Nachsorge für lang anhaltende, schöne Ergebnisse.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TECHNOLOGY ============ -->
+  <section class="section technology" id="technology">
+    <div class="container">
+      <div class="technology__inner">
+
+        <div class="technology__visual reveal">
+          <div class="technology__card">
+            <span class="technology__card-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Premium-Klasse
+            </span>
+            <h3>ALMA Harmony XL PRO</h3>
+            <p>Einer der weltweit führenden Diodenlaser-Systeme für höchste Behandlungsstandards. Präzise, effektiv, vielseitig einsetzbar.</p>
+            <ul class="technology__features-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Pigmentflecken
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Aknenarben
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Hautverjüngung
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Couperose
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Tattoo-Entfernung
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Haarentfernung
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="technology__content reveal reveal-delay-2">
+          <span class="text-label" style="display:block; margin-bottom: var(--space-3);">Unsere Technologie</span>
+          <h2 class="heading-display heading-display--lg">Erstklassige Geräte für <em>erstklassige</em> Ergebnisse</h2>
+          <p class="text-body text-body--lg">Wir arbeiten ausschließlich mit Premium-Lasersystemen von ALMA – weltweiter Technologieführer in der ästhetischen und dermatologischen Lasertherapie.</p>
+
+          <div class="technology__benefits">
+            <div class="technology__benefit">
+              <div class="technology__benefit-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p><strong>Maximale Präzision</strong> – Modernste Diodenlaser-Technologie für gezielte, schonende Behandlungen mit minimaler Ausfallzeit.</p>
+            </div>
+            <div class="technology__benefit">
+              <div class="technology__benefit-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p><strong>Breites Anwendungsspektrum</strong> – Von Pigmentstörungen über Gefäßveränderungen bis hin zu Hautstraffung und Narbenbehandlung.</p>
+            </div>
+            <div class="technology__benefit">
+              <div class="technology__benefit-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <p><strong>Klinisch bewährt</strong> – Weltweit eingesetzt und von führenden Dermatologinnen empfohlen für herausragende Ergebnisse.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="text-label">Das sagen unsere Patientinnen</span>
+        <h2 class="heading-display heading-display--lg">Vertrauen, das <em>man sieht</em></h2>
+        <p class="text-body">Echte Stimmen von Menschen, die sich bei uns in den besten Händen fühlen.</p>
+      </div>
+
+      <div class="testimonials__grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-card__stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-card__text">&bdquo;Ich habe mich von der ersten Minute an wohlgefühlt. Die Beratung war einfühlsam und professionell, das Ergebnis meiner Lippenbehandlung absolut natürlich.&ldquo;</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">S</div>
+            <div>
+              <div class="testimonial-card__name">Sandra M.</div>
+              <div class="testimonial-card__role">Hyaluronsäure Lippen</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-card__stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-card__text">&bdquo;Die Laserbehandlung meiner Pigmentflecken war schmerzarm und effektiv. Nach drei Sitzungen sind die Flecken kaum noch sichtbar. Absolut empfehlenswert!&ldquo;</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">K</div>
+            <div>
+              <div class="testimonial-card__name">Kathrin L.</div>
+              <div class="testimonial-card__role">Lasertherapie Pigmentflecken</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="testimonial-card__stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-card__text">&bdquo;Endlich eine Hautarztpraxis, die sich Zeit nimmt. Frau Häusler-Mehlhorn hat meine Hautprobleme ganzheitlich betrachtet und einen perfekten Behandlungsplan erstellt.&ldquo;</p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">M</div>
+            <div>
+              <div class="testimonial-card__name">Maria T.</div>
+              <div class="testimonial-card__role">Allgemeine Dermatologie</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <div class="faq__grid">
+
+        <div class="faq__intro reveal">
+          <span class="text-label" style="display:block; margin-bottom: var(--space-3);">Häufige Fragen</span>
+          <h2 class="heading-display heading-display--lg">Ihre Fragen,<br>unsere <em>Antworten</em></h2>
+          <p class="text-body">Wir möchten, dass Sie sich rundum informiert fühlen – vor, während und nach Ihrer Behandlung.</p>
+          <a href="#contact" class="btn btn--ghost">
+            Persönliche Beratung anfragen
+          </a>
+        </div>
+
+        <div class="faq__items reveal reveal-delay-2">
+
+          <div class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <h4>Wie läuft eine Erstberatung ab?</h4>
+              <div class="faq-item__question-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </button>
+            <div class="faq-item__answer">
+              <p>In der Erstberatung nehmen wir uns ausführlich Zeit für Ihre Wünsche und Fragen. Wir analysieren Ihre Haut, besprechen realistische Ergebnisse und erstellen einen individuellen Behandlungsplan. Die Beratungskosten betragen 55,50 € nach GOÄ.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <h4>Wie lange halten Hyaluronsäure-Filler?</h4>
+              <div class="faq-item__question-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </button>
+            <div class="faq-item__answer">
+              <p>Der Filler-Effekt hält in der Regel ca. 9 Monate an, abhängig vom Behandlungsbereich und individuellen Faktoren wie Stoffwechsel und Lebensweise. Wir beraten Sie gern zu Auffrischungsbehandlungen.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <h4>Ist die Botox-Behandlung schmerzhaft?</h4>
+              <div class="faq-item__question-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </button>
+            <div class="faq-item__answer">
+              <p>Die Behandlung ist nahezu schmerzfrei und dauert nur 10 bis 30 Minuten. Es werden sehr feine Nadeln verwendet. Die volle Wirkung ist nach 2 bis 14 Tagen sichtbar – je nach Hauttyp und Behandlungsumfang.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <h4>Werden die Kosten von der Krankenkasse übernommen?</h4>
+              <div class="faq-item__question-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </button>
+            <div class="faq-item__answer">
+              <p>Medizinisch notwendige Leistungen wie das Hautscreening werden von der gesetzlichen Krankenkasse alle 2 Jahre übernommen. Ästhetische Behandlungen (Botox, Filler, Laser) sind Privatleistungen. Wir beraten Sie transparent über alle Kosten.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__question" aria-expanded="false">
+              <h4>Kann ich Termine online buchen?</h4>
+              <div class="faq-item__question-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </button>
+            <div class="faq-item__answer">
+              <p>Ja! Über unsere Online-Buchung können Sie bequem Ihre Erstberatung oder Behandlungstermine für Botox, Filler und Laser buchen – rund um die Uhr, ganz einfach und unkompliziert.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="section final-cta" id="contact">
+    <div class="container">
+      <div class="final-cta__inner reveal">
+        <span class="text-label" style="display:block; margin-bottom: var(--space-4);">Bereit für Ihren nächsten Schritt?</span>
+        <h2 class="heading-display heading-display--lg">Vereinbaren Sie Ihr<br>persönliches <em>Beratungsgespräch</em></h2>
+        <p class="text-body text-body--lg">Lassen Sie uns gemeinsam herausfinden, wie wir Ihre natürliche Schönheit unterstreichen können. Wir freuen uns auf Sie.</p>
+
+        <div class="final-cta__actions">
+          <a href="https://www.hautarzt-chemnitz.de/book-online" target="_blank" rel="noopener" class="btn btn--primary">
+            Online Termin buchen
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="tel:037140298 24" class="btn btn--secondary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            0371 / 402 98 24
+          </a>
+        </div>
+
+        <div class="final-cta__contact">
+          <div class="final-cta__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Leipziger Straße 137, 09113 Chemnitz
+          </div>
+          <div class="final-cta__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            termin@hautarzt-chemnitz.de
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <span class="nav__logo">Häusler<span>-</span>Mehlhorn</span>
+          <p>Ihr Dermatologisches Laserzentrum in Chemnitz. Ästhetische Medizin, Lasertherapie und Hautgesundheit – von Expertinnen für Ihre Schönheit.</p>
+        </div>
+        <div class="footer__col">
+          <h5>Behandlungen</h5>
+          <ul>
+            <li><a href="#treatments">Botulinumtoxin</a></li>
+            <li><a href="#treatments">Filler</a></li>
+            <li><a href="#treatments">Lasertherapie</a></li>
+            <li><a href="#treatments">Haarentfernung</a></li>
+            <li><a href="#treatments">Hydrafacial</a></li>
+            <li><a href="#treatments">Tattooentfernung</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h5>Praxis</h5>
+          <ul>
+            <li><a href="#philosophy">Über uns</a></li>
+            <li><a href="#technology">Technologie</a></li>
+            <li><a href="#faq">Häufige Fragen</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h5>Sprechzeiten</h5>
+          <ul>
+            <li><a>Mo: 08:30 – 18:00</a></li>
+            <li><a>Di: 08:30 – 12:30</a></li>
+            <li><a>Mi: 08:30 – 18:00</a></li>
+            <li><a>Do: 08:30 – 12:30</a></li>
+            <li><a>Fr: 08:30 – 12:30</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 Dermatologisches Laserzentrum Häusler-Mehlhorn. Alle Rechte vorbehalten.</p>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/dermatologen_haeusler_mehlhorn" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@praxis_haeusler_mehlhron" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.51a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.05a8.3 8.3 0 004.76 1.49V7.11a4.85 4.85 0 01-1-.42z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ JAVASCRIPT ============ -->
+  <script>
+    // Loading Screen
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.getElementById('loadingScreen').classList.add('hidden');
+      }, 2400);
+    });
+
+    // Navigation Scroll Effect
+    var nav = document.getElementById('nav');
+    var lastScroll = 0;
+
+    window.addEventListener('scroll', function() {
+      var currentScroll = window.pageYOffset;
+      if (currentScroll > 60) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+      lastScroll = currentScroll;
+    }, { passive: true });
+
+    // Mobile Menu
+    var mobileToggle = document.getElementById('mobileToggle');
+    var mobileMenu = document.getElementById('mobileMenu');
+
+    mobileToggle.addEventListener('click', function() {
+      var isOpen = mobileMenu.classList.contains('open');
+      mobileMenu.classList.toggle('open');
+      mobileToggle.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', !isOpen);
+      document.body.style.overflow = isOpen ? '' : 'hidden';
+    });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      mobileToggle.classList.remove('open');
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    // Scroll Reveal
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    reveals.forEach(function(el) {
+      observer.observe(el);
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-item__question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        var expanded = !isOpen;
+
+        // Close all others
+        document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isOpen) {
+          item.classList.add('open');
+        }
+
+        this.setAttribute('aria-expanded', expanded);
+      });
+    });
+
+    // Smooth anchor scroll offset for fixed nav
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        var target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          var offset = 80;
+          var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
