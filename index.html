@@ -1301,49 +1301,74 @@
     }
 
     /* ========================================
-       TESTIMONIALS
+       TESTIMONIALS — Scroll-driven card stack
        ======================================== */
     .testimonials {
       background: var(--white);
+      padding: 0;
     }
 
-    .testimonials__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-5);
+    .testimonials__scroll-container {
+      position: relative;
+      height: 300vh;
+      perspective: 1000px;
+    }
+
+    .testimonials__sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-8) var(--space-5);
+      overflow: hidden;
+    }
+
+    .testimonials__stack {
+      position: relative;
+      width: 370px;
+      height: 460px;
+      perspective: 1000px;
     }
 
     .testimonial-card {
+      position: absolute;
+      inset: 0;
       background: var(--off-white);
       border: 1px solid var(--gray-100);
       border-radius: var(--radius-xl);
-      padding: var(--space-6);
-      transition: all var(--duration-normal) var(--ease-out);
-    }
-
-    .testimonial-card:hover {
-      box-shadow: var(--shadow-md);
-      border-color: transparent;
+      padding: var(--space-7) var(--space-6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-5);
+      text-align: center;
+      will-change: transform, opacity;
+      backface-visibility: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      transition: box-shadow var(--duration-normal) var(--ease-out);
     }
 
     .testimonial-card__stars {
       display: flex;
-      gap: 2px;
-      margin-bottom: var(--space-4);
+      gap: 3px;
     }
 
     .testimonial-card__stars svg {
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       color: var(--blush);
     }
 
     .testimonial-card__text {
-      font-size: 15px;
+      font-size: 17px;
       color: var(--gray-600);
-      line-height: 1.7;
-      margin-bottom: var(--space-5);
+      line-height: 1.75;
       font-style: italic;
+      max-width: 300px;
     }
 
     .testimonial-card__author {
@@ -1352,24 +1377,27 @@
       gap: var(--space-3);
       padding-top: var(--space-4);
       border-top: 1px solid var(--gray-100);
+      width: 100%;
+      justify-content: center;
     }
 
     .testimonial-card__avatar {
-      width: 40px;
-      height: 40px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       background: var(--gradient-soft);
+      border: 1px solid var(--gray-200);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--font-display);
-      font-size: 16px;
+      font-size: 18px;
       color: var(--teal-deep);
       font-weight: 500;
     }
 
     .testimonial-card__name {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 600;
       color: var(--gray-800);
     }
@@ -1377,6 +1405,20 @@
     .testimonial-card__role {
       font-size: 12px;
       color: var(--gray-400);
+    }
+
+    @media (max-width: 768px) {
+      .testimonials__stack {
+        width: 300px;
+        height: 420px;
+      }
+      .testimonial-card__text {
+        font-size: 15px;
+        max-width: 250px;
+      }
+      .testimonials__scroll-container {
+        height: 200vh;
+      }
     }
 
     /* ========================================
@@ -1485,6 +1527,152 @@
       font-size: 14px;
       color: var(--gray-500);
       line-height: 1.7;
+    }
+
+    /* ========================================
+       PRAXIS / BUILDING — 3D Tilt Card
+       ======================================== */
+    .praxis-building {
+      background: var(--gradient-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .praxis-building__inner {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: var(--space-10);
+      align-items: center;
+    }
+
+    .praxis-building__card-wrapper {
+      perspective: 1000px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .praxis-building__card {
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease-out;
+      will-change: transform;
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+      position: relative;
+    }
+
+    .praxis-building__card img {
+      display: block;
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: var(--radius-2xl);
+      transform: translateZ(0);
+    }
+
+    .praxis-building__card-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: var(--space-6) var(--space-6) var(--space-5);
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 100%);
+      border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
+      transform: translateZ(40px);
+      pointer-events: none;
+    }
+
+    .praxis-building__card-overlay h4 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+
+    .praxis-building__card-overlay p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .praxis-building__card-badge {
+      position: absolute;
+      top: var(--space-5);
+      left: var(--space-5);
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--teal-deep);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transform: translateZ(60px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .praxis-building__content .heading-display {
+      margin-bottom: var(--space-5);
+    }
+
+    .praxis-building__content .text-body {
+      margin-bottom: var(--space-6);
+    }
+
+    .praxis-building__details {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+      padding-top: var(--space-6);
+      border-top: 1px solid rgba(90, 158, 152, 0.15);
+    }
+
+    .praxis-building__detail {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .praxis-building__detail-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .praxis-building__detail-icon svg {
+      width: 16px;
+      height: 16px;
+      color: var(--teal);
+    }
+
+    .praxis-building__detail p {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.5;
+    }
+
+    .praxis-building__detail strong {
+      color: var(--gray-800);
+    }
+
+    @media (max-width: 768px) {
+      .praxis-building__inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-7);
+      }
+      .praxis-building__card img {
+        height: 280px;
+      }
     }
 
     /* ========================================
@@ -1662,6 +1850,42 @@
     }
 
     /* ========================================
+       BORDER GLOW — CSS-only overlay, no DOM changes
+       ======================================== */
+    .glow-target {
+      --glow-angle: 0deg;
+      --glow-opacity: 0;
+    }
+
+    .glow-target::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 10;
+      opacity: var(--glow-opacity);
+      transition: opacity 0.3s ease;
+      background: conic-gradient(
+        from var(--glow-angle),
+        transparent 0deg,
+        hsl(174 42% 65% / 0.8) 15deg,
+        hsl(174 42% 80% / 1) 25deg,
+        hsl(340 55% 75% / 0.7) 40deg,
+        transparent 55deg
+      );
+      mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      mask-composite: exclude;
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      padding: 2px;
+    }
+
+    /* ========================================
        SCROLL ANIMATIONS
        ======================================== */
     .reveal {
@@ -1798,9 +2022,7 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .testimonials__grid {
-        grid-template-columns: 1fr;
-      }
+      /* testimonials now uses card stack layout */
 
       .process__steps {
         grid-template-columns: 1fr;
@@ -2239,6 +2461,59 @@
     </div>
   </section>
 
+  <!-- ============ PRAXIS BUILDING — 3D Tilt Card ============ -->
+  <section class="section praxis-building" id="praxis">
+    <div class="container">
+      <div class="praxis-building__inner">
+
+        <div class="praxis-building__card-wrapper reveal">
+          <div class="praxis-building__card" id="buildingCard">
+            <img src="haus00.jpg" alt="Praxisgebäude Dermatologen Häusler-Mehlhorn, Leipziger Straße 137, Chemnitz" loading="lazy">
+            <div class="praxis-building__card-badge">Unsere Praxis</div>
+            <div class="praxis-building__card-overlay">
+              <h4>Leipziger Straße 137</h4>
+              <p>09113 Chemnitz</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="praxis-building__content reveal reveal-delay-2">
+          <span class="text-label" style="display:block; margin-bottom: var(--space-3);">Willkommen bei uns</span>
+          <h2 class="heading-display heading-display--lg">Ihre Praxis in <em>Chemnitz</em></h2>
+          <p class="text-body text-body--lg">Modern, barrierefrei und in angenehmer Atmosphäre – bei uns fühlen Sie sich vom ersten Moment an gut aufgehoben.</p>
+
+          <div class="praxis-building__details">
+            <div class="praxis-building__detail">
+              <div class="praxis-building__detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <p><strong>Leipziger Straße 137</strong>, 09113 Chemnitz</p>
+            </div>
+            <div class="praxis-building__detail">
+              <div class="praxis-building__detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <p><strong>Barrierefrei</strong> – rollstuhlgerechter Zugang & Stillraum</p>
+            </div>
+            <div class="praxis-building__detail">
+              <div class="praxis-building__detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              </div>
+              <p><strong>Mo–Fr</strong> ab 08:30 Uhr geöffnet</p>
+            </div>
+            <div class="praxis-building__detail">
+              <div class="praxis-building__detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              </div>
+              <p><strong>0371 / 402 98 24</strong> – Terminvergabe</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ============ TECHNOLOGY ============ -->
   <section class="section technology" id="technology">
     <div class="container">
@@ -2312,68 +2587,73 @@
     </div>
   </section>
 
-  <!-- ============ TESTIMONIALS ============ -->
-  <section class="section testimonials" id="testimonials">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="text-label">Das sagen unsere Patientinnen</span>
-        <h2 class="heading-display heading-display--lg">Vertrauen, das <em>man sieht</em></h2>
-        <p class="text-body">Echte Stimmen von Menschen, die sich bei uns in den besten Händen fühlen.</p>
-      </div>
+  <!-- ============ TESTIMONIALS — Scroll-driven Card Stack ============ -->
+  <section class="testimonials" id="testimonials">
+    <div class="testimonials__scroll-container">
+      <div class="testimonials__sticky">
 
-      <div class="testimonials__grid">
-        <div class="testimonial-card reveal reveal-delay-1">
-          <div class="testimonial-card__stars">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="testimonial-card__text">&bdquo;Ich habe mich von der ersten Minute an wohlgefühlt. Die Beratung war einfühlsam und professionell, das Ergebnis meiner Lippenbehandlung absolut natürlich.&ldquo;</p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar">S</div>
-            <div>
-              <div class="testimonial-card__name">Sandra M.</div>
-              <div class="testimonial-card__role">Hyaluronsäure Lippen</div>
-            </div>
-          </div>
+        <div class="section-header reveal" style="margin-bottom: var(--space-8); position: relative; z-index: 2;">
+          <span class="text-label">Das sagen unsere Patientinnen</span>
+          <h2 class="heading-display heading-display--lg">Vertrauen, das <em>man sieht</em></h2>
+          <p class="text-body">Echte Stimmen von Menschen, die sich bei uns in den besten Händen fühlen.</p>
         </div>
 
-        <div class="testimonial-card reveal reveal-delay-2">
-          <div class="testimonial-card__stars">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="testimonial-card__text">&bdquo;Die Laserbehandlung meiner Pigmentflecken war schmerzarm und effektiv. Nach drei Sitzungen sind die Flecken kaum noch sichtbar. Absolut empfehlenswert!&ldquo;</p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar">K</div>
-            <div>
-              <div class="testimonial-card__name">Kathrin L.</div>
-              <div class="testimonial-card__role">Lasertherapie Pigmentflecken</div>
-            </div>
-          </div>
-        </div>
+        <div class="testimonials__stack" id="testimonialStack">
 
-        <div class="testimonial-card reveal reveal-delay-3">
-          <div class="testimonial-card__stars">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <p class="testimonial-card__text">&bdquo;Endlich eine Hautarztpraxis, die sich Zeit nimmt. Frau Häusler-Mehlhorn hat meine Hautprobleme ganzheitlich betrachtet und einen perfekten Behandlungsplan erstellt.&ldquo;</p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar">M</div>
-            <div>
-              <div class="testimonial-card__name">Maria T.</div>
-              <div class="testimonial-card__role">Allgemeine Dermatologie</div>
+          <div class="testimonial-card" data-stack-card="0">
+            <div class="testimonial-card__stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-card__text">&bdquo;Die Botox-Behandlung bei Frau Mehlhorn war mein erstes Mal – und ich bin begeistert. Natürlich, dezent und genau wie besprochen. Man merkt die jahrelange Erfahrung.&ldquo;</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">J</div>
+              <div>
+                <div class="testimonial-card__name">Julia W.</div>
+                <div class="testimonial-card__role">Botulinumtoxin Stirn</div>
+              </div>
             </div>
           </div>
+
+          <div class="testimonial-card" data-stack-card="1">
+            <div class="testimonial-card__stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-card__text">&bdquo;Die Laserbehandlung meiner Pigmentflecken war schmerzarm und effektiv. Nach drei Sitzungen sind die Flecken kaum noch sichtbar. Absolut empfehlenswert!&ldquo;</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">K</div>
+              <div>
+                <div class="testimonial-card__name">Kathrin L.</div>
+                <div class="testimonial-card__role">Lasertherapie Pigmentflecken</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" data-stack-card="2">
+            <div class="testimonial-card__stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="testimonial-card__text">&bdquo;Ich habe mich von der ersten Minute an wohlgefühlt. Die Beratung war einfühlsam und professionell, das Ergebnis meiner Lippenbehandlung absolut natürlich.&ldquo;</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">S</div>
+              <div>
+                <div class="testimonial-card__name">Sandra M.</div>
+                <div class="testimonial-card__role">Hyaluronsäure Lippen</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -2642,6 +2922,145 @@
         }
       });
     });
+  </script>
+
+  <!-- Border Glow — class + pointer tracking only, no DOM restructure -->
+  <script>
+  (function() {
+    var sels = '.treatment-card, .stat-card, .testimonial-card, .faq-item, .technology__card, .final-cta__inner';
+    var cards = document.querySelectorAll(sels);
+
+    cards.forEach(function(card) {
+      // Ensure position relative for ::after
+      var pos = getComputedStyle(card).position;
+      if (pos === 'static') card.style.position = 'relative';
+
+      card.classList.add('glow-target');
+
+      card.addEventListener('pointermove', function(e) {
+        var rect = card.getBoundingClientRect();
+        var cx = rect.width / 2;
+        var cy = rect.height / 2;
+        var dx = (e.clientX - rect.left) - cx;
+        var dy = (e.clientY - rect.top) - cy;
+
+        // Angle from center
+        var deg = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
+        if (deg < 0) deg += 360;
+        card.style.setProperty('--glow-angle', deg.toFixed(1) + 'deg');
+
+        // Edge proximity: stronger at edges
+        var kx = dx !== 0 ? cx / Math.abs(dx) : 999;
+        var ky = dy !== 0 ? cy / Math.abs(dy) : 999;
+        var edge = Math.min(1 / Math.min(kx, ky), 1);
+        card.style.setProperty('--glow-opacity', Math.max(edge * 1.2, 0.15).toFixed(2));
+      });
+
+      card.addEventListener('pointerleave', function() {
+        card.style.setProperty('--glow-opacity', '0');
+      });
+    });
+  })();
+  </script>
+
+  <!-- Testimonials Card Stack Animation -->
+  <script>
+  (function() {
+    var container = document.querySelector('.testimonials__scroll-container');
+    var cards = document.querySelectorAll('[data-stack-card]');
+    if (!container || !cards.length) return;
+
+    var total = cards.length;
+
+    // Set initial stacked state: card 0 on top (highest z), card 2 on bottom
+    cards.forEach(function(card, i) {
+      card.style.zIndex = (total - i) * 10;
+      card.style.top = (i * 10) + 'px';
+    });
+
+    function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+
+    function onScroll() {
+      var rect = container.getBoundingClientRect();
+      var containerTop = -rect.top;
+      var scrollRange = container.offsetHeight - window.innerHeight;
+      var progress = Math.min(Math.max(containerTop / scrollRange, 0), 1);
+
+      cards.forEach(function(card, i) {
+        // Card 0 flies away first, then card 1, then card 2
+        var cardStart = i / (total + 0.5);
+        var cardEnd = (i + 1) / (total + 0.5);
+
+        // Card-local progress: 0 = stacked, 1 = flown away
+        var local = Math.min(Math.max((progress - cardStart) / (cardEnd - cardStart), 0), 1);
+        var eased = easeOutCubic(local);
+
+        // Y: fly up and away
+        var translateY = lerp(0, -200, eased);
+
+        // Rotation: slight tilt as it flies
+        var rotation = lerp(0, -12, eased);
+
+        // Scale: cards behind are slightly smaller, grow as they become front
+        var behindScale = 1 - (i * 0.04);
+        // As previous cards leave, this card scales up
+        var prevProgress = i > 0 ? Math.min(Math.max((progress - (i-1) / (total + 0.5)) / (1 / (total + 0.5)), 0), 1) : 1;
+        var scale = lerp(behindScale, 1, easeOutCubic(prevProgress));
+        // When this card flies away, it keeps scale 1
+        if (local > 0) scale = 1;
+
+        // Opacity: fade out as card flies away
+        var opacity = local > 0.5 ? lerp(1, 0, (local - 0.5) * 2) : 1;
+
+        // Shadow
+        var shadowBlur = lerp(6, 30, eased);
+        var shadowAlpha = lerp(0.05, 0.15, eased);
+
+        // Y offset for stacking (shrinks as cards leave)
+        var stackOffset = i * 10;
+        var removedCards = 0;
+        for (var j = 0; j < i; j++) {
+          var jStart = j / (total + 0.5);
+          var jEnd = (j + 1) / (total + 0.5);
+          var jLocal = Math.min(Math.max((progress - jStart) / (jEnd - jStart), 0), 1);
+          if (jLocal > 0.8) removedCards++;
+        }
+        stackOffset = (i - removedCards) * 10;
+
+        card.style.transform =
+          'translateY(calc(' + stackOffset + 'px + ' + translateY + '%)) ' +
+          'rotate(' + rotation.toFixed(2) + 'deg) ' +
+          'scale(' + scale.toFixed(3) + ')';
+        card.style.opacity = opacity.toFixed(3);
+        card.style.boxShadow = '0 ' + Math.round(shadowBlur * 0.4) + 'px ' + Math.round(shadowBlur) + 'px rgba(0,0,0,' + shadowAlpha.toFixed(3) + ')';
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); // initial state
+  })();
+  </script>
+
+  <!-- 3D Tilt Card for Building -->
+  <script>
+  (function() {
+    var card = document.getElementById('buildingCard');
+    if (!card) return;
+    var wrapper = card.parentElement;
+
+    wrapper.addEventListener('mousemove', function(e) {
+      var rect = wrapper.getBoundingClientRect();
+      var x = (e.clientX - rect.left - rect.width / 2) / 20;
+      var y = -(e.clientY - rect.top - rect.height / 2) / 20;
+      card.style.transform = 'rotateY(' + x.toFixed(2) + 'deg) rotateX(' + y.toFixed(2) + 'deg)';
+    });
+
+    wrapper.addEventListener('mouseleave', function() {
+      card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+    });
+  })();
   </script>
 </body>
 </html>
