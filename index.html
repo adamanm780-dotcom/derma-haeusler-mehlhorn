@@ -1930,7 +1930,7 @@
       }
 
       .hero__bg-image {
-        content: url('poli-mobile.png');
+        content: url('poli-mobile-opt.jpg');
         object-position: center top;
       }
 
@@ -2219,7 +2219,7 @@
   <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="hero__bg" aria-hidden="true">
-      <img src="poli.png" alt="" class="hero__bg-image" aria-hidden="true">
+      <img src="poli-opt.jpg" alt="" class="hero__bg-image" aria-hidden="true">
       <div class="hero__bg-overlay"></div>
     </div>
     <div class="container container--wide">
@@ -2817,7 +2817,7 @@
         </div>
 
         <div class="final-cta__badge" style="margin-top: var(--space-7); position: relative;">
-          <img src="pro.png" alt="Hydrafacial Verified Provider 2025" style="width: 160px; height: auto; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); margin: 0 auto; display: block;">
+          <img src="pro-opt.jpg" alt="Hydrafacial Verified Provider 2025" style="width: 160px; height: auto; border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); margin: 0 auto; display: block;">
         </div>
 
         <div class="final-cta__contact">
@@ -2900,8 +2900,8 @@
       var tl = gsap.timeline();
 
       // Phase 1: Loader brand fade in, hold, fade out
-      tl.to(loaderLogo, { opacity: 1, duration: 0.6, ease: 'power2.out' })
-        .to(loaderLogo, { opacity: 0, y: -20, duration: 0.4, ease: 'power2.in' }, '+=0.8')
+      tl.to(loaderLogo, { opacity: 1, duration: 0.5, ease: 'power2.out' })
+        .to(loaderLogo, { opacity: 0, y: -20, duration: 0.3, ease: 'power2.in' }, '+=0.4')
         .to(loader, {
           yPercent: -100,
           duration: 0.8,
