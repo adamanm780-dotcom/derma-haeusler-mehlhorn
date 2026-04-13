@@ -1994,7 +1994,44 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      /* testimonials now uses card stack layout */
+      /* Testimonials card stack — mobile */
+      .testimonials__scroll-container {
+        height: 220vh;
+      }
+
+      .testimonials__stack {
+        width: 90vw;
+        max-width: 340px;
+        height: 440px;
+      }
+
+      .testimonial-card {
+        padding: var(--space-6) var(--space-5);
+      }
+
+      .testimonial-card__text {
+        font-size: 15px;
+        max-width: 260px;
+      }
+
+      .testimonials__sticky {
+        padding: var(--space-6) var(--space-4);
+      }
+
+      /* Praxis building — mobile */
+      .praxis-building__inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-7);
+      }
+
+      .praxis-building__card img {
+        height: 260px;
+      }
+
+      /* Border glow — disable on touch */
+      .glow-target::after {
+        display: none;
+      }
 
       .process__steps {
         grid-template-columns: 1fr;
@@ -2049,6 +2086,54 @@
 
       .technology__features-list {
         grid-template-columns: 1fr;
+      }
+
+      /* Testimonials — smaller phones */
+      .testimonials__stack {
+        width: 92vw;
+        max-width: 300px;
+        height: 400px;
+      }
+
+      .testimonial-card__text {
+        font-size: 14px;
+        max-width: 230px;
+      }
+
+      .testimonial-card__avatar {
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
+      }
+
+      /* Section headers tighter on mobile */
+      .section-header {
+        text-align: center;
+      }
+
+      .section-header .text-body {
+        max-width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Praxis details stack tighter */
+      .praxis-building__details {
+        gap: var(--space-3);
+      }
+
+      .praxis-building__detail p {
+        font-size: 13px;
+      }
+
+      /* Final CTA buttons stack */
+      .final-cta__actions {
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+
+      .final-cta__actions .btn {
+        width: 100%;
       }
     }
 
