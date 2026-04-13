@@ -666,9 +666,16 @@
     }
 
     .hero__content {
+      /* Individual elements animated by GSAP after loader */
+    }
+
+    .hero__badge,
+    .hero__title,
+    .hero__subtitle,
+    .hero__actions,
+    .hero__trust,
+    .hero__float-card {
       opacity: 0;
-      transform: translateY(30px);
-      animation: heroReveal 0.9s var(--ease-out) 2.6s forwards;
     }
 
     .hero__badge {
@@ -781,7 +788,7 @@
       gap: 14px;
       opacity: 0;
       transform: translateY(20px);
-      animation: heroReveal 0.7s var(--ease-out) 3.4s forwards;
+      /* Animated by GSAP hero entrance */
     }
 
     .hero__float-icon {
@@ -2063,7 +2070,11 @@
         transform: none;
       }
 
-      .hero__content,
+      .hero__badge,
+      .hero__title,
+      .hero__subtitle,
+      .hero__actions,
+      .hero__trust,
       .hero__float-card {
         opacity: 1;
         transform: none;
@@ -2792,13 +2803,65 @@
     </div>
   </footer>
 
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
   <!-- ============ JAVASCRIPT ============ -->
   <script>
-    // Loading Screen
+    // Loading Screen + Hero Entrance Choreography (GSAP)
     window.addEventListener('load', function() {
-      setTimeout(function() {
-        document.getElementById('loadingScreen').classList.add('hidden');
-      }, 2400);
+      var loader = document.getElementById('loadingScreen');
+      var loaderLogo = document.querySelector('.loading-logo');
+      var tl = gsap.timeline();
+
+      // Phase 1: Loader brand fade in, hold, fade out
+      tl.to(loaderLogo, { opacity: 1, duration: 0.6, ease: 'power2.out' })
+        .to(loaderLogo, { opacity: 0, y: -20, duration: 0.4, ease: 'power2.in' }, '+=0.8')
+        .to(loader, {
+          yPercent: -100,
+          duration: 0.8,
+          ease: 'power3.inOut',
+          onComplete: function() { loader.style.display = 'none'; }
+        }, '-=0.1');
+
+      // Phase 2: Hero background image
+      tl.fromTo('.hero__bg-image',
+        { scale: 1.1, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 1.6, ease: 'power2.out' },
+        '-=0.5'
+      );
+
+      // Phase 3: Hero content — staggered entrance
+      tl.fromTo('.hero__badge',
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' },
+        '-=0.8'
+      )
+      .fromTo('.hero__title',
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' },
+        '-=0.4'
+      )
+      .fromTo('.hero__subtitle',
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' },
+        '-=0.5'
+      )
+      .fromTo('.hero__actions .btn',
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out', stagger: 0.12 },
+        '-=0.4'
+      )
+      .fromTo('.hero__trust',
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' },
+        '-=0.3'
+      )
+      .fromTo('.hero__float-card',
+        { x: 30, opacity: 0, scale: 0.9 },
+        { x: 0, opacity: 1, scale: 1, duration: 0.7, ease: 'back.out(1.4)' },
+        '-=0.3'
+      );
     });
 
     // Navigation Scroll Effect
