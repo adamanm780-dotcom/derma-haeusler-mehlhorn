@@ -1996,7 +1996,7 @@
 
       /* Testimonials card stack — mobile */
       .testimonials__scroll-container {
-        height: 220vh;
+        height: 350vh;
       }
 
       .testimonials__stack {
@@ -3099,7 +3099,9 @@
       var rect = container.getBoundingClientRect();
       var containerTop = -rect.top;
       var scrollRange = container.offsetHeight - window.innerHeight;
-      var progress = Math.min(Math.max(containerTop / scrollRange, 0), 1);
+      // Cards animate in first 70% of scroll, last 30% scrolls through fast
+      var rawProgress = Math.min(Math.max(containerTop / scrollRange, 0), 1);
+      var progress = Math.min(rawProgress / 0.7, 1);
 
       cards.forEach(function(card, i) {
         // Card 0 flies away first, then card 1, then card 2
