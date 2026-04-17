@@ -195,13 +195,24 @@
     }
 
     .loading-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
       font-family: var(--font-display);
-      font-size: 28px;
+      font-size: 24px;
       font-weight: 300;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.18em;
       color: var(--teal-deep);
       opacity: 0;
       animation: loadFadeIn 0.8s var(--ease-out) 0.2s forwards;
+    }
+
+    .loading-logo__mark {
+      width: 68px;
+      height: 68px;
+      object-fit: contain;
+      display: block;
     }
 
     .loading-bar-track {
@@ -484,6 +495,9 @@
     }
 
     .nav__logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
       font-family: var(--font-display);
       font-size: 22px;
       font-weight: 400;
@@ -491,8 +505,21 @@
       letter-spacing: 0.02em;
     }
 
-    .nav__logo span {
+    .nav__logo-wordmark {
+      display: inline-flex;
+      align-items: baseline;
+    }
+
+    .nav__logo-wordmark span {
       color: var(--teal-deep);
+    }
+
+    .nav__logo-mark {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      display: block;
+      flex-shrink: 0;
     }
 
     .nav__links {
@@ -1740,7 +1767,15 @@
     .footer__brand .nav__logo {
       color: var(--white);
       margin-bottom: var(--space-4);
-      display: block;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer__brand .nav__logo-mark {
+      width: 40px;
+      height: 40px;
+      filter: brightness(1.1);
     }
 
     .footer__brand p {
@@ -2173,7 +2208,10 @@
   <!-- ============ LOADING SCREEN ============ -->
   <div class="loading-screen" id="loadingScreen" role="status" aria-label="Seite wird geladen">
     <div class="loading-inner">
-      <div class="loading-logo">Häusler-Mehlhorn</div>
+      <div class="loading-logo">
+        <img src="popomann.png" alt="" class="loading-logo__mark" />
+        <span>Häusler-Mehlhorn</span>
+      </div>
       <div class="loading-bar-track">
         <div class="loading-bar-fill"></div>
       </div>
@@ -2188,7 +2226,10 @@
   <nav class="nav" id="nav">
     <div class="container container--wide">
       <div class="nav__inner">
-        <a href="#" class="nav__logo">Häusler<span>-</span>Mehlhorn</a>
+        <a href="#" class="nav__logo" aria-label="Häusler-Mehlhorn Startseite">
+          <img src="popomann.png" alt="" class="nav__logo-mark" />
+          <span class="nav__logo-wordmark">Häusler<span>-</span>Mehlhorn</span>
+        </a>
         <div class="nav__links">
           <a href="#treatments" class="nav__link">Behandlungen</a>
           <a href="#philosophy" class="nav__link">Philosophie</a>
@@ -2839,7 +2880,10 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <span class="nav__logo">Häusler<span>-</span>Mehlhorn</span>
+          <span class="nav__logo">
+            <img src="popomann.png" alt="" class="nav__logo-mark" />
+            <span class="nav__logo-wordmark">Häusler<span>-</span>Mehlhorn</span>
+          </span>
           <p>Ihr Dermatologisches Laserzentrum in Chemnitz. Ästhetische Medizin, Lasertherapie und Hautgesundheit – von Expertinnen für Ihre Schönheit.</p>
         </div>
         <div class="footer__col">
