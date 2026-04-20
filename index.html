@@ -776,10 +776,8 @@
       z-index: 1;
       background: linear-gradient(
         to top,
-        rgba(20, 15, 8, 0.72) 0%,
-        rgba(20, 15, 8, 0.4) 30%,
-        rgba(20, 15, 8, 0.05) 60%,
-        transparent 100%
+        rgba(20, 15, 8, 0.18) 0%,
+        transparent 45%
       );
     }
 
@@ -790,8 +788,22 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding-bottom: var(--space-10);
-      text-align: left;
+      align-items: center;
+      padding-bottom: 0;
+    }
+
+    /* Light-brown arch/plinth at bottom-center holding the hero text */
+    .hero__arch {
+      position: relative;
+      width: min(560px, 86%);
+      padding: var(--space-8) var(--space-7) var(--space-7);
+      text-align: center;
+      background: var(--blush);
+      color: var(--white);
+      border-radius: 50% 50% 0 0 / 28% 28% 0 0;
+      box-shadow:
+        0 -20px 60px rgba(139, 111, 71, 0.28),
+        0 -6px 20px rgba(139, 111, 71, 0.14);
     }
 
     .hero__title,
@@ -802,27 +814,26 @@
 
     .hero__title {
       font-family: var(--font-display);
-      font-weight: 300;
-      font-size: clamp(52px, 9vw, 120px);
-      line-height: 0.95;
-      letter-spacing: -0.02em;
+      font-weight: 400;
+      font-size: clamp(44px, 6vw, 76px);
+      line-height: 1;
+      letter-spacing: -0.015em;
       color: var(--white);
-      margin-bottom: var(--space-4);
-      max-width: 900px;
+      margin-bottom: var(--space-3);
     }
 
     .hero__title em {
       font-style: italic;
-      color: var(--teal-light);
-      -webkit-text-fill-color: var(--teal-light);
+      color: var(--white);
+      -webkit-text-fill-color: var(--white);
     }
 
     .hero__subtitle {
-      font-size: clamp(16px, 1.3vw, 19px);
+      font-size: clamp(15px, 1.2vw, 17px);
       line-height: 1.5;
-      color: rgba(255, 255, 255, 0.82);
-      margin-bottom: var(--space-6);
-      max-width: 480px;
+      color: rgba(255, 255, 255, 0.92);
+      margin: 0 auto var(--space-5);
+      max-width: 420px;
     }
 
     .hero__actions {
@@ -830,6 +841,17 @@
       align-items: center;
       gap: var(--space-4);
       flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero__arch .btn--primary {
+      background: var(--white);
+      color: var(--blush);
+    }
+
+    .hero__arch .btn--primary:hover {
+      background: var(--cream);
+      color: var(--teal-deep);
     }
 
     @keyframes heroReveal {
@@ -840,7 +862,11 @@
     }
 
     @media (max-width: 768px) {
-      .hero__inner { padding-bottom: var(--space-8); }
+      .hero__arch {
+        width: 92%;
+        padding: var(--space-6) var(--space-5) var(--space-6);
+        border-radius: 42% 42% 0 0 / 22% 22% 0 0;
+      }
     }
 
     /* ========================================
@@ -2597,9 +2623,9 @@
   <section class="hero">
     <img src="hepopo.jpeg" alt="" class="hero__bg-image" aria-hidden="true">
     <div class="hero__overlay" aria-hidden="true"></div>
-    <div class="container container--wide">
-      <div class="hero__inner">
+    <div class="hero__inner">
 
+      <div class="hero__arch">
         <h1 class="hero__title">
           <em>Lasertherapie.</em>
         </h1>
@@ -2614,8 +2640,8 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
-
       </div>
+
     </div>
   </section>
 
