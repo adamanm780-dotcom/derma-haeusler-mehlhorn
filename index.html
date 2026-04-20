@@ -1082,6 +1082,56 @@
     }
 
     /* ========================================
+       TAGLINE BANNER
+       ======================================== */
+    .tagline-banner {
+      position: relative;
+      padding: var(--space-12) var(--space-5);
+      text-align: center;
+      background:
+        radial-gradient(800px 400px at 20% 40%, var(--teal-mist) 0%, transparent 70%),
+        radial-gradient(700px 350px at 80% 60%, var(--rose-mist) 0%, transparent 70%),
+        linear-gradient(180deg, var(--cream) 0%, var(--off-white) 100%);
+      overflow: hidden;
+    }
+
+    .tagline-banner__eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--teal-deep);
+      display: block;
+      margin-bottom: var(--space-6);
+    }
+
+    .tagline-banner__text {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(40px, 6.5vw, 92px);
+      line-height: 1.08;
+      letter-spacing: -0.015em;
+      color: var(--gray-900);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .tagline-banner__text em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--teal-deep) 0%, var(--blush) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tagline-banner__sig {
+      margin-top: var(--space-7);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: var(--gray-500);
+    }
+
+    /* ========================================
        PHILOSOPHY / WHY US SECTION
        ======================================== */
     .philosophy {
@@ -2619,6 +2669,15 @@
         <a href="#contact" class="btn btn--ghost">Termin vereinbaren</a>
       </div>
     </div>
+  </section>
+
+  <!-- ============ TAGLINE BANNER ============ -->
+  <section class="tagline-banner reveal" aria-label="Markenversprechen">
+    <span class="tagline-banner__eyebrow">Unser Versprechen</span>
+    <p class="tagline-banner__text">
+      Ihre Haut <em>in besten Händen.</em>
+    </p>
+    <div class="tagline-banner__sig">Dermatologisches Laserzentrum Häusler-Mehlhorn · Chemnitz</div>
   </section>
 
   <!-- ============ PHILOSOPHY ============ -->
