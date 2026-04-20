@@ -1506,6 +1506,143 @@
     }
 
     /* ========================================
+       BEFORE / AFTER SWIPER
+       ======================================== */
+    .results {
+      padding: var(--space-12) 0;
+      background:
+        radial-gradient(900px 500px at 80% 20%, var(--teal-mist) 0%, transparent 65%),
+        linear-gradient(180deg, var(--off-white) 0%, var(--cream) 100%);
+    }
+
+    .results__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: var(--space-7);
+      margin-top: var(--space-8);
+    }
+
+    .ba-slider {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      user-select: none;
+      touch-action: none;
+      background: var(--gray-100);
+      box-shadow:
+        0 24px 60px rgba(139, 111, 71, 0.18),
+        0 8px 20px rgba(139, 111, 71, 0.08);
+      cursor: ew-resize;
+    }
+
+    .ba-slider__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .ba-slider__after-wrap {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      clip-path: inset(0 0 0 50%);
+      will-change: clip-path;
+    }
+
+    .ba-slider__label {
+      position: absolute;
+      top: var(--space-4);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: var(--gray-800);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .ba-slider__label--before { left: var(--space-4); }
+    .ba-slider__label--after {
+      right: var(--space-4);
+      background: rgba(139, 111, 71, 0.88);
+      color: var(--white);
+    }
+
+    .ba-slider__divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 0 0 1px rgba(139, 111, 71, 0.15), 0 0 20px rgba(0, 0, 0, 0.15);
+      transform: translateX(-50%);
+      z-index: 4;
+      pointer-events: none;
+      will-change: left;
+    }
+
+    .ba-slider__handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--white);
+      box-shadow: 0 6px 20px rgba(139, 111, 71, 0.28), 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      pointer-events: none;
+      will-change: left;
+    }
+
+    .ba-slider__handle svg {
+      width: 20px;
+      height: 20px;
+      color: var(--teal-deep);
+    }
+
+    .ba-slider__caption {
+      margin-top: var(--space-4);
+      text-align: center;
+    }
+
+    .ba-slider__caption-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--gray-900);
+      font-weight: 500;
+    }
+
+    .ba-slider__caption-desc {
+      font-size: 13px;
+      color: var(--gray-500);
+      margin-top: 2px;
+    }
+
+    .results__hint {
+      text-align: center;
+      margin-top: var(--space-7);
+      font-size: 13px;
+      color: var(--gray-500);
+      letter-spacing: 0.06em;
+    }
+
+    /* ========================================
        TESTIMONIALS — Scroll-driven card stack
        ======================================== */
     .testimonials {
@@ -2960,6 +3097,61 @@
     </div>
   </section>
 
+  <!-- ============ BEFORE / AFTER RESULTS ============ -->
+  <section class="results" id="results">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="text-label">Vorher · Nachher</span>
+        <h2 class="heading-display heading-display--lg">Echte <em>Ergebnisse.</em></h2>
+        <p class="text-body">Ziehen Sie den Schieberegler – und sehen Sie selbst, was unsere Lasertherapie möglich macht.</p>
+      </div>
+
+      <div class="results__grid">
+
+        <div class="reveal">
+          <div class="ba-slider" data-ba-slider>
+            <img src="vorher_1.jpg" alt="Vorher – Patientinnenbild vor der Behandlung" class="ba-slider__img">
+            <div class="ba-slider__after-wrap">
+              <img src="nachher_1.jpg" alt="Nachher – Patientinnenbild nach der Behandlung" class="ba-slider__img">
+            </div>
+            <span class="ba-slider__label ba-slider__label--before">Vorher</span>
+            <span class="ba-slider__label ba-slider__label--after">Nachher</span>
+            <div class="ba-slider__divider"></div>
+            <div class="ba-slider__handle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
+            </div>
+          </div>
+          <div class="ba-slider__caption">
+            <div class="ba-slider__caption-title">Hauterneuerung · Gesicht</div>
+            <div class="ba-slider__caption-desc">Lasertherapie · Sichtbar ebenmäßiger Teint</div>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-1">
+          <div class="ba-slider" data-ba-slider>
+            <img src="vorher_2.jpg" alt="Vorher – Patientinnenbild vor der Behandlung" class="ba-slider__img">
+            <div class="ba-slider__after-wrap">
+              <img src="vorher_2.jpg" alt="Nachher – Bild folgt" class="ba-slider__img">
+            </div>
+            <span class="ba-slider__label ba-slider__label--before">Vorher</span>
+            <span class="ba-slider__label ba-slider__label--after">Nachher</span>
+            <div class="ba-slider__divider"></div>
+            <div class="ba-slider__handle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
+            </div>
+          </div>
+          <div class="ba-slider__caption">
+            <div class="ba-slider__caption-title">Pigmentflecken · Wange</div>
+            <div class="ba-slider__caption-desc">Lasertherapie · Sanftes, gleichmäßiges Hautbild</div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="results__hint">← Ziehen, um das Ergebnis zu enthüllen →</p>
+    </div>
+  </section>
+
   <!-- ============ TESTIMONIALS — Scroll-driven Card Stack ============ -->
   <section class="testimonials" id="testimonials">
     <div class="testimonials__scroll-container">
@@ -3293,6 +3485,57 @@
       mobileToggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     }
+
+    // Before/After Slider
+    document.querySelectorAll('[data-ba-slider]').forEach(function(slider) {
+      var after = slider.querySelector('.ba-slider__after-wrap');
+      var divider = slider.querySelector('.ba-slider__divider');
+      var handle = slider.querySelector('.ba-slider__handle');
+      var dragging = false;
+
+      function setPos(pct) {
+        pct = Math.max(0, Math.min(100, pct));
+        after.style.clipPath = 'inset(0 0 0 ' + pct + '%)';
+        divider.style.left = pct + '%';
+        handle.style.left = pct + '%';
+      }
+
+      function pctFromEvent(e) {
+        var rect = slider.getBoundingClientRect();
+        var x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+        return (x / rect.width) * 100;
+      }
+
+      function start(e) {
+        dragging = true;
+        slider.style.cursor = 'grabbing';
+        setPos(pctFromEvent(e));
+        e.preventDefault();
+      }
+      function move(e) { if (dragging) setPos(pctFromEvent(e)); }
+      function end() { dragging = false; slider.style.cursor = 'ew-resize'; }
+
+      slider.addEventListener('mousedown', start);
+      slider.addEventListener('touchstart', start, { passive: false });
+      window.addEventListener('mousemove', move);
+      window.addEventListener('touchmove', move, { passive: false });
+      window.addEventListener('mouseup', end);
+      window.addEventListener('touchend', end);
+
+      // Subtle hint: nudge on first view
+      var seen = false;
+      new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !seen) {
+            seen = true;
+            var steps = [50, 30, 65, 50];
+            steps.forEach(function(p, i) {
+              setTimeout(function() { setPos(p); }, 600 + i * 350);
+            });
+          }
+        });
+      }, { threshold: 0.4 }).observe(slider);
+    });
 
     // Scroll Reveal
     var reveals = document.querySelectorAll('.reveal');
