@@ -46,8 +46,8 @@
 
       /* Gradients */
       --gradient-primary: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 50%, var(--rose-light) 100%);
-      --gradient-soft: linear-gradient(135deg, var(--teal-mist) 0%, var(--rose-whisper) 100%);
-      --gradient-hero: linear-gradient(160deg, var(--teal-whisper) 0%, var(--cream) 40%, var(--rose-whisper) 100%);
+      --gradient-soft: linear-gradient(180deg, var(--teal-whisper) 0%, var(--cream) 100%);
+      --gradient-hero: linear-gradient(180deg, var(--cream) 0%, var(--off-white) 100%);
       --gradient-button: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 60%, var(--rose) 100%);
       --gradient-button-hover: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal) 60%, var(--rose) 100%);
       --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.3) 100%);
@@ -759,9 +759,7 @@
       min-height: 100vh;
       padding: calc(var(--space-12) + 24px) 0 var(--space-9);
       overflow: hidden;
-      background:
-        radial-gradient(1200px 600px at 50% -100px, var(--teal-mist) 0%, transparent 60%),
-        linear-gradient(180deg, var(--teal-whisper) 0%, var(--cream) 60%, var(--off-white) 100%);
+      background: linear-gradient(180deg, var(--teal-whisper) 0%, var(--off-white) 100%);
     }
 
     .hero__inner {
@@ -1088,10 +1086,7 @@
       position: relative;
       padding: var(--space-12) var(--space-5);
       text-align: center;
-      background:
-        radial-gradient(800px 400px at 20% 40%, var(--teal-mist) 0%, transparent 70%),
-        radial-gradient(700px 350px at 80% 60%, var(--rose-mist) 0%, transparent 70%),
-        linear-gradient(180deg, var(--cream) 0%, var(--off-white) 100%);
+      background: var(--cream);
       overflow: hidden;
     }
 
@@ -1569,9 +1564,7 @@
        ======================================== */
     .results {
       padding: var(--space-12) 0;
-      background:
-        radial-gradient(900px 500px at 80% 20%, var(--teal-mist) 0%, transparent 65%),
-        linear-gradient(180deg, var(--off-white) 0%, var(--cream) 100%);
+      background: var(--off-white);
     }
 
     .results__grid {
