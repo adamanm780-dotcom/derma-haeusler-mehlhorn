@@ -757,87 +757,72 @@
       position: relative;
       z-index: 1;
       min-height: 100vh;
-      padding: calc(var(--space-12) + 24px) 0 var(--space-9);
       overflow: hidden;
-      background: linear-gradient(180deg, var(--teal-whisper) 0%, var(--off-white) 100%);
+    }
+
+    .hero__bg-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        to top,
+        rgba(20, 15, 8, 0.72) 0%,
+        rgba(20, 15, 8, 0.4) 30%,
+        rgba(20, 15, 8, 0.05) 60%,
+        transparent 100%
+      );
     }
 
     .hero__inner {
       position: relative;
       z-index: 2;
-      text-align: center;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      justify-content: flex-end;
+      padding-bottom: var(--space-10);
+      text-align: left;
     }
 
-    .hero__badge,
     .hero__title,
     .hero__subtitle,
-    .hero__actions,
-    .hero__product,
-    .hero__stats {
+    .hero__actions {
       opacity: 0;
-    }
-
-    .hero__badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      border: 1px solid rgba(184, 151, 115, 0.18);
-      padding: 8px 18px;
-      border-radius: var(--radius-full);
-      margin-bottom: var(--space-5);
-    }
-
-    .hero__badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--teal);
-      animation: pulse 2s ease infinite;
-    }
-
-    .hero__badge-text {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--teal-deep);
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
     }
 
     .hero__title {
       font-family: var(--font-display);
-      font-weight: 400;
-      font-size: clamp(56px, 10vw, 128px);
+      font-weight: 300;
+      font-size: clamp(52px, 9vw, 120px);
       line-height: 0.95;
       letter-spacing: -0.02em;
-      color: var(--gray-900);
+      color: var(--white);
       margin-bottom: var(--space-4);
+      max-width: 900px;
     }
 
     .hero__title em {
       font-style: italic;
-      background: linear-gradient(135deg, var(--teal-deep) 0%, var(--blush) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--teal-light);
+      -webkit-text-fill-color: var(--teal-light);
     }
 
     .hero__subtitle {
-      font-size: clamp(17px, 1.5vw, 21px);
+      font-size: clamp(16px, 1.3vw, 19px);
       line-height: 1.5;
-      color: var(--gray-600);
+      color: rgba(255, 255, 255, 0.82);
       margin-bottom: var(--space-6);
-      max-width: 620px;
+      max-width: 480px;
     }
 
     .hero__actions {
@@ -845,101 +830,6 @@
       align-items: center;
       gap: var(--space-4);
       flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: var(--space-9);
-    }
-
-    /* Product showcase image */
-    .hero__product {
-      position: relative;
-      width: 100%;
-      max-width: 1100px;
-      margin: 0 auto;
-      border-radius: var(--radius-2xl);
-      overflow: hidden;
-      box-shadow:
-        0 40px 100px rgba(139, 111, 71, 0.18),
-        0 16px 40px rgba(139, 111, 71, 0.1);
-      aspect-ratio: 16 / 10;
-      background: var(--teal-whisper);
-    }
-
-    .hero__product-image {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .hero__product-caption {
-      position: absolute;
-      left: var(--space-7);
-      bottom: var(--space-7);
-      background: rgba(255, 255, 255, 0.82);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      border-radius: var(--radius-lg);
-      padding: 16px 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      box-shadow: var(--shadow-md);
-    }
-
-    .hero__product-eyebrow {
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--teal-deep);
-      font-weight: 600;
-    }
-
-    .hero__product-name {
-      font-family: var(--font-display);
-      font-size: 22px;
-      color: var(--gray-900);
-      font-weight: 500;
-      line-height: 1.1;
-    }
-
-    /* Floating stats under product */
-    .hero__stats {
-      margin-top: var(--space-8);
-      display: flex;
-      justify-content: center;
-      gap: var(--space-8);
-      flex-wrap: wrap;
-      padding: var(--space-5) var(--space-7);
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(184, 151, 115, 0.15);
-      border-radius: var(--radius-full);
-    }
-
-    .hero__stat {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-    }
-
-    .hero__stat-value {
-      font-family: var(--font-display);
-      font-size: 26px;
-      font-weight: 500;
-      color: var(--gray-900);
-      letter-spacing: -0.01em;
-    }
-
-    .hero__stat-label {
-      font-size: 11px;
-      color: var(--gray-500);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
     }
 
     @keyframes heroReveal {
@@ -950,20 +840,8 @@
     }
 
     @media (max-width: 768px) {
-      .hero__product {
-        aspect-ratio: 4 / 5;
-        border-radius: var(--radius-xl);
-      }
-      .hero__product-caption {
-        left: var(--space-5);
-        bottom: var(--space-5);
-        padding: 12px 16px;
-      }
-      .hero__product-name { font-size: 18px; }
-      .hero__stats { gap: var(--space-5); padding: var(--space-4) var(--space-5); }
+      .hero__inner { padding-bottom: var(--space-8); }
     }
-
-    /* (heroImageReveal removed – image is now background) */
 
     /* ========================================
        TREATMENTS SECTION
@@ -2585,12 +2463,9 @@
         transform: none;
       }
 
-      .hero__badge,
       .hero__title,
       .hero__subtitle,
-      .hero__actions,
-      .hero__trust,
-      .hero__float-card {
+      .hero__actions {
         opacity: 1;
         transform: none;
         animation: none;
@@ -2720,54 +2595,24 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
+    <img src="hepopo.jpeg" alt="" class="hero__bg-image" aria-hidden="true">
+    <div class="hero__overlay" aria-hidden="true"></div>
     <div class="container container--wide">
       <div class="hero__inner">
-
-        <div class="hero__badge">
-          <span class="hero__badge-dot"></span>
-          <span class="hero__badge-text">Neu · ALMA Harmony XL PRO</span>
-        </div>
 
         <h1 class="hero__title">
           <em>Lasertherapie.</em>
         </h1>
 
         <p class="hero__subtitle">
-          Modernste Lasertechnologie für Haut, die sich jünger anfühlt und jünger aussieht.
-          Präzise. Sanft. Von Fachärztinnen in Chemnitz.
+          Premium-Ästhetik. Von Fachärztinnen in Chemnitz.
         </p>
 
         <div class="hero__actions">
           <a href="#contact" class="btn btn--primary">
-            Beratungstermin vereinbaren
+            Termin vereinbaren
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#treatments" class="btn btn--secondary">
-            Mehr erfahren
-          </a>
-        </div>
-
-        <div class="hero__product">
-          <img src="pro-opt.jpg" alt="ALMA Harmony XL PRO – unser Premium-Lasersystem in der Behandlungskabine" class="hero__product-image">
-          <div class="hero__product-caption">
-            <span class="hero__product-eyebrow">Unser System</span>
-            <span class="hero__product-name">ALMA Harmony XL PRO</span>
-          </div>
-        </div>
-
-        <div class="hero__stats">
-          <div class="hero__stat">
-            <span class="hero__stat-value">3</span>
-            <span class="hero__stat-label">Fachärztinnen</span>
-          </div>
-          <div class="hero__stat">
-            <span class="hero__stat-value">20+</span>
-            <span class="hero__stat-label">Jahre Erfahrung</span>
-          </div>
-          <div class="hero__stat">
-            <span class="hero__stat-value">5★</span>
-            <span class="hero__stat-label">Patientinnen­stimmen</span>
-          </div>
         </div>
 
       </div>
@@ -3480,15 +3325,10 @@
         }, '-=0.1');
 
       // Phase 2: Hero content — staggered entrance
-      tl.fromTo('.hero__badge',
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' },
-        '-=0.2'
-      )
-      .fromTo('.hero__title',
+      tl.fromTo('.hero__title',
         { y: 50, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' },
-        '-=0.4'
+        '-=0.2'
       )
       .fromTo('.hero__subtitle',
         { y: 30, opacity: 0 },
@@ -3499,16 +3339,6 @@
         { y: 20, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.5, ease: 'power3.out', stagger: 0.12 },
         '-=0.4'
-      )
-      .fromTo('.hero__product',
-        { y: 60, opacity: 0, scale: 0.96 },
-        { y: 0, opacity: 1, scale: 1, duration: 1.1, ease: 'power3.out' },
-        '-=0.4'
-      )
-      .fromTo('.hero__stats',
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' },
-        '-=0.5'
       );
     });
 
