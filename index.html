@@ -1406,6 +1406,65 @@
       box-shadow: var(--shadow-lg);
     }
 
+    /* Harmony XL PRO 360° viewer */
+    .harmony-360 {
+      position: relative;
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 1 / 1;
+      margin: 0 auto var(--space-6);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 40%, var(--teal-whisper) 0%, var(--teal-mist) 70%, var(--rose-mist) 100%);
+      cursor: grab;
+      touch-action: none;
+      user-select: none;
+      box-shadow: inset 0 0 0 1px rgba(184, 151, 115, 0.12);
+    }
+
+    .harmony-360:active { cursor: grabbing; }
+
+    .harmony-360__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+    }
+
+    .harmony-360__hint {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal-deep);
+      pointer-events: none;
+      transition: opacity var(--duration-normal) var(--ease-out);
+    }
+
+    .harmony-360__hint svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .harmony-360.has-interacted .harmony-360__hint {
+      opacity: 0;
+    }
+
     .technology__card-badge {
       display: inline-flex;
       align-items: center;
@@ -3031,6 +3090,13 @@
 
         <div class="technology__visual reveal">
           <div class="technology__card">
+            <div class="harmony-360" id="harmony360" aria-label="ALMA Harmony XL PRO 360° Ansicht – ziehen zum Drehen">
+              <img class="harmony-360__img" id="harmony360Img" src="harmony-360/frame_0000.png" alt="ALMA Harmony XL PRO">
+              <div class="harmony-360__hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-9-9"/><polyline points="21 3 21 9 15 9"/></svg>
+                360° – ziehen zum Drehen
+              </div>
+            </div>
             <span class="technology__card-badge">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
               Premium-Klasse
@@ -3536,6 +3602,69 @@
         });
       }, { threshold: 0.4 }).observe(slider);
     });
+
+    // Harmony XL PRO – 360° drag-to-rotate viewer
+    (function() {
+      var viewer = document.getElementById('harmony360');
+      if (!viewer) return;
+      var viewerImg = document.getElementById('harmony360Img');
+      var frames = [];
+      for (var i = 0; i <= 252; i += 4) {
+        frames.push('harmony-360/frame_' + ('0000' + i).slice(-4) + '.png');
+      }
+      frames.forEach(function(src) { var p = new Image(); p.src = src; });
+
+      var currentFrame = 0;
+      var startX = 0;
+      var startFrame = 0;
+      var dragging = false;
+      var SENSITIVITY = 8;
+
+      function getX(e) { return e.touches ? e.touches[0].clientX : e.clientX; }
+
+      function start(e) {
+        dragging = true;
+        startX = getX(e);
+        startFrame = currentFrame;
+        viewer.classList.add('has-interacted');
+        e.preventDefault();
+      }
+      function move(e) {
+        if (!dragging) return;
+        var dx = getX(e) - startX;
+        var delta = Math.round(dx / SENSITIVITY);
+        var next = ((startFrame - delta) % frames.length + frames.length) % frames.length;
+        if (next !== currentFrame) {
+          currentFrame = next;
+          viewerImg.src = frames[currentFrame];
+        }
+      }
+      function end() { dragging = false; }
+
+      viewer.addEventListener('mousedown', start);
+      viewer.addEventListener('touchstart', start, { passive: false });
+      window.addEventListener('mousemove', move);
+      window.addEventListener('touchmove', move, { passive: false });
+      window.addEventListener('mouseup', end);
+      window.addEventListener('touchend', end);
+
+      // Subtle auto-spin hint on first view
+      var hinted = false;
+      new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !hinted) {
+            hinted = true;
+            var f = 0;
+            var iv = setInterval(function() {
+              f += 1;
+              if (f > 12) { clearInterval(iv); return; }
+              currentFrame = (currentFrame + 1) % frames.length;
+              viewerImg.src = frames[currentFrame];
+            }, 60);
+          }
+        });
+      }, { threshold: 0.5 }).observe(viewer);
+    })();
 
     // Scroll Reveal
     var reveals = document.querySelectorAll('.reveal');
