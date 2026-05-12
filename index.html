@@ -948,7 +948,8 @@
       z-index: 3;
     }
 
-    /* Hover image + dark gradient overlay layered in ::after.
+    /* Default state: image + dark gradient overlay covers the card.
+       On hover, the image fades out to reveal the structured text below.
        The image URL comes from inline style --hover-img on each card. */
     .treatment-card::after {
       content: '';
@@ -956,12 +957,11 @@
       inset: 0;
       background-image:
         linear-gradient(180deg, rgba(20,15,8,0.10) 0%, rgba(20,15,8,0.55) 55%, rgba(20,15,8,0.88) 100%),
-        var(--hover-img, none);
+        var(--hover-img);
       background-size: cover;
       background-position: center;
-      opacity: 0;
-      transform: scale(1.06);
-      transition: opacity 0.55s var(--ease-out), transform 0.75s var(--ease-out);
+      opacity: 1;
+      transition: opacity 0.55s var(--ease-out);
       z-index: 0;
       pointer-events: none;
     }
@@ -973,7 +973,7 @@
     }
 
     .treatment-card:hover::before { opacity: 1; }
-    .treatment-card:hover::after { opacity: 1; transform: scale(1); }
+    .treatment-card:hover::after { opacity: 0; }
 
     /* Lift all card children above the image layer */
     .treatment-card > * { position: relative; z-index: 1; }
@@ -982,7 +982,9 @@
       width: 52px;
       height: 52px;
       border-radius: var(--radius-md);
-      background: var(--gradient-soft);
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -992,62 +994,62 @@
     }
 
     .treatment-card:hover .treatment-card__icon {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      background: var(--gradient-soft);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
 
     .treatment-card__icon svg {
       width: 24px;
       height: 24px;
-      color: var(--teal-deep);
+      color: var(--white);
       transition: color var(--duration-normal) var(--ease-out);
     }
 
-    .treatment-card:hover .treatment-card__icon svg { color: var(--white); }
+    .treatment-card:hover .treatment-card__icon svg { color: var(--teal-deep); }
 
     .treatment-card__title {
       font-family: var(--font-display);
       font-size: 22px;
       font-weight: 400;
-      color: var(--gray-800);
+      color: var(--white);
       margin-bottom: var(--space-3);
       transition: color var(--duration-normal) var(--ease-out);
     }
 
-    .treatment-card:hover .treatment-card__title { color: var(--white); }
+    .treatment-card:hover .treatment-card__title { color: var(--gray-800); }
 
     .treatment-card__desc {
       font-size: 14px;
-      color: var(--gray-500);
+      color: rgba(255, 255, 255, 0.92);
       line-height: 1.65;
       margin-bottom: var(--space-5);
       transition: color var(--duration-normal) var(--ease-out);
     }
 
-    .treatment-card:hover .treatment-card__desc { color: rgba(255, 255, 255, 0.92); }
+    .treatment-card:hover .treatment-card__desc { color: var(--gray-500); }
 
     .treatment-card__meta {
       display: flex;
       align-items: center;
       gap: var(--space-4);
       padding-top: var(--space-4);
-      border-top: 1px solid var(--gray-100);
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
       transition: border-color var(--duration-normal) var(--ease-out);
     }
 
-    .treatment-card:hover .treatment-card__meta { border-top-color: rgba(255, 255, 255, 0.25); }
+    .treatment-card:hover .treatment-card__meta { border-top-color: var(--gray-100); }
 
     .treatment-card__meta-item {
       font-size: 12px;
-      color: var(--gray-400);
+      color: rgba(255, 255, 255, 0.8);
       display: flex;
       align-items: center;
       gap: 4px;
       transition: color var(--duration-normal) var(--ease-out);
     }
 
-    .treatment-card:hover .treatment-card__meta-item { color: rgba(255, 255, 255, 0.8); }
+    .treatment-card:hover .treatment-card__meta-item { color: var(--gray-400); }
 
     .treatment-card__meta-item svg {
       width: 14px;
