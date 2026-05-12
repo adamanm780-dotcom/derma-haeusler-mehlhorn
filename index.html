@@ -948,21 +948,30 @@
       z-index: 3;
     }
 
-    /* Default state: image + dark gradient overlay covers the card.
-       On hover, the image fades out to reveal the structured text below.
-       The image URL comes from inline style --hover-img on each card. */
+    /* Default state: real <img> element covers the card with a dark
+       gradient overlay (::after). On hover, both fade out, revealing
+       the structured text inside the off-white card. */
+    .treatment-card__bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 1;
+      transition: opacity 0.55s var(--ease-out);
+      pointer-events: none;
+      border-radius: inherit;
+    }
+
     .treatment-card::after {
       content: '';
       position: absolute;
       inset: 0;
-      background-image:
-        linear-gradient(180deg, rgba(20,15,8,0.10) 0%, rgba(20,15,8,0.55) 55%, rgba(20,15,8,0.88) 100%),
-        var(--hover-img);
-      background-size: cover;
-      background-position: center;
+      background: linear-gradient(180deg, rgba(20,15,8,0.10) 0%, rgba(20,15,8,0.55) 55%, rgba(20,15,8,0.88) 100%);
       opacity: 1;
       transition: opacity 0.55s var(--ease-out);
-      z-index: 0;
+      z-index: 1;
       pointer-events: none;
     }
 
@@ -974,9 +983,10 @@
 
     .treatment-card:hover::before { opacity: 1; }
     .treatment-card:hover::after { opacity: 0; }
+    .treatment-card:hover .treatment-card__bg { opacity: 0; }
 
-    /* Lift all card children above the image layer */
-    .treatment-card > * { position: relative; z-index: 1; }
+    /* Lift card content (icon, title, desc, meta) above the image + scrim */
+    .treatment-card > *:not(.treatment-card__bg) { position: relative; z-index: 2; }
 
     .treatment-card__icon {
       width: 52px;
@@ -2831,7 +2841,8 @@
       <div class="treatments__grid">
 
         <!-- Card 1: Botulinumtoxin -->
-        <div class="treatment-card reveal reveal-delay-1" style="--hover-img: url('treatments/botox.jpg')">
+        <div class="treatment-card reveal reveal-delay-1">
+          <img src="treatments/botox.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
           </div>
@@ -2847,7 +2858,8 @@
         </div>
 
         <!-- Card 2: Filler -->
-        <div class="treatment-card reveal reveal-delay-2" style="--hover-img: url('treatments/filler.jpg')">
+        <div class="treatment-card reveal reveal-delay-2">
+          <img src="treatments/filler.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
           </div>
@@ -2863,7 +2875,8 @@
         </div>
 
         <!-- Card 3: Lasertherapie -->
-        <div class="treatment-card reveal reveal-delay-3" style="--hover-img: url('treatments/laser.jpg')">
+        <div class="treatment-card reveal reveal-delay-3">
+          <img src="treatments/laser.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
           </div>
@@ -2879,7 +2892,8 @@
         </div>
 
         <!-- Card 4: Operationen -->
-        <div class="treatment-card reveal reveal-delay-1" style="--hover-img: url('treatments/operationen.jpg')">
+        <div class="treatment-card reveal reveal-delay-1">
+          <img src="treatments/operationen.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
           </div>
@@ -2891,7 +2905,8 @@
         </div>
 
         <!-- Card 5: Haarentfernung -->
-        <div class="treatment-card reveal reveal-delay-2" style="--hover-img: url('treatments/haarentfernung.jpg')">
+        <div class="treatment-card reveal reveal-delay-2">
+          <img src="treatments/haarentfernung.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 12a11.05 11.05 0 00-22 0zm0 0a11.05 11.05 0 01-22 0"/><line x1="12" y1="2" x2="12" y2="22"/></svg>
           </div>
@@ -2903,7 +2918,8 @@
         </div>
 
         <!-- Card 6: Besenreiser -->
-        <div class="treatment-card reveal reveal-delay-3" style="--hover-img: url('treatments/besenreiser.jpg')">
+        <div class="treatment-card reveal reveal-delay-3">
+          <img src="treatments/besenreiser.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           </div>
@@ -2915,7 +2931,8 @@
         </div>
 
         <!-- Card 7: Tattooentfernung -->
-        <div class="treatment-card reveal reveal-delay-1" style="--hover-img: url('treatments/tattoo.jpg')">
+        <div class="treatment-card reveal reveal-delay-1">
+          <img src="treatments/tattoo.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="9" x2="15" y2="15"/><line x1="15" y1="9" x2="9" y2="15"/></svg>
           </div>
@@ -2927,7 +2944,8 @@
         </div>
 
         <!-- Card 8: Hydrafacial -->
-        <div class="treatment-card reveal reveal-delay-2" style="--hover-img: url('treatments/hydrafacial.jpg')">
+        <div class="treatment-card reveal reveal-delay-2">
+          <img src="treatments/hydrafacial.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
           </div>
