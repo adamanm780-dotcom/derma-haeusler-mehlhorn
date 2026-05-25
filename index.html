@@ -805,6 +805,22 @@
       );
     }
 
+    .hero__wave {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      width: 100%;
+      height: clamp(60px, 9vw, 120px);
+      z-index: 3;
+      display: block;
+      pointer-events: none;
+    }
+
+    .hero__wave path {
+      fill: var(--white);
+    }
+
     .hero__inner {
       position: relative;
       z-index: 2;
@@ -2828,6 +2844,10 @@
       </div>
 
     </div>
+
+    <svg class="hero__wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,72 C220,118 460,118 720,86 C980,54 1200,30 1440,54 L1440,120 L0,120 Z"/>
+    </svg>
   </section>
 
   <!-- ============ TREATMENTS ============ -->
