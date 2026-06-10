@@ -1006,9 +1006,10 @@
       z-index: 3;
     }
 
-    /* Default state: real <img> element covers the card with a dark
-       gradient overlay (::after). On hover, both fade out, revealing
-       the structured text inside the off-white card. */
+    /* Default state: real <img> element covers the card with a warm
+       brown gradient overlay (.treatment-card__scrim). On hover, both
+       fade out, revealing the structured text inside the off-white card.
+       (Eigenes Element statt ::after — das belegt der Border-Glow.) */
     .treatment-card__bg {
       position: absolute;
       inset: 0;
@@ -1022,15 +1023,20 @@
       border-radius: inherit;
     }
 
-    .treatment-card::after {
-      content: '';
+    .treatment-card__scrim {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(20,15,8,0.10) 0%, rgba(20,15,8,0.55) 55%, rgba(20,15,8,0.88) 100%);
+      /* Warmer brauner Scrim über der ganzen Karte — Text liegt oben,
+         deshalb auch oben kräftig genug für Lesbarkeit auf hellen Bildern */
+      background: linear-gradient(180deg,
+        rgba(59, 50, 34, 0.72) 0%,
+        rgba(59, 50, 34, 0.55) 45%,
+        rgba(37, 30, 19, 0.85) 100%);
       opacity: 1;
       transition: opacity 0.55s var(--ease-out);
       z-index: 1;
       pointer-events: none;
+      border-radius: inherit;
     }
 
     .treatment-card:hover {
@@ -1040,11 +1046,11 @@
     }
 
     .treatment-card:hover::before { opacity: 1; }
-    .treatment-card:hover::after { opacity: 0; }
+    .treatment-card:hover .treatment-card__scrim { opacity: 0; }
     .treatment-card:hover .treatment-card__bg { opacity: 0; }
 
-    /* Lift card content (icon, title, desc, meta) above the image + scrim */
-    .treatment-card > *:not(.treatment-card__bg) { position: relative; z-index: 2; }
+    /* Lift card content (title, desc, meta) above the image + scrim */
+    .treatment-card > *:not(.treatment-card__bg):not(.treatment-card__scrim) { position: relative; z-index: 2; }
 
     .treatment-card__title {
       font-family: var(--font-display);
@@ -2857,6 +2863,7 @@
         <!-- Card 1: Botulinumtoxin -->
         <div class="treatment-card reveal reveal-delay-1">
           <img src="treatments/botox.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
+          <div class="treatment-card__scrim" aria-hidden="true"></div>
           <h3 class="treatment-card__title">Botulinumtoxin</h3>
           <p class="treatment-card__desc">Gezielte Faltenreduktion für Zornesfalte, Augen und Mundwinkel. Sanfte, natürliche Ergebnisse nach wenigen Tagen.</p>
           <div class="treatment-card__meta">
@@ -2868,6 +2875,7 @@
         <!-- Card 2: Filler -->
         <div class="treatment-card reveal reveal-delay-2">
           <img src="treatments/filler.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
+          <div class="treatment-card__scrim" aria-hidden="true"></div>
           <h3 class="treatment-card__title">Filler</h3>
           <p class="treatment-card__desc">Hyaluronsäure-Filler für Wangen, Lippen und Jawline. Natürlicher Volumenaufbau und Verjüngung – Ergebnisse bis zu 9 Monate.</p>
           <div class="treatment-card__meta">
@@ -2879,6 +2887,7 @@
         <!-- Card 3: Lasertherapie -->
         <div class="treatment-card reveal reveal-delay-3">
           <img src="treatments/laser.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
+          <div class="treatment-card__scrim" aria-hidden="true"></div>
           <h3 class="treatment-card__title">Lasertherapie</h3>
           <p class="treatment-card__desc">Premium ALMA Diodenlaser für Pigmentflecken, Rosacea und Pigmentstörungen – präzise und schonend.</p>
           <div class="treatment-card__meta">
@@ -2890,6 +2899,7 @@
         <!-- Card 4: Operationen -->
         <div class="treatment-card reveal reveal-delay-1">
           <img src="treatments/operationen.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
+          <div class="treatment-card__scrim" aria-hidden="true"></div>
           <h3 class="treatment-card__title">Operationen</h3>
           <p class="treatment-card__desc">Schonende Entfernung von Muttermalen und atypischen Hautveränderungen unter Lokalanästhesie – minimal-invasiv und sicher.</p>
           <div class="treatment-card__meta">
@@ -2900,6 +2910,7 @@
         <!-- Card 5: Haarentfernung -->
         <div class="treatment-card reveal reveal-delay-2">
           <img src="treatments/haarentfernung.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
+          <div class="treatment-card__scrim" aria-hidden="true"></div>
           <h3 class="treatment-card__title">Haarentfernung</h3>
           <p class="treatment-card__desc">Dauerhafte Haarentfernung mit ALMA Diodenlaser – effektive Ergebnisse für Körper und Gesicht.</p>
           <div class="treatment-card__meta">
@@ -2910,6 +2921,7 @@
         <!-- Card 6: Besenreiser -->
         <div class="treatment-card reveal reveal-delay-3">
           <img src="treatments/besenreiser.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
+          <div class="treatment-card__scrim" aria-hidden="true"></div>
           <h3 class="treatment-card__title">Besenreiser</h3>
           <p class="treatment-card__desc">Gezielte Verödung oder Lasertherapie zur Behandlung unschöner Besenreiser – für ein gleichmäßiges, klares Hautbild.</p>
           <div class="treatment-card__meta">
@@ -2920,6 +2932,7 @@
         <!-- Card 7: Tattooentfernung -->
         <div class="treatment-card reveal reveal-delay-1">
           <img src="treatments/tattoo.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
+          <div class="treatment-card__scrim" aria-hidden="true"></div>
           <h3 class="treatment-card__title">Tattooentfernung / Cover-Up</h3>
           <p class="treatment-card__desc">Professionelle Tattooentfernung mittels modernster Lasertechnologie – auch als Vorbereitung für ein Cover-Up.</p>
           <div class="treatment-card__meta">
