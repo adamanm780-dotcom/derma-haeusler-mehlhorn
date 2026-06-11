@@ -5,8 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dermatologisches Laserzentrum Häusler-Mehlhorn | Chemnitz</title>
   <meta name="description" content="Ihr Dermatologisches Laserzentrum in Chemnitz. Ästhetische Medizin, Lasertherapie, Botox & Hyaluronsäure – von Expertinnen für Ihre Schönheit.">
-  <!-- Fonts: Helvetica (system font, no external request needed) -->
+  <!-- Fonts: Fraunces lokal gehostet (DSGVO-sauber, kein Google-Request), Body bleibt Helvetica-Stack -->
+  <link rel="preload" href="fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/fraunces-italic-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="hepopo.jpeg" as="image" fetchpriority="high">
   <style>
+    @font-face {
+      font-family: 'Fraunces';
+      src: url('fonts/fraunces-var.woff2') format('woff2');
+      font-weight: 300 600;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Fraunces';
+      src: url('fonts/fraunces-italic-var.woff2') format('woff2');
+      font-weight: 300 600;
+      font-style: italic;
+      font-display: swap;
+    }
+
     /* ========================================
        DESIGN TOKENS
        ======================================== */
@@ -50,8 +69,8 @@
       --gradient-button-hover: linear-gradient(135deg, var(--teal-deep) 0%, var(--teal) 60%, var(--rose) 100%);
       --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.3) 100%);
 
-      /* Typography — Helvetica family (Helvetica Neue → Helvetica → Arial fallback) */
-      --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      /* Typography — Fraunces Serif für Display, Helvetica-Stack für Body */
+      --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
       --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
       /* Spacing Scale (8px base) */
@@ -129,6 +148,41 @@
     }
 
     ul, ol { list-style: none; }
+
+    /* Markenkonforme Textauswahl */
+    ::selection {
+      background: var(--teal-mist);
+      color: var(--gray-800);
+    }
+
+    /* Dezente warme Scrollbar */
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: var(--gray-300) transparent;
+    }
+
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb {
+      background: var(--gray-300);
+      border-radius: var(--radius-full);
+      border: 3px solid var(--off-white);
+    }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gray-400); }
+
+    /* Sichtbarer, markenkonformer Tastatur-Fokus */
+    :focus { outline: none; }
+    :focus-visible {
+      outline: 2px solid var(--teal-deep);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* Taktiles Press-Feedback auf allen Buttons */
+    .btn:active {
+      transform: translateY(0) scale(0.985);
+      transition-duration: 80ms;
+    }
 
     /* ========================================
        LOADING SCREEN
@@ -286,7 +340,7 @@
     .section {
       position: relative;
       z-index: 1;
-      padding: var(--space-11) 0;
+      padding: clamp(88px, 9vw, 132px) 0;
     }
 
     .section--sm {
@@ -298,10 +352,18 @@
        ======================================== */
     .heading-display {
       font-family: var(--font-display);
-      font-weight: 300;
-      line-height: 1.1;
+      font-weight: 360;
+      line-height: 1.12;
       color: var(--gray-900);
-      letter-spacing: -0.01em;
+      letter-spacing: 0;
+      text-wrap: balance;
+      font-feature-settings: 'liga' 1, 'calt' 1;
+    }
+
+    .heading-display em {
+      font-style: italic;
+      font-weight: 340;
+      letter-spacing: 0.005em;
     }
 
     .heading-display--xl {
@@ -331,10 +393,10 @@
     .text-label {
       font-family: var(--font-body);
       font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
+      font-weight: 600;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--teal);
+      color: var(--teal-deep);
     }
 
     .text-accent {
@@ -896,10 +958,10 @@
 
     .hero__title {
       font-family: var(--font-display);
-      font-weight: 400;
+      font-weight: 380;
       font-size: clamp(44px, 6vw, 76px);
-      line-height: 1;
-      letter-spacing: -0.015em;
+      line-height: 1.04;
+      letter-spacing: -0.005em;
       color: var(--white);
       margin-bottom: var(--space-3);
     }
@@ -1118,13 +1180,14 @@
 
     .tagline-banner__text {
       font-family: var(--font-display);
-      font-weight: 300;
+      font-weight: 340;
       font-size: clamp(40px, 6.5vw, 92px);
-      line-height: 1.08;
-      letter-spacing: -0.015em;
+      line-height: 1.12;
+      letter-spacing: 0;
       color: var(--gray-900);
       max-width: 1100px;
       margin: 0 auto;
+      text-wrap: balance;
     }
 
     .tagline-banner__text em {
@@ -1278,10 +1341,11 @@
 
     .stat-card__value {
       font-family: var(--font-display);
-      font-size: 36px;
-      font-weight: 300;
+      font-size: 38px;
+      font-weight: 360;
       color: var(--teal-deep);
       margin-bottom: var(--space-1);
+      font-variant-numeric: tabular-nums;
     }
 
     .stat-card__label {
@@ -1950,6 +2014,14 @@
       font-size: 14px;
       color: var(--gray-500);
       line-height: 1.7;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.4s var(--ease-out) 0.1s, transform 0.4s var(--ease-out) 0.1s;
+    }
+
+    .faq-item.open .faq-item__answer p {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* ========================================
@@ -2381,9 +2453,9 @@
       background: conic-gradient(
         from var(--glow-angle),
         transparent 0deg,
-        hsl(174 42% 65% / 0.8) 15deg,
-        hsl(174 42% 80% / 1) 25deg,
-        hsl(340 55% 75% / 0.7) 40deg,
+        hsl(33 48% 62% / 0.8) 15deg,
+        hsl(40 60% 78% / 1) 25deg,
+        hsl(26 42% 58% / 0.7) 40deg,
         transparent 55deg
       );
       mask:
@@ -2402,13 +2474,85 @@
        ======================================== */
     .reveal {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+      transform: translateY(28px);
+      filter: blur(5px);
+      transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out), filter 0.9s var(--ease-out);
     }
 
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
+      filter: blur(0);
+    }
+
+    /* Wort-für-Wort Headline-Reveal (GSAP befüllt .wi) */
+    .w {
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+      padding-bottom: 0.08em;
+      margin-bottom: -0.08em;
+    }
+
+    .wi {
+      display: inline-block;
+      transform: translateY(115%);
+      will-change: transform;
+    }
+
+    /* Scroll-Fortschritt — feine Linie oberhalb der Navigation */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      z-index: 1001;
+      background: var(--gradient-button);
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      pointer-events: none;
+    }
+
+    /* Hero-Slideshow-Indikatoren */
+    .hero__progress {
+      position: absolute;
+      left: var(--space-6);
+      bottom: clamp(76px, 11vw, 140px);
+      z-index: 4;
+      display: flex;
+      gap: 10px;
+    }
+
+    .hero__progress-bar {
+      width: 34px;
+      height: 2px;
+      border-radius: var(--radius-full);
+      background: rgba(37, 30, 19, 0.22);
+      overflow: hidden;
+    }
+
+    .hero__progress-bar::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: rgba(37, 30, 19, 0.78);
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+    }
+
+    .hero__progress-bar.is-active::after {
+      animation: heroProgress 6s linear forwards;
+    }
+
+    @keyframes heroProgress {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    @media (max-width: 768px) {
+      .hero__progress { display: none; }
     }
 
     .reveal-delay-1 { transition-delay: 0.1s; }
@@ -2681,7 +2825,13 @@
       .reveal {
         opacity: 1;
         transform: none;
+        filter: none;
       }
+
+      .wi { transform: none; }
+
+      .scroll-progress,
+      .hero__progress { display: none; }
 
       .hero__title,
       .hero__subtitle,
@@ -2711,6 +2861,9 @@
 
   <!-- ============ GRAINIENT BACKGROUND ============ -->
   <div class="grainient-bg" id="grainientBg" aria-hidden="true"></div>
+
+  <!-- ============ SCROLL PROGRESS ============ -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
   <!-- ============ NAVIGATION ============ -->
   <nav class="nav" id="nav">
@@ -2845,6 +2998,13 @@
 
     </div>
 
+    <div class="hero__progress" id="heroProgress" aria-hidden="true">
+      <span class="hero__progress-bar is-active"></span>
+      <span class="hero__progress-bar"></span>
+      <span class="hero__progress-bar"></span>
+      <span class="hero__progress-bar"></span>
+    </div>
+
     <svg class="hero__wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
       <path d="M0,72 C220,118 460,118 720,86 C980,54 1200,30 1440,54 L1440,120 L0,120 Z"/>
     </svg>
@@ -2855,6 +3015,7 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="text-label">Unsere Behandlungen</span>
+        <h2 class="heading-display heading-display--lg">Expertise für <em>Ihre Haut</em></h2>
         <p class="text-body">Individuell abgestimmte Behandlungen auf höchstem medizinischen Niveau – für Ihre natürliche Schönheit und das Wohlbefinden Ihrer Haut.</p>
       </div>
 
@@ -3486,8 +3647,9 @@
     </div>
   </footer>
 
-  <!-- GSAP -->
+  <!-- GSAP + Lenis -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 
   <!-- ============ JAVASCRIPT ============ -->
   <script>
@@ -3558,15 +3720,29 @@
       document.body.style.overflow = '';
     }
 
-    // Hero-Slideshow: Hintergrundbilder im Wechsel überblenden
+    // Hero-Slideshow: Hintergrundbilder im Wechsel überblenden + Fortschrittsindikatoren
     (function() {
       var slides = document.querySelectorAll('.hero__bg-image');
+      var bars = document.querySelectorAll('.hero__progress-bar');
       if (slides.length < 2) return;
       var current = 0;
+
+      function setBar(idx) {
+        bars.forEach(function(b, i) {
+          b.classList.remove('is-active');
+          if (i === idx) {
+            void b.offsetWidth; /* Reflow, damit die Füll-Animation neu startet */
+            b.classList.add('is-active');
+          }
+        });
+      }
+
+      setBar(0);
       setInterval(function() {
         slides[current].classList.remove('is-active');
         current = (current + 1) % slides.length;
         slides[current].classList.add('is-active');
+        setBar(current);
       }, 6000);
     })();
 
@@ -3748,7 +3924,7 @@
       });
     });
 
-    // Smooth anchor scroll offset for fixed nav
+    // Smooth anchor scroll offset for fixed nav (nutzt Lenis, wenn aktiv)
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function(e) {
         var targetId = this.getAttribute('href');
@@ -3757,8 +3933,12 @@
         if (target) {
           e.preventDefault();
           var offset = 80;
-          var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-          window.scrollTo({ top: top, behavior: 'smooth' });
+          if (window.__lenis) {
+            window.__lenis.scrollTo(target, { offset: -offset, duration: 1.25 });
+          } else {
+            var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: top, behavior: 'smooth' });
+          }
         }
       });
     });
@@ -3800,6 +3980,115 @@
         card.style.setProperty('--glow-opacity', '0');
       });
     });
+  })();
+  </script>
+
+  <!-- Premium-Pass: Lenis Smooth-Scroll, Scroll-Progress, Count-up, Headline-Reveals -->
+  <script>
+  (function() {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // — Lenis Smooth Scrolling (Touch bleibt nativ) —
+    if (!reduceMotion && window.Lenis) {
+      var lenis = new Lenis({ lerp: 0.1 });
+      window.__lenis = lenis;
+      document.documentElement.style.scrollBehavior = 'auto';
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+    }
+
+    // — Scroll-Fortschrittslinie —
+    var progressBar = document.getElementById('scrollProgress');
+    if (progressBar && !reduceMotion) {
+      var ticking = false;
+      var updateProgress = function() {
+        var doc = document.documentElement;
+        var max = doc.scrollHeight - window.innerHeight;
+        var p = max > 0 ? Math.min(window.pageYOffset / max, 1) : 0;
+        progressBar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+        ticking = false;
+      };
+      window.addEventListener('scroll', function() {
+        if (!ticking) { ticking = true; requestAnimationFrame(updateProgress); }
+      }, { passive: true });
+      updateProgress();
+    }
+
+    // — Statistik-Zahlen zählen hoch, sobald sichtbar —
+    var statValues = document.querySelectorAll('.stat-card__value');
+    if (statValues.length && !reduceMotion) {
+      var countObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          countObserver.unobserve(entry.target);
+          var el = entry.target;
+          var m = el.textContent.trim().match(/^(\d+)(.*)$/);
+          if (!m) return;
+          var end = parseInt(m[1], 10);
+          var suffix = m[2] || '';
+          var t0 = null;
+          var dur = 1600;
+          function step(ts) {
+            if (!t0) t0 = ts;
+            var t = Math.min((ts - t0) / dur, 1);
+            var eased = 1 - Math.pow(1 - t, 4);
+            el.textContent = Math.round(end * eased) + suffix;
+            if (t < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        });
+      }, { threshold: 0.5 });
+      statValues.forEach(function(el) { countObserver.observe(el); });
+    }
+
+    // — Wort-für-Wort Headline-Reveal (GSAP; <em>/<br> bleiben erhalten) —
+    if (!reduceMotion && window.gsap) {
+      var targets = document.querySelectorAll(
+        '.section-header .heading-display, .tagline-banner__text, ' +
+        '.philosophy__content .heading-display, .technology__content .heading-display, ' +
+        '.faq__intro .heading-display, .final-cta__inner .heading-display, ' +
+        '.praxis-building__content .heading-display'
+      );
+
+      function wrapWords(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function(child) {
+          if (child.nodeType === 3) {
+            var frag = document.createDocumentFragment();
+            child.textContent.split(/(\s+)/).forEach(function(part) {
+              if (!part) return;
+              if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+              var w = document.createElement('span');
+              w.className = 'w';
+              var wi = document.createElement('span');
+              wi.className = 'wi';
+              wi.textContent = part;
+              w.appendChild(wi);
+              frag.appendChild(w);
+            });
+            node.replaceChild(frag, child);
+          } else if (child.nodeType === 1 && child.tagName !== 'BR') {
+            wrapWords(child);
+          }
+        });
+      }
+
+      targets.forEach(function(el) { wrapWords(el); });
+
+      var headlineObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!entry.isIntersecting) return;
+          headlineObserver.unobserve(entry.target);
+          gsap.to(entry.target.querySelectorAll('.wi'), {
+            y: 0,
+            duration: 0.85,
+            ease: 'power3.out',
+            stagger: 0.055
+          });
+        });
+      }, { threshold: 0.3, rootMargin: '0px 0px -30px 0px' });
+
+      targets.forEach(function(el) { headlineObserver.observe(el); });
+    }
   })();
   </script>
 
@@ -4006,6 +4295,8 @@ void main(){
   fragColor=o;
 }`;
 
+      try {
+
       const renderer = new Renderer({
         webgl: 2,
         alpha: true,
@@ -4072,6 +4363,8 @@ void main(){
         requestAnimationFrame(loop);
       };
       requestAnimationFrame(loop);
+
+      } catch (e) { /* Kein WebGL2 verfügbar — Seite läuft ohne animierten Hintergrund weiter */ }
     }
   </script>
 </body>
