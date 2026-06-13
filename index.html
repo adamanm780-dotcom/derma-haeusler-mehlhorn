@@ -8,7 +8,7 @@
   <!-- Fonts: Fraunces lokal gehostet (DSGVO-sauber, kein Google-Request), Body bleibt Helvetica-Stack -->
   <link rel="preload" href="fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/fraunces-italic-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="hepopo.jpeg" as="image" fetchpriority="high">
+  <link rel="preload" href="hero-poster.jpg" as="image" fetchpriority="high">
   <style>
     @font-face {
       font-family: 'Fraunces';
@@ -874,39 +874,37 @@
       inset: 0;
       z-index: 0;
       overflow: hidden;
+      background: var(--gray-200);
     }
 
-    .hero__bg-image {
+    /* Hero-Video: echte Laserbehandlung aus der Praxis */
+    .hero__video {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
-      opacity: 0;
-      transition: opacity 1.6s var(--ease-in-out);
-      /* Alle Slides zoomen synchron — so gibt es beim Überblenden keinen Sprung */
-      animation: heroSlowZoom 18s ease-in-out infinite alternate;
-    }
-
-    .hero__bg-image.is-active {
-      opacity: 1;
+      object-position: center 38%;
+      /* sanfter, langsamer Push-In — lebendig ohne abzulenken */
+      animation: heroSlowZoom 24s ease-in-out infinite alternate;
+      will-change: transform;
     }
 
     @keyframes heroSlowZoom {
-      from { transform: scale(1); }
-      to   { transform: scale(1.07); }
+      from { transform: scale(1.02); }
+      to   { transform: scale(1.09); }
     }
 
     .hero__overlay {
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: linear-gradient(
-        to top,
-        rgba(20, 15, 8, 0.18) 0%,
-        transparent 45%
-      );
+      /* Warmer Verlauf unten für Lesbarkeit + zarter Beige-Tint, der das
+         helle Klinik-Video in die Markenwelt einbettet */
+      background:
+        linear-gradient(to top, rgba(20, 15, 8, 0.34) 0%, rgba(20, 15, 8, 0.06) 38%, transparent 62%),
+        linear-gradient(180deg, rgba(59, 50, 34, 0.14) 0%, transparent 30%),
+        rgba(120, 92, 56, 0.06);
     }
 
     .hero__wave {
@@ -2514,47 +2512,6 @@
       pointer-events: none;
     }
 
-    /* Hero-Slideshow-Indikatoren */
-    .hero__progress {
-      position: absolute;
-      left: var(--space-6);
-      bottom: clamp(76px, 11vw, 140px);
-      z-index: 4;
-      display: flex;
-      gap: 10px;
-    }
-
-    .hero__progress-bar {
-      width: 34px;
-      height: 2px;
-      border-radius: var(--radius-full);
-      background: rgba(37, 30, 19, 0.22);
-      overflow: hidden;
-    }
-
-    .hero__progress-bar::after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: rgba(37, 30, 19, 0.78);
-      transform: scaleX(0);
-      transform-origin: 0 50%;
-    }
-
-    .hero__progress-bar.is-active::after {
-      animation: heroProgress 6s linear forwards;
-    }
-
-    @keyframes heroProgress {
-      from { transform: scaleX(0); }
-      to   { transform: scaleX(1); }
-    }
-
-    @media (max-width: 768px) {
-      .hero__progress { display: none; }
-    }
-
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
@@ -2611,10 +2568,6 @@
       .hero {
         padding-top: var(--space-11);
         min-height: 80vh;
-      }
-
-      .hero__bg-image {
-        object-position: center top;
       }
 
       .hero__grid {
@@ -2830,8 +2783,9 @@
 
       .wi { transform: none; }
 
-      .scroll-progress,
-      .hero__progress { display: none; }
+      .scroll-progress { display: none; }
+
+      .hero__video { animation: none; transform: scale(1.04); }
 
       .hero__title,
       .hero__subtitle,
@@ -2972,10 +2926,10 @@
   <!-- ============ HERO ============ -->
   <section class="hero">
     <div class="hero__slideshow" aria-hidden="true">
-      <img src="hepopo.jpeg" alt="" class="hero__bg-image is-active">
-      <img src="treatments/laser.jpg" alt="" class="hero__bg-image">
-      <img src="treatments/filler.jpg" alt="" class="hero__bg-image">
-      <img src="treatments/hautscreening.jpg" alt="" class="hero__bg-image">
+      <video class="hero__video" id="heroVideo" autoplay muted loop playsinline
+             preload="auto" poster="hero-poster.jpg">
+        <source src="hero.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="hero__overlay" aria-hidden="true"></div>
     <div class="hero__inner">
@@ -2996,13 +2950,6 @@
         </div>
       </div>
 
-    </div>
-
-    <div class="hero__progress" id="heroProgress" aria-hidden="true">
-      <span class="hero__progress-bar is-active"></span>
-      <span class="hero__progress-bar"></span>
-      <span class="hero__progress-bar"></span>
-      <span class="hero__progress-bar"></span>
     </div>
 
     <svg class="hero__wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
@@ -3720,30 +3667,22 @@
       document.body.style.overflow = '';
     }
 
-    // Hero-Slideshow: Hintergrundbilder im Wechsel überblenden + Fortschrittsindikatoren
+    // Hero-Video: bei reduzierter Bewegung pausieren (Poster bleibt sichtbar),
+    // sonst zuverlässig autoplay anstoßen (manche Browser blocken den Autostart)
     (function() {
-      var slides = document.querySelectorAll('.hero__bg-image');
-      var bars = document.querySelectorAll('.hero__progress-bar');
-      if (slides.length < 2) return;
-      var current = 0;
-
-      function setBar(idx) {
-        bars.forEach(function(b, i) {
-          b.classList.remove('is-active');
-          if (i === idx) {
-            void b.offsetWidth; /* Reflow, damit die Füll-Animation neu startet */
-            b.classList.add('is-active');
-          }
-        });
+      var video = document.getElementById('heroVideo');
+      if (!video) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        video.removeAttribute('autoplay');
+        video.pause();
+        return;
       }
-
-      setBar(0);
-      setInterval(function() {
-        slides[current].classList.remove('is-active');
-        current = (current + 1) % slides.length;
-        slides[current].classList.add('is-active');
-        setBar(current);
-      }, 6000);
+      var tryPlay = function() {
+        var p = video.play();
+        if (p && p.catch) p.catch(function() {});
+      };
+      if (video.readyState >= 2) tryPlay();
+      video.addEventListener('canplay', tryPlay, { once: true });
     })();
 
     // E-Mail-Adresse vor Spam-Bots versteckt: wird erst beim Klick zusammengesetzt
