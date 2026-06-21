@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dermatologisches Laserzentrum Häusler-Mehlhorn | Chemnitz</title>
   <meta name="description" content="Ihr Dermatologisches Laserzentrum in Chemnitz. Ästhetische Medizin, Lasertherapie, Botox & Hyaluronsäure – von Expertinnen für Ihre Schönheit.">
+  <!-- Favicon: Markenzeichen (Browser-Tab) -->
+  <link rel="icon" type="image/png" href="popomann.png">
+  <link rel="apple-touch-icon" href="popomann.png">
+  <meta name="theme-color" content="#8B6F47">
   <!-- Fonts: Fraunces lokal gehostet (DSGVO-sauber, kein Google-Request), Body bleibt Helvetica-Stack -->
   <link rel="preload" href="fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/fraunces-italic-var.woff2" as="font" type="font/woff2" crossorigin>
@@ -662,6 +666,35 @@
       margin-left: var(--space-4);
     }
 
+    .nav__social {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .nav__social a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-500);
+      border: 1px solid rgba(184, 151, 115, 0.3);
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+
+    .nav__social a:hover {
+      color: var(--white);
+      background: var(--teal-deep);
+      border-color: var(--teal-deep);
+    }
+
+    .nav__social svg {
+      width: 17px;
+      height: 17px;
+    }
+
     .nav__mobile-toggle {
       display: none;
       background: none;
@@ -728,6 +761,35 @@
 
     .nav__mobile-menu a:hover {
       color: var(--teal-deep);
+    }
+
+    .nav__mobile-social {
+      display: flex;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+
+    .nav__mobile-social a {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-700);
+      border: 1px solid rgba(184, 151, 115, 0.3);
+      transition: all var(--duration-fast) var(--ease-out);
+    }
+
+    .nav__mobile-social a:hover {
+      color: var(--white);
+      background: var(--teal-deep);
+      border-color: var(--teal-deep);
+    }
+
+    .nav__mobile-social svg {
+      width: 22px;
+      height: 22px;
     }
 
     /* ========================================
@@ -2902,6 +2964,14 @@
             </div>
           </div>
 
+          <div class="nav__social">
+            <a href="https://www.instagram.com/dermatologen_haeusler_mehlhorn" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@praxis_haeusler_mehlhron" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.51a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.05a8.3 8.3 0 004.76 1.49V7.11a4.85 4.85 0 01-1-.42z"/></svg>
+            </a>
+          </div>
           <a href="#contact" class="btn btn--primary nav__cta">Termin buchen</a>
         </div>
         <button class="nav__mobile-toggle" id="mobileToggle" aria-label="Menü öffnen" aria-expanded="false">
@@ -2921,6 +2991,14 @@
     <a href="#testimonials" onclick="closeMobileMenu()">Stimmen</a>
     <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
     <a href="#contact" class="btn btn--primary" onclick="closeMobileMenu()">Termin buchen</a>
+    <div class="nav__mobile-social">
+      <a href="https://www.instagram.com/dermatologen_haeusler_mehlhorn" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@praxis_haeusler_mehlhron" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.51a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.05a8.3 8.3 0 004.76 1.49V7.11a4.85 4.85 0 01-1-.42z"/></svg>
+      </a>
+    </div>
   </div>
 
   <!-- ============ HERO ============ -->
@@ -3204,7 +3282,7 @@
 
         <div class="praxis-building__card-wrapper reveal">
           <div class="praxis-building__card" id="buildingCard">
-            <img src="haus00.jpg" alt="Praxisgebäude Dermatologen Häusler-Mehlhorn, Leipziger Straße 137, Chemnitz" loading="lazy">
+            <img src="nigiri.png" alt="Praxisgebäude Dermatologen Häusler-Mehlhorn, Leipziger Straße 137, Chemnitz" loading="lazy">
             <!-- Beige Marker auf dem Dachgeschoss – Position via CSS .praxis-building__attic-marker (top/left/width/height) feinjustieren -->
             <div class="praxis-building__attic-marker" aria-hidden="true"></div>
             <div class="praxis-building__card-badge">Unsere Praxis</div>
