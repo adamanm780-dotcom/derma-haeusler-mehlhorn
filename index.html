@@ -1421,45 +1421,50 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: var(--space-6);
-      margin-bottom: var(--space-10);
+      margin-bottom: var(--space-8);
     }
 
     .team-member {
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      padding-top: var(--space-5);
+      border-top: 1px solid var(--gray-200);
+      transition: border-color var(--duration-slow) var(--ease-out);
     }
 
-    .team-member__img {
-      width: 100%;
-      max-width: 240px;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-md);
-      margin-bottom: var(--space-4);
-      transition: transform var(--duration-slow) var(--ease-out), box-shadow var(--duration-slow) var(--ease-out);
-    }
-
-    .team-member:hover .team-member__img {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
+    .team-member:hover {
+      border-top-color: var(--teal);
     }
 
     .team-member__name {
       font-family: var(--font-display);
-      font-size: 18px;
+      font-size: 22px;
       font-weight: 500;
       color: var(--gray-800);
       letter-spacing: 0.01em;
-      margin-bottom: 4px;
+      line-height: 1.25;
+      margin-bottom: var(--space-2);
     }
 
     .team-member__role {
       font-size: 13px;
       color: var(--gray-500);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       line-height: 1.5;
+    }
+
+    .team-statement {
+      max-width: 820px;
+      margin: 0 auto var(--space-10);
+      text-align: center;
+    }
+
+    .team-statement p {
+      font-family: var(--font-display);
+      font-size: clamp(17px, 2vw, 21px);
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--gray-600);
     }
 
     @media (max-width: 900px) {
@@ -1468,7 +1473,7 @@
 
     @media (max-width: 480px) {
       .team-grid { grid-template-columns: 1fr; gap: var(--space-5); }
-      .team-member__img { max-width: 280px; }
+      .team-member { padding-top: var(--space-4); }
     }
 
     /* ========================================
@@ -2940,7 +2945,7 @@
                   <div class="nav__dropdown-title">Praxis</div>
                   <div class="nav__dropdown-group">
                     <a href="#philosophy" class="nav__dropdown-link">Über uns<small>Das Team & unsere Philosophie</small></a>
-                    <a href="#praxis" class="nav__dropdown-link">Unsere Praxis<small>Chemnitz, Zwickauer Straße</small></a>
+                    <a href="#praxis" class="nav__dropdown-link">Unsere Praxis<small>Chemnitz, Leipziger Straße</small></a>
                     <a href="#technology" class="nav__dropdown-link">Technologie<small>Premium Lasersysteme</small></a>
                   </div>
                 </div>
@@ -3159,34 +3164,26 @@
       </div>
 
       <div class="team-grid reveal">
-        <figure class="team-member">
-          <img src="team/team-1.jpg" alt="Dipl.-Med. Petra Häusler-Mehlhorn" class="team-member__img">
-          <figcaption>
-            <div class="team-member__name">Dipl.-Med. Petra Häusler-Mehlhorn</div>
-            <div class="team-member__role">Ärztliche Leitung · Ästhetik</div>
-          </figcaption>
-        </figure>
-        <figure class="team-member">
-          <img src="team/team-2.jpg" alt="Freya Mehlhorn" class="team-member__img">
-          <figcaption>
-            <div class="team-member__name">Freya Mehlhorn</div>
-            <div class="team-member__role">Ärztliche Leitung · Ästhetik &amp; Laser</div>
-          </figcaption>
-        </figure>
-        <figure class="team-member">
-          <img src="team/team-3.jpg" alt="Paul Mehlhorn" class="team-member__img">
-          <figcaption>
-            <div class="team-member__name">Paul Mehlhorn</div>
-            <div class="team-member__role">Operative Geschäftsführung</div>
-          </figcaption>
-        </figure>
-        <figure class="team-member">
-          <img src="team/team-4.jpg" alt="Marius Häusler" class="team-member__img">
-          <figcaption>
-            <div class="team-member__name">Marius Häusler</div>
-            <div class="team-member__role">Strategische Geschäftsführung</div>
-          </figcaption>
-        </figure>
+        <div class="team-member">
+          <div class="team-member__name">Dipl.-Med. Petra Häusler-Mehlhorn</div>
+          <div class="team-member__role">Ärztliche Leitung · Ästhetik</div>
+        </div>
+        <div class="team-member">
+          <div class="team-member__name">Freya Mehlhorn</div>
+          <div class="team-member__role">Ärztliche Leitung · Ästhetik &amp; Laser</div>
+        </div>
+        <div class="team-member">
+          <div class="team-member__name">Paul Mehlhorn</div>
+          <div class="team-member__role">Strategische Geschäftsführung</div>
+        </div>
+        <div class="team-member">
+          <div class="team-member__name">Marius Häusler</div>
+          <div class="team-member__role">Operative Geschäftsführung</div>
+        </div>
+      </div>
+
+      <div class="team-statement reveal">
+        <p>Hinter dem Erfolg unserer Praxen steht ein herausragendes Team aus erfahrenen Fachärztinnen und Fachärzten sowie motivierten Ärztinnen und Ärzten in Weiterbildung. Mit außergewöhnlicher fachlicher Expertise, höchster Präzision, großem Engagement und echter Leidenschaft für die Medizin arbeiten wir täglich Hand in Hand, um unseren Patientinnen und Patienten eine Versorgung auf höchstem medizinischen Niveau zu gewährleisten. Gemeinsam als Familie und Team vereinen wir Erfahrung, Innovation und Menschlichkeit – für Medizin, der man vertrauen kann.</p>
       </div>
 
       <div class="philosophy__grid">
