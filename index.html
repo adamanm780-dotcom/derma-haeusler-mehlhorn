@@ -5,9 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dermatologisches Laserzentrum Häusler-Mehlhorn | Chemnitz</title>
   <meta name="description" content="Ihr Dermatologisches Laserzentrum in Chemnitz. Ästhetische Medizin, Lasertherapie, Botox & Hyaluronsäure – von Expertinnen für Ihre Schönheit.">
+
+  <!-- Canonical & Social Sharing (Domain beim Go-Live ggf. anpassen) -->
+  <link rel="canonical" href="https://www.hautarzt-chemnitz.de/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dermatologisches Laserzentrum Häusler-Mehlhorn">
+  <meta property="og:title" content="Dermatologisches Laserzentrum Häusler-Mehlhorn | Chemnitz">
+  <meta property="og:description" content="Ästhetische Medizin, Lasertherapie, Botox & Hyaluronsäure in Chemnitz – familiengeführt, fachärztlich, mit Premium-Lasersystemen von ALMA.">
+  <meta property="og:url" content="https://www.hautarzt-chemnitz.de/">
+  <meta property="og:image" content="https://www.hautarzt-chemnitz.de/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="de_DE">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dermatologisches Laserzentrum Häusler-Mehlhorn | Chemnitz">
+  <meta name="twitter:description" content="Ästhetische Medizin, Lasertherapie, Botox & Hyaluronsäure in Chemnitz – familiengeführt und fachärztlich.">
+  <meta name="twitter:image" content="https://www.hautarzt-chemnitz.de/og-image.jpg">
+
+  <!-- Strukturierte Daten für Google (Praxis, Adresse, Öffnungszeiten) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "name": "Dermatologisches Laserzentrum Häusler-Mehlhorn",
+    "description": "Dermatologisches Laserzentrum in Chemnitz: Ästhetische Medizin, Lasertherapie, Botulinumtoxin, Hyaluronsäure, dauerhafte Haarentfernung und Tattooentfernung.",
+    "url": "https://www.hautarzt-chemnitz.de/",
+    "image": "https://www.hautarzt-chemnitz.de/og-image.jpg",
+    "medicalSpecialty": "Dermatology",
+    "email": "termin@hautarzt-chemnitz.de",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Leipziger Straße 137",
+      "postalCode": "09113",
+      "addressLocality": "Chemnitz",
+      "addressCountry": "DE"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Friday",
+        "opens": "08:00",
+        "closes": "14:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/dermatologen_haeusler_mehlhorn",
+      "https://www.tiktok.com/@praxis_haeusler_mehlhron"
+    ]
+  }
+  </script>
+
   <!-- Favicon: Markenzeichen (Browser-Tab) -->
-  <link rel="icon" type="image/png" href="popomann.png">
-  <link rel="apple-touch-icon" href="popomann.png">
+  <link rel="icon" type="image/png" href="favicon-48.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta name="theme-color" content="#8B6F47">
   <!-- Fonts: Fraunces lokal gehostet (DSGVO-sauber, kein Google-Request), Body bleibt Helvetica-Stack -->
   <link rel="preload" href="fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
@@ -1788,6 +1844,37 @@
       color: var(--white);
     }
 
+    .ba-slider__badge {
+      position: absolute;
+      bottom: var(--space-3);
+      right: var(--space-3);
+      padding: 4px 10px;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border-radius: 999px;
+      background: rgba(37, 30, 19, 0.62);
+      color: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .results__disclaimer {
+      max-width: 720px;
+      margin: var(--space-6) auto 0;
+      padding: var(--space-4) var(--space-5);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg, 16px);
+      background: var(--teal-whisper);
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--gray-500);
+    }
+
     .ba-slider__divider {
       position: absolute;
       top: 0;
@@ -2397,7 +2484,7 @@
 
     .footer__grid {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr 0.8fr;
       gap: var(--space-8);
       margin-bottom: var(--space-8);
     }
@@ -2870,7 +2957,7 @@
   <div class="loading-screen" id="loadingScreen" role="status" aria-label="Seite wird geladen">
     <div class="loading-inner">
       <div class="loading-logo">
-        <img src="popomann.png" alt="" class="loading-logo__mark" />
+        <img src="logo-mark.png" alt="" class="loading-logo__mark" />
         <span>Häusler-Mehlhorn</span>
       </div>
       <div class="loading-bar-track">
@@ -2891,7 +2978,7 @@
     <div class="container container--wide">
       <div class="nav__inner">
         <a href="#" class="nav__logo" aria-label="Dermatologisches Laserzentrum Häusler-Mehlhorn – Startseite">
-          <img src="popomann.png" alt="" class="nav__logo-mark" />
+          <img src="logo-mark.png" alt="" class="nav__logo-mark" />
           <span class="nav__logo-text">
             <span class="nav__logo-eyebrow">Dermatologisches Laserzentrum</span>
             <span class="nav__logo-wordmark">Häusler<span>-</span>Mehlhorn</span>
@@ -3279,7 +3366,7 @@
 
         <div class="praxis-building__card-wrapper reveal">
           <div class="praxis-building__card" id="buildingCard">
-            <img src="nigiri.png" alt="Praxisgebäude Dermatologen Häusler-Mehlhorn, Leipziger Straße 137, Chemnitz" loading="lazy">
+            <img src="praxis-leipziger-strasse.jpg" alt="Praxisgebäude Dermatologen Häusler-Mehlhorn, Leipziger Straße 137, Chemnitz" loading="lazy">
             <!-- Beige Marker auf dem Dachgeschoss – Position via CSS .praxis-building__attic-marker (top/left/width/height) feinjustieren -->
             <div class="praxis-building__attic-marker" aria-hidden="true"></div>
             <div class="praxis-building__card-badge">Unsere Praxis</div>
@@ -3368,8 +3455,8 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="text-label">Vorher · Nachher</span>
-        <h2 class="heading-display heading-display--lg">Echte <em>Ergebnisse.</em></h2>
-        <p class="text-body">Ziehen Sie den Schieberegler – und sehen Sie selbst, was unsere Lasertherapie möglich macht.</p>
+        <h2 class="heading-display heading-display--lg">Was Lasertherapie <em>möglich macht.</em></h2>
+        <p class="text-body">Ziehen Sie den Schieberegler – die Illustrationen zeigen typische Ziele unserer Behandlungen.</p>
       </div>
 
       <div class="results__grid">
@@ -3382,6 +3469,7 @@
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
+            <span class="ba-slider__badge">Beispielbild</span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
@@ -3401,6 +3489,7 @@
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
+            <span class="ba-slider__badge">Beispielbild</span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
@@ -3420,6 +3509,7 @@
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
+            <span class="ba-slider__badge">Beispielbild</span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
@@ -3439,6 +3529,7 @@
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
+            <span class="ba-slider__badge">Beispielbild</span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
@@ -3458,6 +3549,7 @@
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
+            <span class="ba-slider__badge">Beispielbild</span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
@@ -3477,6 +3569,7 @@
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
+            <span class="ba-slider__badge">Beispielbild</span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
@@ -3491,7 +3584,7 @@
       </div>
 
       <p class="results__hint">← Ziehen, um das Ergebnis zu enthüllen →</p>
-      <p style="text-align:center; margin-top: var(--space-3); font-size: 12px; color: var(--gray-400); letter-spacing: 0.01em;">Beispielbilder zur Veranschaulichung der Behandlungsmöglichkeiten.</p>
+      <p class="results__disclaimer"><strong>Hinweis:</strong> Bei den gezeigten Vorher-Nachher-Darstellungen handelt es sich um illustrative Beispielbilder zur Veranschaulichung typischer Behandlungsziele – nicht um Fotografien realer Patientinnen und Patienten. Behandlungsergebnisse sind individuell verschieden; ein bestimmtes Ergebnis kann nicht zugesichert werden. Gern zeigen wir Ihnen im persönlichen Beratungsgespräch dokumentierte Fallbeispiele.</p>
     </div>
   </section>
 
@@ -3693,7 +3786,7 @@
       <div class="footer__grid">
         <div class="footer__brand">
           <span class="nav__logo">
-            <img src="popomann.png" alt="" class="nav__logo-mark" />
+            <img src="logo-mark.png" alt="" class="nav__logo-mark" />
             <span class="nav__logo-text">
               <span class="nav__logo-eyebrow">Dermatologisches Laserzentrum</span>
               <span class="nav__logo-wordmark">Häusler<span>-</span>Mehlhorn</span>
@@ -3730,10 +3823,17 @@
             <li><a>Fr: 08:00 – 14:00</a></li>
           </ul>
         </div>
+        <div class="footer__col">
+          <h5>Rechtliches</h5>
+          <ul>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
       </div>
 
       <div class="footer__bottom">
-        <p>&copy; 2026 Dermatologisches Laserzentrum Häusler-Mehlhorn. Alle Rechte vorbehalten.</p>
+        <p>&copy; 2026 Dermatologisches Laserzentrum Häusler-Mehlhorn. Alle Rechte vorbehalten. &middot; <a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a></p>
         <div class="footer__social">
           <a href="https://www.instagram.com/dermatologen_haeusler_mehlhorn" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -3746,9 +3846,9 @@
     </div>
   </footer>
 
-  <!-- GSAP + Lenis -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <!-- GSAP + Lenis (lokal gehostet – kein CDN-Request, DSGVO-sauber) -->
+  <script src="js/gsap.min.js"></script>
+  <script src="js/lenis.min.js"></script>
 
   <!-- ============ JAVASCRIPT ============ -->
   <script>
@@ -4289,7 +4389,7 @@
   <script type="importmap">
   {
     "imports": {
-      "ogl": "https://cdn.jsdelivr.net/npm/ogl@1.0.8/+esm"
+      "ogl": "./js/ogl.esm.js"
     }
   }
   </script>
