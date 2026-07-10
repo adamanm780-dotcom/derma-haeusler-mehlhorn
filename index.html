@@ -240,6 +240,23 @@
       border-radius: 4px;
     }
 
+    /* Skip-Link für Tastatur-/Screenreader-Nutzer */
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -60px;
+      z-index: 2000;
+      background: var(--teal-deep);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      text-decoration: none;
+      box-shadow: var(--shadow-md);
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus { top: 12px; }
+
     /* Taktiles Press-Feedback auf allen Buttons */
     .btn:active {
       transform: translateY(0) scale(0.985);
@@ -2963,6 +2980,8 @@
 </head>
 <body>
 
+  <a href="#hauptinhalt" class="skip-link">Zum Inhalt springen</a>
+
   <!-- ============ LOADING SCREEN ============ -->
   <div class="loading-screen" id="loadingScreen" role="status" aria-label="Seite wird geladen">
     <div class="loading-inner">
@@ -3104,6 +3123,7 @@
   </div>
 
   <!-- ============ HERO ============ -->
+  <main id="hauptinhalt">
   <section class="hero">
     <div class="hero__slideshow" aria-hidden="true">
       <video class="hero__video" id="heroVideo" autoplay muted loop playsinline
@@ -3150,7 +3170,7 @@
 
         <!-- Card 1: Botulinumtoxin -->
         <div class="treatment-card reveal reveal-delay-1">
-          <img src="treatments/card-botox.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
+          <img src="treatments/card-botox.webp" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__scrim" aria-hidden="true"></div>
           <h3 class="treatment-card__title">Botulinumtoxin</h3>
           <p class="treatment-card__desc">Gezielte Faltenreduktion für Zornesfalte, Augen und Mundwinkel. Sanfte, natürliche Ergebnisse nach wenigen Tagen.</p>
@@ -3162,7 +3182,7 @@
 
         <!-- Card 2: Filler -->
         <div class="treatment-card reveal reveal-delay-2">
-          <img src="treatments/card-filler.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
+          <img src="treatments/card-filler.webp" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__scrim" aria-hidden="true"></div>
           <h3 class="treatment-card__title">Filler</h3>
           <p class="treatment-card__desc">Hyaluronsäure-Filler für Wangen, Lippen und Jawline. Natürlicher Volumenaufbau und Verjüngung – Ergebnisse bis zu 9 Monate.</p>
@@ -3174,7 +3194,7 @@
 
         <!-- Card 3: Lasertherapie -->
         <div class="treatment-card reveal reveal-delay-3">
-          <img src="treatments/card-laser.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
+          <img src="treatments/card-laser.webp" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__scrim" aria-hidden="true"></div>
           <h3 class="treatment-card__title">Lasertherapie</h3>
           <p class="treatment-card__desc">Premium ALMA Diodenlaser für Pigmentflecken, Rosacea und Pigmentstörungen – präzise und schonend.</p>
@@ -3186,7 +3206,7 @@
 
         <!-- Card 4: Operationen -->
         <div class="treatment-card reveal reveal-delay-1">
-          <img src="treatments/card-operationen.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
+          <img src="treatments/card-operationen.webp" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__scrim" aria-hidden="true"></div>
           <h3 class="treatment-card__title">Operationen</h3>
           <p class="treatment-card__desc">Schonende Entfernung von Muttermalen und atypischen Hautveränderungen unter Lokalanästhesie – minimal-invasiv und sicher.</p>
@@ -3197,7 +3217,7 @@
 
         <!-- Card 5: Haarentfernung -->
         <div class="treatment-card reveal reveal-delay-2">
-          <img src="treatments/card-haarentfernung.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
+          <img src="treatments/card-haarentfernung.webp" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__scrim" aria-hidden="true"></div>
           <h3 class="treatment-card__title">Haarentfernung</h3>
           <p class="treatment-card__desc">Dauerhafte Haarentfernung mit ALMA Diodenlaser – effektive Ergebnisse für Körper und Gesicht.</p>
@@ -3208,7 +3228,7 @@
 
         <!-- Card 6: Besenreiser -->
         <div class="treatment-card reveal reveal-delay-3">
-          <img src="treatments/card-besenreiser.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
+          <img src="treatments/card-besenreiser.webp" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__scrim" aria-hidden="true"></div>
           <h3 class="treatment-card__title">Besenreiser</h3>
           <p class="treatment-card__desc">Gezielte Verödung oder Lasertherapie zur Behandlung unschöner Besenreiser – für ein gleichmäßiges, klares Hautbild.</p>
@@ -3219,7 +3239,7 @@
 
         <!-- Card 7: Tattooentfernung -->
         <div class="treatment-card reveal reveal-delay-1">
-          <img src="treatments/card-tattoo.jpg" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
+          <img src="treatments/card-tattoo.webp" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__scrim" aria-hidden="true"></div>
           <h3 class="treatment-card__title">Tattooentfernung / Cover-Up</h3>
           <p class="treatment-card__desc">Professionelle Tattooentfernung mittels modernster Lasertechnologie – auch als Vorbereitung für ein Cover-Up.</p>
@@ -3376,7 +3396,7 @@
 
         <div class="praxis-building__card-wrapper reveal">
           <div class="praxis-building__card" id="buildingCard">
-            <img src="praxis-leipziger-strasse.jpg" alt="Praxisgebäude Dermatologen Häusler-Mehlhorn, Leipziger Straße 137, Chemnitz" loading="lazy">
+            <img src="praxis-leipziger-strasse.webp" alt="Praxisgebäude Dermatologen Häusler-Mehlhorn, Leipziger Straße 137, Chemnitz" loading="lazy">
             <!-- Beige Marker auf dem Dachgeschoss – Position via CSS .praxis-building__attic-marker (top/left/width/height) feinjustieren -->
             <div class="praxis-building__attic-marker" aria-hidden="true"></div>
             <div class="praxis-building__card-badge">Unsere Praxis</div>
@@ -3420,7 +3440,7 @@
         <div class="technology__visual reveal">
           <div class="technology__card">
             <div class="technology__static-visual" aria-label="ALMA Harmony XL PRO">
-              <img src="harmony-360/frame_0000.png" alt="ALMA Harmony XL PRO Diodenlaser" style="width:100%; height:auto; display:block;">
+              <img src="harmony-360/frame_0000.webp" alt="ALMA Harmony XL PRO Diodenlaser" style="width:100%; height:auto; display:block;">
             </div>
             <span class="technology__card-badge">
               Premium-Klasse
@@ -3473,9 +3493,9 @@
 
         <div class="reveal">
           <div class="ba-slider" data-ba-slider>
-            <img src="ba/tattoo-vorher.jpg" alt="Vorher – Tattoo-Entfernung" class="ba-slider__img" loading="lazy">
+            <img src="ba/tattoo-vorher.webp" alt="Vorher – Tattoo-Entfernung" class="ba-slider__img" loading="lazy">
             <div class="ba-slider__after-wrap">
-              <img src="ba/tattoo-nachher.jpg" alt="Nachher – Tattoo-Entfernung" class="ba-slider__img" loading="lazy">
+              <img src="ba/tattoo-nachher.webp" alt="Nachher – Tattoo-Entfernung" class="ba-slider__img" loading="lazy">
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
@@ -3493,9 +3513,9 @@
 
         <div class="reveal reveal-delay-1">
           <div class="ba-slider" data-ba-slider>
-            <img src="ba/besenreiser-vorher.jpg" alt="Vorher – Besenreiser-Behandlung" class="ba-slider__img" loading="lazy">
+            <img src="ba/besenreiser-vorher.webp" alt="Vorher – Besenreiser-Behandlung" class="ba-slider__img" loading="lazy">
             <div class="ba-slider__after-wrap">
-              <img src="ba/besenreiser-nachher.jpg" alt="Nachher – Besenreiser-Behandlung" class="ba-slider__img" loading="lazy">
+              <img src="ba/besenreiser-nachher.webp" alt="Nachher – Besenreiser-Behandlung" class="ba-slider__img" loading="lazy">
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
@@ -3513,9 +3533,9 @@
 
         <div class="reveal reveal-delay-2">
           <div class="ba-slider" data-ba-slider>
-            <img src="ba/alterswarzen-vorher.jpg" alt="Vorher – Alterswarzen-Entfernung" class="ba-slider__img" loading="lazy">
+            <img src="ba/alterswarzen-vorher.webp" alt="Vorher – Alterswarzen-Entfernung" class="ba-slider__img" loading="lazy">
             <div class="ba-slider__after-wrap">
-              <img src="ba/alterswarzen-nachher.jpg" alt="Nachher – Alterswarzen-Entfernung" class="ba-slider__img" loading="lazy">
+              <img src="ba/alterswarzen-nachher.webp" alt="Nachher – Alterswarzen-Entfernung" class="ba-slider__img" loading="lazy">
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
@@ -3533,9 +3553,9 @@
 
         <div class="reveal reveal-delay-3">
           <div class="ba-slider" data-ba-slider>
-            <img src="ba/aknenarben-vorher.jpg" alt="Vorher – Aknenarben-Behandlung" class="ba-slider__img" loading="lazy">
+            <img src="ba/aknenarben-vorher.webp" alt="Vorher – Aknenarben-Behandlung" class="ba-slider__img" loading="lazy">
             <div class="ba-slider__after-wrap">
-              <img src="ba/aknenarben-nachher.jpg" alt="Nachher – Aknenarben-Behandlung" class="ba-slider__img" loading="lazy">
+              <img src="ba/aknenarben-nachher.webp" alt="Nachher – Aknenarben-Behandlung" class="ba-slider__img" loading="lazy">
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
@@ -3553,9 +3573,9 @@
 
         <div class="reveal">
           <div class="ba-slider" data-ba-slider>
-            <img src="ba/narben-vorher.jpg" alt="Vorher – Narbenbehandlung" class="ba-slider__img" loading="lazy">
+            <img src="ba/narben-vorher.webp" alt="Vorher – Narbenbehandlung" class="ba-slider__img" loading="lazy">
             <div class="ba-slider__after-wrap">
-              <img src="ba/narben-nachher.jpg" alt="Nachher – Narbenbehandlung" class="ba-slider__img" loading="lazy">
+              <img src="ba/narben-nachher.webp" alt="Nachher – Narbenbehandlung" class="ba-slider__img" loading="lazy">
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
@@ -3573,9 +3593,9 @@
 
         <div class="reveal reveal-delay-1">
           <div class="ba-slider" data-ba-slider>
-            <img src="ba/haarentfernung-vorher.jpg" alt="Vorher – Haarentfernung" class="ba-slider__img" loading="lazy">
+            <img src="ba/haarentfernung-vorher.webp" alt="Vorher – Haarentfernung" class="ba-slider__img" loading="lazy">
             <div class="ba-slider__after-wrap">
-              <img src="ba/haarentfernung-nachher.jpg" alt="Nachher – Haarentfernung" class="ba-slider__img" loading="lazy">
+              <img src="ba/haarentfernung-nachher.webp" alt="Nachher – Haarentfernung" class="ba-slider__img" loading="lazy">
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
@@ -3792,6 +3812,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
