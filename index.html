@@ -1125,9 +1125,17 @@
 
     @media (max-width: 768px) {
       .hero__arch {
-        width: 92%;
-        padding: var(--space-6) var(--space-5) var(--space-6);
-        border-radius: 42% 42% 0 0 / 22% 22% 0 0;
+        width: 94%;
+        padding: var(--space-5) var(--space-5) var(--space-5);
+        border-radius: 40% 40% 0 0 / 15% 15% 0 0;
+      }
+      .hero__title { font-size: clamp(38px, 11vw, 54px); margin-bottom: var(--space-2); }
+      .hero__subtitle { font-size: 14px; margin-bottom: 0; max-width: 100%; }
+      /* Auf dem Hochformat-Handy das Video so verschieben, dass die
+         Laserbehandlung (Arm) frei über der Titel-Box sichtbar bleibt */
+      .hero__video {
+        animation: none;
+        transform: scale(1.5) translateY(-17%);
       }
     }
 
