@@ -2,13 +2,13 @@
    – Markendesign wie die Startseite (Fraunces + warme Beige-Palette) */
 @font-face {
   font-family: 'Fraunces';
-  src: url('../fonts/fraunces-var.woff2') format('woff2-variations');
-  font-weight: 100 900; font-style: normal; font-display: swap;
+  src: url('../fonts/fraunces-sub.woff2') format('woff2-variations');
+  font-weight: 360 700; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: 'Fraunces';
-  src: url('../fonts/fraunces-italic-var.woff2') format('woff2-variations');
-  font-weight: 100 900; font-style: italic; font-display: swap;
+  src: url('../fonts/fraunces-italic-sub.woff2') format('woff2-variations');
+  font-weight: 360 700; font-style: italic; font-display: swap;
 }
 :root {
   --teal-deep:#8B6F47; --teal:#B89773; --teal-light:#D4B896; --teal-mist:#EBDDC8;

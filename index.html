@@ -865,6 +865,21 @@
       color: var(--teal-deep);
     }
 
+    .nav__mobile-sub {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-3);
+      margin-top: calc(-1 * var(--space-3));
+    }
+
+    .nav__mobile-menu .nav__mobile-sub a {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--gray-500);
+    }
+
     .nav__mobile-social {
       display: flex;
       gap: var(--space-4);
@@ -3067,17 +3082,18 @@
                 <div>
                   <div class="nav__dropdown-title">Laser & Haut</div>
                   <div class="nav__dropdown-group">
-                    <a href="#treatments" class="nav__dropdown-link">Lasertherapie<small>ALMA Harmony XL PRO</small></a>
-                    <a href="#treatments" class="nav__dropdown-link">Haarentfernung<small>Dauerhaft & sanft</small></a>
-                    <a href="#treatments" class="nav__dropdown-link">Pigmentflecken<small>Gleichmäßiger Teint</small></a>
+                    <a href="laser-pigmentflecken-chemnitz.html" class="nav__dropdown-link">Pigmentflecken lasern<small>Gleichmäßiger Teint</small></a>
+                    <a href="dauerhafte-haarentfernung-chemnitz.html" class="nav__dropdown-link">Dauerhafte Haarentfernung<small>Premium Diodenlaser</small></a>
+                    <a href="laser-tattooentfernung-chemnitz.html" class="nav__dropdown-link">Tattooentfernung<small>Modernste Lasertechnik</small></a>
+                    <a href="besenreiser-entfernen-chemnitz.html" class="nav__dropdown-link">Besenreiser entfernen<small>Schonende Lasertherapie</small></a>
                   </div>
                 </div>
                 <div>
                   <div class="nav__dropdown-title">Ästhetik</div>
                   <div class="nav__dropdown-group">
+                    <a href="botox-faltenbehandlung-chemnitz.html" class="nav__dropdown-link">Botox / Faltenbehandlung<small>Mimische Fältchen</small></a>
+                    <a href="hyaluron-filler-chemnitz.html" class="nav__dropdown-link">Hyaluron / Filler<small>Volumen & Konturen</small></a>
                     <a href="#treatments" class="nav__dropdown-link">Ästhetische Operationen<small>Individuell geplant</small></a>
-                    <a href="#treatments" class="nav__dropdown-link">Botulinumtoxin<small>Mimische Fältchen</small></a>
-                    <a href="#treatments" class="nav__dropdown-link">Hyaluronsäure<small>Volumen & Konturen</small></a>
                   </div>
                 </div>
                 <div>
@@ -3149,6 +3165,14 @@
   <!-- Mobile Menu -->
   <div class="nav__mobile-menu" id="mobileMenu">
     <a href="#treatments" onclick="closeMobileMenu()">Unsere Angebote</a>
+    <div class="nav__mobile-sub">
+      <a href="laser-pigmentflecken-chemnitz.html">Pigmentflecken lasern</a>
+      <a href="dauerhafte-haarentfernung-chemnitz.html">Dauerhafte Haarentfernung</a>
+      <a href="laser-tattooentfernung-chemnitz.html">Tattooentfernung</a>
+      <a href="besenreiser-entfernen-chemnitz.html">Besenreiser entfernen</a>
+      <a href="botox-faltenbehandlung-chemnitz.html">Botox / Faltenbehandlung</a>
+      <a href="hyaluron-filler-chemnitz.html">Hyaluron / Filler</a>
+    </div>
     <a href="#philosophy" onclick="closeMobileMenu()">Entdecken</a>
     <a href="#technology" onclick="closeMobileMenu()">Technologie</a>
     <a href="#testimonials" onclick="closeMobileMenu()">Stimmen</a>
