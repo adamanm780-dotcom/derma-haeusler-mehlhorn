@@ -66,9 +66,33 @@
       </a>
       <div class="header-cta">
         <a href="https://www.docvisit.de/kalender/hautarzt-chemnitz/list" target="_blank" rel="noopener" class="btn btn--primary">Termin vereinbaren</a>
+        <button class="nav-toggle" type="button" aria-label="Menü öffnen" aria-controls="siteMenu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
       </div>
     </div>
   </header>
+
+  <nav class="site-menu" id="siteMenu" aria-label="Hauptmenü">
+    <button class="site-menu__close" type="button" aria-label="Menü schließen"></button>
+    <div class="site-menu__inner">
+      <a class="site-menu__home" href="index.html">← Zur Startseite</a>
+      <div class="site-menu__group-title">Behandlungen</div>
+      <a href="botox-faltenbehandlung-chemnitz.html">Botox / Faltenbehandlung</a>
+      <a href="hyaluron-filler-chemnitz.html">Hyaluron / Filler</a>
+      <a href="laser-pigmentflecken-chemnitz.html">Pigmentflecken lasern</a>
+      <a href="dauerhafte-haarentfernung-chemnitz.html">Dauerhafte Haarentfernung</a>
+      <a href="besenreiser-entfernen-chemnitz.html">Besenreiser entfernen</a>
+      <a href="laser-tattooentfernung-chemnitz.html">Tattooentfernung</a>
+      <div class="site-menu__group-title">Ratgeber</div>
+      <a href="ratgeber-botox-chemnitz.html">Botox: Ablauf, Kosten &amp; Wirkung</a>
+      <a href="ratgeber-haarentfernung-chemnitz.html">Haarentfernung: Ablauf &amp; Kosten</a>
+      <div class="site-menu__group-title">Service</div>
+      <a href="https://www.docvisit.de/kalender/hautarzt-chemnitz/list" target="_blank" rel="noopener">Termin online buchen</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+  </nav>
 
   <main id="hauptinhalt">
     <section class="thero">
@@ -193,5 +217,18 @@
       <span><a href="index.html">Startseite</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></span>
     </div>
   </footer>
+  <script>
+    (function(){
+      var t=document.querySelector('.nav-toggle'),m=document.getElementById('siteMenu');
+      if(!t||!m)return;
+      var c=m.querySelector('.site-menu__close');
+      function openM(){m.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
+      function closeM(){m.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';}
+      t.addEventListener('click',openM);
+      if(c)c.addEventListener('click',closeM);
+      m.addEventListener('click',function(e){if(e.target===m)closeM();});
+      document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
+    })();
+  </script>
 </body>
 </html>
