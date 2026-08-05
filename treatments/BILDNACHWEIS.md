@@ -34,11 +34,19 @@ aber nicht in dieser Praxis aufgenommen wurden.
 | `einblick-besenreiser.webp` | besenreiser-entfernen-chemnitz | https://www.pexels.com/photo/36930734/ |
 | `einblick-tattoo.webp` | laser-tattooentfernung-chemnitz | https://www.pexels.com/photo/12556702/ |
 
-## Praxisgebäude
+## Praxis-Aufnahmen (echte Fotos des Kunden)
 
-`praxis-leipziger-strasse.webp` ist seit 05.08.2026 ein **echtes Foto**
-des Gebäudes Leipziger Straße 137 (Quelle: Kunde, Datei „melhorni 3"),
-kein KI-Bild mehr – daher ohne Kennzeichnung.
+Alle drei stammen vom Kunden, zeigen die tatsächliche Praxis und sind
+daher **nicht** kennzeichnungspflichtig.
+
+| Datei | Motiv | Quelldatei |
+|---|---|---|
+| `praxis-leipziger-strasse.webp` | Gebäude Leipziger Straße 137, Außenansicht | „melhorni 3" |
+| `praxis-innen-1.webp` | Flur im Dachgeschoss mit Schrägfenstern und Moosbild | „nn1" |
+| `praxis-innen-2.webp` | Wartebereich mit Lounge-Sessel und Lamellenwand | „nn2" |
+
+Bearbeitung: Zuschnitt auf 3:2, 1200 × 800 px (Gebäude 1536 × 1024),
+WebP q84.
 
 ## Auswahlkriterien
 
