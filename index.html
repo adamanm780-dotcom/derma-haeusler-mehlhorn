@@ -1320,7 +1320,7 @@
     .treatment-card:hover .treatment-card__bg { opacity: 0; }
 
     /* Lift card content (title, desc, meta) above the image + scrim */
-    .treatment-card > *:not(.treatment-card__bg):not(.treatment-card__scrim) { position: relative; z-index: 2; }
+    .treatment-card > *:not(.treatment-card__bg):not(.treatment-card__scrim):not(.ai-badge) { position: relative; z-index: 2; }
 
     .treatment-card__title {
       font-family: var(--font-display);
@@ -1951,22 +1951,73 @@
       color: var(--white);
     }
 
-    .ba-slider__badge {
+    /* ========================================
+       KI-TRANSPARENZ — Art. 50 VO (EU) 2024/1689
+       Die Kennzeichnung sitzt IM Medium (nicht als Bildunterschrift),
+       damit sie bei erster Wahrnehmung des Inhalts sichtbar ist.
+       ======================================== */
+    .ai-badge {
       position: absolute;
-      bottom: var(--space-3);
-      right: var(--space-3);
-      padding: 4px 10px;
-      font-size: 10px;
-      letter-spacing: 0.08em;
+      left: var(--space-4);
+      bottom: var(--space-4);
+      z-index: 6;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 13px;
+      border-radius: var(--radius-full);
+      background: rgba(20, 15, 8, 0.78);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      font-weight: 600;
-      border-radius: 999px;
-      background: rgba(37, 30, 19, 0.62);
-      color: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 3;
+      line-height: 1;
+      white-space: nowrap;
       pointer-events: none;
+    }
+
+    .ai-badge svg { width: 13px; height: 13px; flex: none; }
+
+    /* oben rechts (Behandlungskarten, Praxisgebäude, Hero) */
+    .ai-badge--corner {
+      left: auto; bottom: auto;
+      top: var(--space-4); right: var(--space-4);
+      padding: 5px 10px;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+    }
+
+    /* unten rechts (Vorher-Nachher-Slider: hält den "Vorher"-Chip frei) */
+    .ai-badge--br { left: auto; right: var(--space-4); }
+
+    /* Hero: über dem Scrim, aber unter der Headline */
+    .hero .ai-badge { z-index: 3; }
+
+    /* 3D-Tilt-Karte: Badge auf die Ebene des übrigen Overlays heben */
+    .praxis-building__card .ai-badge {
+      top: var(--space-5);
+      right: var(--space-5);
+      transform: translateZ(60px);
+    }
+
+    /* Karten-Bild blendet beim Hover aus → Kennzeichnung blendet mit aus */
+    .treatment-card .ai-badge { transition: opacity 300ms var(--ease-out); }
+    .treatment-card:hover .ai-badge { opacity: 0; }
+
+    @media (max-width: 600px) {
+      .ai-badge {
+        font-size: 10px;
+        padding: 6px 11px;
+        letter-spacing: 0.08em;
+        white-space: normal;
+        line-height: 1.35;
+        max-width: calc(100% - 2 * var(--space-4));
+        align-items: flex-start;
+      }
     }
 
     .results__disclaimer {
@@ -2647,6 +2698,16 @@
       color: var(--teal-light);
     }
 
+    .footer__ai-note {
+      margin-top: var(--space-7);
+      padding-top: var(--space-5);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      max-width: 780px;
+      font-size: 12px;
+      line-height: 1.65;
+      color: var(--gray-500);
+    }
+
     .footer__bottom {
       padding-top: var(--space-6);
       border-top: 1px solid rgba(255,255,255,0.06);
@@ -3221,6 +3282,10 @@
       </video>
     </div>
     <div class="hero__overlay" aria-hidden="true"></div>
+    <span class="ai-badge ai-badge--corner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
+      KI-generiertes Video
+    </span>
     <div class="hero__inner">
 
       <div class="hero__arch">
@@ -3261,6 +3326,10 @@
         <div class="treatment-card reveal reveal-delay-1">
           <img src="treatments/card-botox.webp" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__scrim" aria-hidden="true"></div>
+          <span class="ai-badge ai-badge--corner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
+            KI-generiert
+          </span>
           <h3 class="treatment-card__title">Botulinumtoxin</h3>
           <p class="treatment-card__desc">Gezielte Faltenreduktion für Zornesfalte, Augen und Mundwinkel. Sanfte, natürliche Ergebnisse nach wenigen Tagen.</p>
           <div class="treatment-card__meta">
@@ -3274,6 +3343,10 @@
         <div class="treatment-card reveal reveal-delay-2">
           <img src="treatments/card-filler.webp" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__scrim" aria-hidden="true"></div>
+          <span class="ai-badge ai-badge--corner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
+            KI-generiert
+          </span>
           <h3 class="treatment-card__title">Filler</h3>
           <p class="treatment-card__desc">Hyaluronsäure-Filler für Wangen, Lippen und Jawline. Natürlicher Volumenaufbau und Verjüngung – Ergebnisse bis zu 9 Monate.</p>
           <div class="treatment-card__meta">
@@ -3287,6 +3360,10 @@
         <div class="treatment-card reveal reveal-delay-3">
           <img src="treatments/card-laser.webp" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__scrim" aria-hidden="true"></div>
+          <span class="ai-badge ai-badge--corner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
+            KI-generiert
+          </span>
           <h3 class="treatment-card__title">Lasertherapie</h3>
           <p class="treatment-card__desc">Premium ALMA Diodenlaser für Pigmentflecken, Rosacea und Pigmentstörungen – präzise und schonend.</p>
           <div class="treatment-card__meta">
@@ -3300,6 +3377,10 @@
         <div class="treatment-card reveal reveal-delay-1">
           <img src="treatments/card-operationen.webp" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__scrim" aria-hidden="true"></div>
+          <span class="ai-badge ai-badge--corner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
+            KI-generiert
+          </span>
           <h3 class="treatment-card__title">Operationen</h3>
           <p class="treatment-card__desc">Schonende Entfernung von Muttermalen und atypischen Hautveränderungen unter Lokalanästhesie – minimal-invasiv und sicher.</p>
           <div class="treatment-card__meta">
@@ -3311,6 +3392,10 @@
         <div class="treatment-card reveal reveal-delay-2">
           <img src="treatments/card-haarentfernung.webp" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__scrim" aria-hidden="true"></div>
+          <span class="ai-badge ai-badge--corner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
+            KI-generiert
+          </span>
           <h3 class="treatment-card__title">Haarentfernung</h3>
           <p class="treatment-card__desc">Dauerhafte Haarentfernung mit ALMA Diodenlaser – effektive Ergebnisse für Körper und Gesicht.</p>
           <div class="treatment-card__meta">
@@ -3323,6 +3408,10 @@
         <div class="treatment-card reveal reveal-delay-3">
           <img src="treatments/card-besenreiser.webp" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__scrim" aria-hidden="true"></div>
+          <span class="ai-badge ai-badge--corner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
+            KI-generiert
+          </span>
           <h3 class="treatment-card__title">Besenreiser</h3>
           <p class="treatment-card__desc">Gezielte Verödung oder Lasertherapie zur Behandlung unschöner Besenreiser – für ein gleichmäßiges, klares Hautbild.</p>
           <div class="treatment-card__meta">
@@ -3335,6 +3424,10 @@
         <div class="treatment-card reveal reveal-delay-1">
           <img src="treatments/card-tattoo.webp" alt="" class="treatment-card__bg" loading="lazy" aria-hidden="true">
           <div class="treatment-card__scrim" aria-hidden="true"></div>
+          <span class="ai-badge ai-badge--corner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
+            KI-generiert
+          </span>
           <h3 class="treatment-card__title">Tattooentfernung / Cover-Up</h3>
           <p class="treatment-card__desc">Professionelle Tattooentfernung mittels modernster Lasertechnologie – auch als Vorbereitung für ein Cover-Up.</p>
           <div class="treatment-card__meta">
@@ -3491,10 +3584,14 @@
 
         <div class="praxis-building__card-wrapper reveal">
           <div class="praxis-building__card" id="buildingCard">
-            <img src="praxis-leipziger-strasse.webp" alt="Praxisgebäude Dermatologen Häusler-Mehlhorn, Leipziger Straße 137, Chemnitz" loading="lazy">
+            <img src="praxis-leipziger-strasse.webp" alt="KI-generierte Darstellung des Praxisgebäudes, Leipziger Straße 137, Chemnitz" loading="lazy">
             <!-- Beige Marker auf dem Dachgeschoss – Position via CSS .praxis-building__attic-marker (top/left/width/height) feinjustieren -->
             <div class="praxis-building__attic-marker" aria-hidden="true"></div>
             <div class="praxis-building__card-badge">Unsere Praxis</div>
+            <span class="ai-badge ai-badge--corner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
+              KI-generierte Darstellung
+            </span>
             <div class="praxis-building__card-overlay">
               <h4>Leipziger Straße 137</h4>
               <p>09113 Chemnitz</p>
@@ -3588,13 +3685,16 @@
 
         <div class="reveal">
           <div class="ba-slider" data-ba-slider>
-            <img src="ba/tattoo-vorher.webp" alt="Vorher – Tattoo-Entfernung" class="ba-slider__img" loading="lazy">
+            <img src="ba/tattoo-vorher.webp" alt="KI-generierte Beispielillustration – Tattoo-Entfernung, Zustand vorher" class="ba-slider__img" loading="lazy">
             <div class="ba-slider__after-wrap">
-              <img src="ba/tattoo-nachher.webp" alt="Nachher – Tattoo-Entfernung" class="ba-slider__img" loading="lazy">
+              <img src="ba/tattoo-nachher.webp" alt="KI-generierte Beispielillustration – Tattoo-Entfernung, Zustand nachher" class="ba-slider__img" loading="lazy">
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
-            <span class="ba-slider__badge">Beispielbild</span>
+            <span class="ai-badge ai-badge--br">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
+              KI-generiert · kein echtes Ergebnis
+            </span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
@@ -3602,19 +3702,22 @@
           </div>
           <div class="ba-slider__caption">
             <div class="ba-slider__caption-title">Tattoo-Entfernung · Unterarm</div>
-            <div class="ba-slider__caption-desc">Laser · Reine Haut ohne Tattoo</div>
+            <div class="ba-slider__caption-desc">Laser · Behandlungsziel: Aufhellung des Pigments</div>
           </div>
         </div>
 
         <div class="reveal reveal-delay-1">
           <div class="ba-slider" data-ba-slider>
-            <img src="ba/besenreiser-vorher.webp" alt="Vorher – Besenreiser-Behandlung" class="ba-slider__img" loading="lazy">
+            <img src="ba/besenreiser-vorher.webp" alt="KI-generierte Beispielillustration – Besenreiser-Behandlung, Zustand vorher" class="ba-slider__img" loading="lazy">
             <div class="ba-slider__after-wrap">
-              <img src="ba/besenreiser-nachher.webp" alt="Nachher – Besenreiser-Behandlung" class="ba-slider__img" loading="lazy">
+              <img src="ba/besenreiser-nachher.webp" alt="KI-generierte Beispielillustration – Besenreiser-Behandlung, Zustand nachher" class="ba-slider__img" loading="lazy">
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
-            <span class="ba-slider__badge">Beispielbild</span>
+            <span class="ai-badge ai-badge--br">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
+              KI-generiert · kein echtes Ergebnis
+            </span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
@@ -3622,19 +3725,22 @@
           </div>
           <div class="ba-slider__caption">
             <div class="ba-slider__caption-title">Besenreiser · Bein</div>
-            <div class="ba-slider__caption-desc">Laser &amp; Verödung · Klareres Hautbild</div>
+            <div class="ba-slider__caption-desc">Laser &amp; Verödung · Behandlungsziel: gleichmäßigeres Hautbild</div>
           </div>
         </div>
 
         <div class="reveal reveal-delay-2">
           <div class="ba-slider" data-ba-slider>
-            <img src="ba/alterswarzen-vorher.webp" alt="Vorher – Alterswarzen-Entfernung" class="ba-slider__img" loading="lazy">
+            <img src="ba/alterswarzen-vorher.webp" alt="KI-generierte Beispielillustration – Alterswarzen-Entfernung, Zustand vorher" class="ba-slider__img" loading="lazy">
             <div class="ba-slider__after-wrap">
-              <img src="ba/alterswarzen-nachher.webp" alt="Nachher – Alterswarzen-Entfernung" class="ba-slider__img" loading="lazy">
+              <img src="ba/alterswarzen-nachher.webp" alt="KI-generierte Beispielillustration – Alterswarzen-Entfernung, Zustand nachher" class="ba-slider__img" loading="lazy">
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
-            <span class="ba-slider__badge">Beispielbild</span>
+            <span class="ai-badge ai-badge--br">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
+              KI-generiert · kein echtes Ergebnis
+            </span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
@@ -3642,19 +3748,22 @@
           </div>
           <div class="ba-slider__caption">
             <div class="ba-slider__caption-title">Alterswarzen · Hand</div>
-            <div class="ba-slider__caption-desc">Laser · Glatte, ebenmäßige Haut</div>
+            <div class="ba-slider__caption-desc">Laser · Behandlungsziel: Abtragung der Hautveränderung</div>
           </div>
         </div>
 
         <div class="reveal reveal-delay-3">
           <div class="ba-slider" data-ba-slider>
-            <img src="ba/aknenarben-vorher.webp" alt="Vorher – Aknenarben-Behandlung" class="ba-slider__img" loading="lazy">
+            <img src="ba/aknenarben-vorher.webp" alt="KI-generierte Beispielillustration – Aknenarben-Behandlung, Zustand vorher" class="ba-slider__img" loading="lazy">
             <div class="ba-slider__after-wrap">
-              <img src="ba/aknenarben-nachher.webp" alt="Nachher – Aknenarben-Behandlung" class="ba-slider__img" loading="lazy">
+              <img src="ba/aknenarben-nachher.webp" alt="KI-generierte Beispielillustration – Aknenarben-Behandlung, Zustand nachher" class="ba-slider__img" loading="lazy">
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
-            <span class="ba-slider__badge">Beispielbild</span>
+            <span class="ai-badge ai-badge--br">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
+              KI-generiert · kein echtes Ergebnis
+            </span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
@@ -3662,19 +3771,22 @@
           </div>
           <div class="ba-slider__caption">
             <div class="ba-slider__caption-title">Aknenarben · Wange</div>
-            <div class="ba-slider__caption-desc">Laser · Sichtbar glatteres Hautbild</div>
+            <div class="ba-slider__caption-desc">Laser · Behandlungsziel: Glättung des Narbenreliefs</div>
           </div>
         </div>
 
         <div class="reveal">
           <div class="ba-slider" data-ba-slider>
-            <img src="ba/narben-vorher.webp" alt="Vorher – Narbenbehandlung" class="ba-slider__img" loading="lazy">
+            <img src="ba/narben-vorher.webp" alt="KI-generierte Beispielillustration – Narbenbehandlung, Zustand vorher" class="ba-slider__img" loading="lazy">
             <div class="ba-slider__after-wrap">
-              <img src="ba/narben-nachher.webp" alt="Nachher – Narbenbehandlung" class="ba-slider__img" loading="lazy">
+              <img src="ba/narben-nachher.webp" alt="KI-generierte Beispielillustration – Narbenbehandlung, Zustand nachher" class="ba-slider__img" loading="lazy">
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
-            <span class="ba-slider__badge">Beispielbild</span>
+            <span class="ai-badge ai-badge--br">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
+              KI-generiert · kein echtes Ergebnis
+            </span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
@@ -3682,19 +3794,22 @@
           </div>
           <div class="ba-slider__caption">
             <div class="ba-slider__caption-title">Narben · Haut</div>
-            <div class="ba-slider__caption-desc">Laser · Blasser, flacher, zarter</div>
+            <div class="ba-slider__caption-desc">Laser · Behandlungsziel: Abflachung und Aufhellung</div>
           </div>
         </div>
 
         <div class="reveal reveal-delay-1">
           <div class="ba-slider" data-ba-slider>
-            <img src="ba/haarentfernung-vorher.webp" alt="Vorher – Haarentfernung" class="ba-slider__img" loading="lazy">
+            <img src="ba/haarentfernung-vorher.webp" alt="KI-generierte Beispielillustration – Haarentfernung, Zustand vorher" class="ba-slider__img" loading="lazy">
             <div class="ba-slider__after-wrap">
-              <img src="ba/haarentfernung-nachher.webp" alt="Nachher – Haarentfernung" class="ba-slider__img" loading="lazy">
+              <img src="ba/haarentfernung-nachher.webp" alt="KI-generierte Beispielillustration – Haarentfernung, Zustand nachher" class="ba-slider__img" loading="lazy">
             </div>
             <span class="ba-slider__label ba-slider__label--before">Vorher</span>
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
-            <span class="ba-slider__badge">Beispielbild</span>
+            <span class="ai-badge ai-badge--br">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
+              KI-generiert · kein echtes Ergebnis
+            </span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
@@ -3702,14 +3817,14 @@
           </div>
           <div class="ba-slider__caption">
             <div class="ba-slider__caption-title">Haarentfernung · Bein</div>
-            <div class="ba-slider__caption-desc">Laser · Dauerhaft glatte Haut</div>
+            <div class="ba-slider__caption-desc">Laser · Behandlungsziel: Reduktion des Haarwuchses</div>
           </div>
         </div>
 
       </div>
 
       <p class="results__hint">← Ziehen, um das Ergebnis zu enthüllen →</p>
-      <p class="results__disclaimer"><strong>Hinweis:</strong> Bei den gezeigten Vorher-Nachher-Darstellungen handelt es sich um illustrative Beispielbilder zur Veranschaulichung typischer Behandlungsziele – nicht um Fotografien realer Patientinnen und Patienten. Behandlungsergebnisse sind individuell verschieden; ein bestimmtes Ergebnis kann nicht zugesichert werden. Gern zeigen wir Ihnen im persönlichen Beratungsgespräch dokumentierte Fallbeispiele.</p>
+      <p class="results__disclaimer"><strong>Hinweis: mit künstlicher Intelligenz erzeugte Bilder.</strong> Sämtliche Vorher-Nachher-Darstellungen in diesem Abschnitt wurden mit KI generiert. Sie zeigen keine realen Patientinnen und Patienten und keine in unserer Praxis tatsächlich erzielten Behandlungsergebnisse, sondern veranschaulichen schematisch das jeweilige Behandlungsziel. Behandlungsergebnisse sind individuell verschieden; ein bestimmtes Ergebnis kann nicht zugesichert werden. Gern zeigen wir Ihnen im persönlichen Beratungsgespräch dokumentierte Fallbeispiele.</p>
     </div>
   </section>
 
@@ -3959,6 +4074,10 @@
           </ul>
         </div>
       </div>
+
+      <p class="footer__ai-note">
+        <strong>Transparenzhinweis zu KI-Inhalten</strong> (Art.&nbsp;50 der Verordnung (EU)&nbsp;2024/1689 – KI-Verordnung): Ein Teil der auf dieser Website verwendeten Bilder und Videos wurde mit künstlicher Intelligenz erzeugt. Diese Inhalte sind unmittelbar am jeweiligen Medium mit „KI-generiert“ gekennzeichnet. Sie zeigen keine realen Patientinnen und Patienten und keine tatsächlich erzielten Behandlungsergebnisse.
+      </p>
 
       <div class="footer__bottom">
         <p>&copy; 2026 Dermatologisches Laserzentrum Häusler-Mehlhorn. Alle Rechte vorbehalten. &middot; <a href="impressum.html">Impressum</a> &middot; <a href="datenschutz.html">Datenschutz</a></p>
