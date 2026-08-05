@@ -1964,31 +1964,28 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 7px 13px;
+      padding: 5px 10px;
       border-radius: var(--radius-full);
       background: rgba(20, 15, 8, 0.78);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       color: #fff;
       font-family: var(--font-body);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       line-height: 1;
       white-space: nowrap;
       pointer-events: none;
     }
 
-    .ai-badge svg { width: 13px; height: 13px; flex: none; }
+    .ai-badge svg { width: 11px; height: 11px; flex: none; }
 
     /* oben rechts (Behandlungskarten, Praxisgebäude, Hero) */
     .ai-badge--corner {
       left: auto; bottom: auto;
       top: var(--space-4); right: var(--space-4);
-      padding: 5px 10px;
-      font-size: 10px;
-      letter-spacing: 0.1em;
     }
 
     /* unten rechts (Vorher-Nachher-Slider: hält den "Vorher"-Chip frei) */
@@ -3556,14 +3553,12 @@
 
         <div class="praxis-building__card-wrapper reveal">
           <div class="praxis-building__card" id="buildingCard">
-            <img src="praxis-leipziger-strasse.webp" alt="KI-generierte Darstellung des Praxisgebäudes, Leipziger Straße 137, Chemnitz" loading="lazy">
-            <!-- Beige Marker auf dem Dachgeschoss – Position via CSS .praxis-building__attic-marker (top/left/width/height) feinjustieren -->
-            <div class="praxis-building__attic-marker" aria-hidden="true"></div>
+            <img src="praxis-leipziger-strasse.webp" alt="Praxisgebäude Dermatologen Häusler-Mehlhorn, Leipziger Straße 137, Chemnitz" loading="lazy">
+            <!-- Der beige Dachgeschoss-Marker (.praxis-building__attic-marker) war auf das frühere
+                 KI-Bild eingemessen und sitzt auf dem echten Foto falsch. CSS bleibt erhalten –
+                 zum Reaktivieren das div wieder einfügen und top/left/width/height neu justieren:
+                 <div class="praxis-building__attic-marker" aria-hidden="true"></div> -->
             <div class="praxis-building__card-badge">Unsere Praxis</div>
-            <span class="ai-badge ai-badge--corner">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
-              KI-generierte Darstellung
-            </span>
             <div class="praxis-building__card-overlay">
               <h4>Leipziger Straße 137</h4>
               <p>09113 Chemnitz</p>
@@ -3665,7 +3660,7 @@
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
             <span class="ai-badge ai-badge--br">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
-              KI-generiert · kein echtes Ergebnis
+              KI-generiert
             </span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">
@@ -3688,7 +3683,7 @@
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
             <span class="ai-badge ai-badge--br">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
-              KI-generiert · kein echtes Ergebnis
+              KI-generiert
             </span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">
@@ -3711,7 +3706,7 @@
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
             <span class="ai-badge ai-badge--br">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
-              KI-generiert · kein echtes Ergebnis
+              KI-generiert
             </span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">
@@ -3734,7 +3729,7 @@
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
             <span class="ai-badge ai-badge--br">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
-              KI-generiert · kein echtes Ergebnis
+              KI-generiert
             </span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">
@@ -3757,7 +3752,7 @@
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
             <span class="ai-badge ai-badge--br">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
-              KI-generiert · kein echtes Ergebnis
+              KI-generiert
             </span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">
@@ -3780,7 +3775,7 @@
             <span class="ba-slider__label ba-slider__label--after">Nachher</span>
             <span class="ai-badge ai-badge--br">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3z"/></svg>
-              KI-generiert · kein echtes Ergebnis
+              KI-generiert
             </span>
             <div class="ba-slider__divider"></div>
             <div class="ba-slider__handle">

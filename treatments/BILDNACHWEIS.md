@@ -18,6 +18,28 @@ Konvertierung nach WebP (Qualität 82).
 | `card-besenreiser.webp` | Laserbehandlung am Bein in der Praxis | https://www.pexels.com/photo/5069506/ |
 | `card-tattoo.webp` | Laser-Tattooentfernung (Nahaufnahme) | https://www.pexels.com/photo/16100096/ |
 
+## „Einblick"-Motive der Unterseiten (`treatments/einblick-*.webp`)
+
+Diese sechs Bilder haben die zuvor dort eingebundenen KI-Videos ersetzt.
+Ebenfalls Pexels-Lizenz, 16:9, 1440 × 810 px, WebP q82. Sie sind als
+**Symbolbild** ausgewiesen, weil sie eine vergleichbare Behandlung zeigen,
+aber nicht in dieser Praxis aufgenommen wurden.
+
+| Datei | Seite | Quelle |
+|---|---|---|
+| `einblick-botox.webp` | botox-faltenbehandlung-chemnitz | https://www.pexels.com/photo/34220539/ |
+| `einblick-filler.webp` | hyaluron-filler-chemnitz | https://www.pexels.com/photo/34775443/ |
+| `einblick-pigment.webp` | laser-pigmentflecken-chemnitz | https://www.pexels.com/photo/5069508/ |
+| `einblick-haarentfernung.webp` | dauerhafte-haarentfernung-chemnitz | https://www.pexels.com/photo/16032366/ |
+| `einblick-besenreiser.webp` | besenreiser-entfernen-chemnitz | https://www.pexels.com/photo/36930734/ |
+| `einblick-tattoo.webp` | laser-tattooentfernung-chemnitz | https://www.pexels.com/photo/12556702/ |
+
+## Praxisgebäude
+
+`praxis-leipziger-strasse.webp` ist seit 05.08.2026 ein **echtes Foto**
+des Gebäudes Leipziger Straße 137 (Quelle: Kunde, Datei „melhorni 3"),
+kein KI-Bild mehr – daher ohne Kennzeichnung.
+
 ## Auswahlkriterien
 
 Bewusst wurden Motive **ohne eindeutig identifizierbare Gesichter** gewählt
@@ -33,9 +55,8 @@ Probleme und den Anschein einer Herstellerempfehlung zu vermeiden.
 
 ## Weiterhin KI-generiert (gekennzeichnet)
 
-Nicht betroffen von diesem Austausch und weiterhin mit `KI-generiert`
-ausgezeichnet: Hero-Video (`hero.mp4`), Praxisgebäude
-(`praxis-leipziger-strasse.webp`), die sechs Vorher-Nachher-Slider (`ba/`)
-sowie die Videos und Bilder der Unterseiten.
+Weiterhin mit `KI-generiert` ausgezeichnet: das Hero-Video der Startseite
+(`hero.mp4`), die sechs Vorher-Nachher-Slider (`ba/`) sowie die Hero-Videos
+bzw. Hero-Bilder der Unterseiten (Higgsfield, via CloudFront).
 
 `harmony-360/` sind echte ALMA-Produktfotos von alma-lasers.de.
