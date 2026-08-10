@@ -865,15 +865,36 @@
       -webkit-backdrop-filter: blur(24px);
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: var(--space-6);
+      justify-content: flex-start;
+      gap: var(--space-5);
       opacity: 0;
+      /* Platz für die fixierte Kopfzeile, sonst laufen die obersten
+         Einträge unter Logo und Schließen-Button. */
+      padding: 92px 24px 40px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
       transition: opacity var(--duration-slow) var(--ease-out);
     }
 
     .nav__mobile-menu.open {
       display: flex;
       opacity: 1;
+    }
+
+    /* Vertikal zentriert, solange der Inhalt passt – über auto-Margins
+       statt justify-content: center, das bei zu vielen Einträgen oben
+       abschneidet statt scrollen zu lassen. */
+    .nav__mobile-menu.open > :first-child { margin-top: auto; }
+    .nav__mobile-menu.open > :last-child { margin-bottom: auto; }
+
+    /* Menü offen: Kopfzeile deckend, damit beim Scrollen keine
+       Menüpunkte hinter dem Logo durchscheinen. */
+    body.menu-open .nav {
+      padding: 12px 0;
+      background: rgba(250, 251, 252, 0.97);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
     }
 
     .nav__mobile-menu a {
@@ -930,6 +951,31 @@
     .nav__mobile-social svg {
       width: 22px;
       height: 22px;
+    }
+
+    /* Flache Displays: Schrift und Abstände zusammenziehen, damit das
+       Menü ohne Scrollen auf den Schirm passt. */
+    @media (max-height: 900px) {
+      .nav__mobile-menu {
+        gap: var(--space-4);
+        padding-top: 84px;
+      }
+      .nav__mobile-menu a { font-size: 22px; }
+      .nav__mobile-menu .nav__mobile-sub a { font-size: 15px; }
+      .nav__mobile-sub { gap: var(--space-2); }
+      .nav__mobile-social { margin-top: var(--space-3); }
+      .nav__mobile-social a { width: 42px; height: 42px; }
+    }
+
+    @media (max-height: 720px) {
+      .nav__mobile-menu {
+        gap: var(--space-3);
+        padding: 76px 24px 28px;
+      }
+      .nav__mobile-menu a { font-size: 19px; }
+      .nav__mobile-menu .nav__mobile-sub a { font-size: 14px; }
+      .nav__mobile-social a { width: 38px; height: 38px; }
+      .nav__mobile-social svg { width: 19px; height: 19px; }
     }
 
     /* ========================================
@@ -4177,6 +4223,7 @@
       mobileMenu.classList.toggle('open');
       mobileToggle.classList.toggle('open');
       mobileToggle.setAttribute('aria-expanded', !isOpen);
+      document.body.classList.toggle('menu-open', !isOpen);
       document.body.style.overflow = isOpen ? '' : 'hidden';
     });
 
@@ -4184,6 +4231,7 @@
       mobileMenu.classList.remove('open');
       mobileToggle.classList.remove('open');
       mobileToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
       document.body.style.overflow = '';
     }
 
