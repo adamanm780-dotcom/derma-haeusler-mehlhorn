@@ -791,6 +791,69 @@
       margin-left: var(--space-4);
     }
 
+    /* Reiter "Stellenangebote" – dezent hervorgehoben, damit er
+       zwischen den Behandlungs-Menüs nicht untergeht. */
+    .nav__jobs {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 15px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(139, 111, 71, 0.35);
+      background: var(--teal-whisper);
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--teal-deep);
+      white-space: nowrap;
+      transition: background var(--duration-fast) var(--ease-out),
+                  border-color var(--duration-fast) var(--ease-out),
+                  color var(--duration-fast) var(--ease-out);
+    }
+
+    .nav__jobs:hover {
+      background: var(--teal-deep);
+      border-color: var(--teal-deep);
+      color: var(--white);
+    }
+
+    .nav__jobs-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--teal-deep);
+      flex: none;
+      box-shadow: 0 0 0 3px rgba(139, 111, 71, 0.18);
+    }
+
+    .nav__jobs:hover .nav__jobs-dot {
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.28);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .nav__jobs-dot { animation: jobsPulse 2.6s var(--ease-in-out) infinite; }
+    }
+
+    @keyframes jobsPulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(139, 111, 71, 0.18); }
+      50%      { box-shadow: 0 0 0 6px rgba(139, 111, 71, 0.05); }
+    }
+
+    /* Mobiles Menü: Stellenangebote als eigener, hervorgehobener Eintrag */
+    .nav__mobile-menu a.nav__mobile-jobs {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--teal-deep);
+      background: var(--teal-whisper);
+      border: 1px solid rgba(139, 111, 71, 0.3);
+      border-radius: var(--radius-full);
+      padding: 11px 22px;
+    }
+
     .nav__social {
       display: flex;
       align-items: center;
@@ -3317,6 +3380,11 @@
             </div>
           </div>
 
+          <a href="stellenangebote.html" class="nav__jobs">
+            <span class="nav__jobs-dot" aria-hidden="true"></span>
+            Stellenangebote
+          </a>
+
           <div class="nav__social">
             <a href="https://www.instagram.com/dermatologen_haeusler_mehlhorn" target="_blank" rel="noopener" aria-label="Instagram">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -3338,6 +3406,10 @@
 
   <!-- Mobile Menu -->
   <div class="nav__mobile-menu" id="mobileMenu">
+    <a href="stellenangebote.html" class="nav__mobile-jobs">
+      <span class="nav__jobs-dot" aria-hidden="true"></span>
+      Stellenangebote
+    </a>
     <a href="#treatments" onclick="closeMobileMenu()">Unsere Angebote</a>
     <div class="nav__mobile-sub">
       <a href="hydrafacial-chemnitz.html">Medical Skincare &ndash; Hydrafacial&reg;</a>
@@ -4121,6 +4193,7 @@
             <li><a href="#technology">Technologie</a></li>
             <li><a href="#faq">Häufige Fragen</a></li>
             <li><a href="#contact">Kontakt</a></li>
+            <li><a href="stellenangebote.html">Stellenangebote</a></li>
           </ul>
         </div>
         <div class="footer__col">
@@ -4163,6 +4236,9 @@
   <!-- GSAP + Lenis (lokal gehostet – kein CDN-Request, DSGVO-sauber) -->
   <script src="js/gsap.min.js"></script>
   <script src="js/lenis.min.js"></script>
+
+  <!-- Eingangs-Popup "Stellenangebot Facharzt/Fachärztin" -->
+  <script src="js/stellen-popup.js" defer></script>
 
   <!-- ============ JAVASCRIPT ============ -->
   <script>
