@@ -139,19 +139,19 @@
           '</span>' +
           '<h2 class="jobpop__title" id="jobPopTitle">Facharzt / Fachärztin<br><em>für Dermatologie (m/w/d)</em></h2>' +
           '<div class="jobpop__meta">' +
-            '<span>Chemnitz</span><span>Voll- oder Teilzeit</span><span>zum nächstmöglichen Zeitpunkt</span>' +
+            '<span>Chemnitz</span><span>Voll- oder Teilzeit</span><span>3 – 6 Tage / Woche</span>' +
           '</div>' +
-          '<p class="jobpop__text">Unser familiengeführtes Dermatologisches Laserzentrum wächst. Wir suchen eine Kollegin oder einen Kollegen, die oder der Hautmedizin mit Zeit für den Menschen verbinden möchte.</p>' +
+          '<p class="jobpop__text">Wir suchen zur Verstärkung unserer Praxis mit sechs ärztlichen Kolleginnen und Kollegen eine Fachärztin oder einen Facharzt – in jedem Stadium des Facharztstatus, ob Einsteiger oder Pro.</p>' +
           '<ul class="jobpop__list">' +
-            '<li>Geregelte Arbeitszeiten, kein Nacht- und Wochenenddienst</li>' +
-            '<li>Breites Spektrum: Dermatologie, Lasermedizin und Ästhetik</li>' +
-            '<li>Eingespieltes Team und moderne Premium-Lasertechnik</li>' +
+            '<li>Das gesamte Spektrum der modernen Dermatologie</li>' +
+            '<li>Kollegiales Team aus sechs Kolleginnen und Kollegen (FÄ und ÄiW)</li>' +
+            '<li>Attraktive Vergütung mit umsatzabhängigen Boni</li>' +
           '</ul>' +
           '<div class="jobpop__actions">' +
             '<a class="jobpop__btn" href="' + CONFIG.ziel + '" data-jobpop-go>Stellenangebot ansehen</a>' +
             '<button type="button" class="jobpop__skip" data-jobpop-close>Weiter zur Website</button>' +
           '</div>' +
-          '<p class="jobpop__note">Sie kennen jemanden, zu dem die Stelle passt? Wir freuen uns, wenn Sie die Anzeige weitergeben. Fragen vorab: <a href="tel:+493714029824">0371&nbsp;402&nbsp;98&nbsp;24</a></p>' +
+          '<p class="jobpop__note">Sie kennen jemanden, zu dem die Stelle passt? Wir freuen uns, wenn Sie die Anzeige weitergeben. Kontakt: <a href="mailto:arzt@hautarzt-chemnitz.de">arzt@hautarzt-chemnitz.de</a></p>' +
         '</div>' +
       '</div>' +
     '</div>';
