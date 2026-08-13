@@ -95,6 +95,12 @@
     '.jobpop__meta span{background:#fff;border:1px solid #E6DCC7;border-radius:999px;padding:6px 13px;',
     'font-size:12.5px;color:#544833;}',
 
+    /* Kernargument direkt unter der Ueberschrift */
+    '.jobpop__highlight{display:flex;align-items:center;gap:11px;margin-top:16px;padding:13px 17px;',
+    'border-radius:15px;background:#F6EFE3;border:1px solid rgba(139,111,71,.28);',
+    'font-size:15.5px;font-weight:500;color:#8B6F47;line-height:1.4;}',
+    '.jobpop__highlight svg{width:19px;height:19px;flex:none;}',
+
     '.jobpop__text{font-size:15.5px;color:#544833;margin-top:16px;}',
 
     '.jobpop__list{list-style:none;margin:16px 0 0;padding:0;}',
@@ -138,6 +144,11 @@
             'Wir stellen ein' +
           '</span>' +
           '<h2 class="jobpop__title" id="jobPopTitle">Facharzt / Fachärztin<br><em>für Dermatologie (m/w/d)</em></h2>' +
+          '<p class="jobpop__highlight">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+            '<circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>' +
+            'Sehr attraktive umsatzabhängige Boni' +
+          '</p>' +
           '<div class="jobpop__meta">' +
             '<span>Chemnitz</span><span>Voll- oder Teilzeit</span><span>3 – 6 Tage / Woche</span>' +
           '</div>' +
@@ -145,7 +156,7 @@
           '<ul class="jobpop__list">' +
             '<li>Das gesamte Spektrum der modernen Dermatologie</li>' +
             '<li>Kollegiales Team aus sechs Kolleginnen und Kollegen (FÄ und ÄiW)</li>' +
-            '<li>Attraktive Vergütung mit umsatzabhängigen Boni</li>' +
+            '<li>Freie Wahl: 3 bis 6 Tage pro Woche</li>' +
           '</ul>' +
           '<div class="jobpop__actions">' +
             '<a class="jobpop__btn" href="' + CONFIG.ziel + '" data-jobpop-go>Stellenangebot ansehen</a>' +
