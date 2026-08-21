@@ -193,9 +193,11 @@
         '<path d="M128 320c0-70 32-106 100-106s100 36 100 106z" fill="none" stroke="#C6B79A" stroke-width="2.5"/>' +
         '<path d="M166 236c16-13 37-20 62-20s46 7 62 20" fill="none" stroke="#DFD3B8" stroke-width="2"/>' +
         '<rect x="213" y="178" width="30" height="44" rx="14" fill="#DCB994"/>' +
-        '<path d="M186 156c0-38 19-58 42-58s42 20 42 58c0 30-3 56-9 72-7-26-3-52-9-58-15 8-42 10-58-2-4 14-2 36-6 60-6-14-8-44-8-72z" fill="#4A3A2A"/>' +
+        /* Haare: ruhiger Bob, hinter dem Gesicht liegend */
+        '<path d="M178 190c0-16-2-34-2-50 0-30 22-52 52-52s52 22 52 52c0 16-2 34-2 50 0 9-14 9-14 0 0-15 1-31 1-43 0-23-15-36-37-36s-37 13-37 36c0 12 1 28 1 43 0 9-14 9-14 0z" fill="#4A3A2A"/>' +
         '<circle cx="228" cy="150" r="40" fill="#EFD3B6"/>' +
-        '<path d="M188 148c0-33 18-50 40-50s40 17 40 50c0-23-16-33-40-33s-40 10-40 33z" fill="#4A3A2A"/>' +
+        /* Ansatz ueber der Stirn — etwas breiter als der Kopf, damit kein Spalt entsteht */
+        '<path d="M184 152c0-34 19-52 44-52s44 18 44 52c-4-23-19-35-44-35s-40 12-44 35z" fill="#4A3A2A"/>' +
         '<circle cx="216" cy="152" r="3.2" fill="#3B2E22"/><circle cx="240" cy="152" r="3.2" fill="#3B2E22"/>' +
         '<path d="M220 166q8 7 16 0" fill="none" stroke="#3B2E22" stroke-width="2.6" stroke-linecap="round"/>' +
         '<path d="M208 219l20 26 20-26 10 6-30 39-30-39z" fill="#E7DFCB"/>' +
