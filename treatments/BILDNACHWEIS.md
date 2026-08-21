@@ -61,6 +61,19 @@ Ebenso wurden Motive mit **lesbaren Produkt-/Markennamen** auf Ampullen und
 Geräten aussortiert (z. B. Botox®, Xeomin®, Dysport®), um markenrechtliche
 Probleme und den Anschein einer Herstellerempfehlung zu vermeiden.
 
+## Eingangs-Popup „Wir suchen MFA!“ (`js/mfa-popup.js`)
+
+Das Motiv im Kopf des Popups ist eine **selbst gezeichnete Vektor-Illustration**
+(Inline-SVG im Modul, keine Bilddatei): eine Kollegin und ein Kollege in
+Praxiskleidung, in den Farben der Website. Weder Foto noch KI-Erzeugnis und
+daher **nicht** nach Art. 50 KI-VO kennzeichnungspflichtig. Bewusst ohne
+ausgearbeitete Gesichter, damit nicht der Eindruck entsteht, es handle sich um
+bestimmte Personen aus dem Team.
+
+Soll stattdessen ein eigenes Foto erscheinen, genügt in `js/mfa-popup.js` der
+Eintrag `bild: 'dateiname.webp'` in `CONFIG`; der Alternativtext steht daneben
+unter `bildAlt`.
+
 ## Weiterhin KI-generiert (gekennzeichnet)
 
 Weiterhin mit `KI-generiert` ausgezeichnet: das Hero-Video der Startseite
