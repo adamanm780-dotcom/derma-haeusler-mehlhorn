@@ -42,6 +42,11 @@
       "addressLocality": "Chemnitz",
       "addressCountry": "DE"
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 50.8473985,
+      "longitude": 12.8990276
+    },
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -2686,16 +2691,18 @@
       text-underline-offset: 3px;
     }
 
-    /* Google-Maps-Einbindung (Zwei-Klick-Lösung, DSGVO-freundlich) */
+    /* Google-Maps-Einbindung (Zwei-Klick-Lösung, DSGVO-freundlich).
+       Vor der Einwilligung laeuft nichts zu Google: die Vorschau ist eine
+       eigene, gezeichnete Karte im Sandton der Praxis. */
     .map-embed {
       margin-top: var(--space-8);
-      height: 380px;
+      height: 440px;
       position: relative;
       border-radius: var(--radius-2xl);
       overflow: hidden;
-      border: 1px solid var(--gray-100);
+      border: 1px solid var(--gray-200);
       box-shadow: var(--shadow-lg);
-      background: var(--teal-whisper);
+      background: var(--rose-whisper);
     }
 
     .map-embed iframe {
@@ -2703,11 +2710,34 @@
       height: 100%;
       border: 0;
       display: block;
+      /* Googles Blau/Gruen leicht in die warme Palette ziehen — bewusst
+         zurueckhaltend, die Karte muss lesbar bleiben */
+      filter: saturate(0.85) sepia(0.14) contrast(1.03);
+    }
+
+    /* --- Vorschau vor der Einwilligung ------------------------------ */
+    .map-embed__canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .map-embed__scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 50% 42%, rgba(253,249,242,0.10) 0%, rgba(253,249,242,0.62) 58%, rgba(253,249,242,0.86) 100%);
     }
 
     .map-embed__placeholder {
       position: absolute;
       inset: 0;
+      z-index: 2;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -2719,7 +2749,7 @@
 
     .map-embed__placeholder strong {
       font-family: var(--font-display);
-      font-size: 20px;
+      font-size: 24px;
       font-weight: 400;
       color: var(--gray-800);
     }
@@ -2734,6 +2764,121 @@
       color: var(--gray-400);
       max-width: 440px;
       line-height: 1.5;
+    }
+
+    /* --- Nadel mit ruhigem Puls ------------------------------------- */
+    .map-marker {
+      position: relative;
+      width: 22px;
+      height: 22px;
+      margin-bottom: var(--space-2);
+    }
+
+    .map-marker__dot {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 14px;
+      height: 14px;
+      border-radius: var(--radius-full);
+      background: var(--teal);
+      border: 2px solid var(--cream);
+      box-shadow: var(--shadow-glow-teal);
+    }
+
+    .map-marker__pulse {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 22px;
+      height: 22px;
+      border-radius: var(--radius-full);
+      border: 1.5px solid var(--rose);
+      animation: mapPulse 2.8s ease-out infinite;
+    }
+
+    @keyframes mapPulse {
+      0%   { transform: scale(0.6); opacity: 0.85; }
+      70%  { transform: scale(2.6); opacity: 0; }
+      100% { transform: scale(2.6); opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .map-marker__pulse { animation: none; opacity: 0.4; }
+    }
+
+    /* --- Praxiskarte, liegt nach dem Laden auf der Karte ------------- */
+    .map-card {
+      position: absolute;
+      left: var(--space-5);
+      bottom: var(--space-5);
+      z-index: 3;
+      max-width: 320px;
+      text-align: left;
+      padding: var(--space-4) var(--space-5);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--gray-200);
+      background: rgba(253, 249, 242, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .map-card__name {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 17px;
+      line-height: 1.25;
+      color: var(--gray-800);
+      margin-bottom: 2px;
+    }
+
+    .map-card__meta {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--gray-500);
+    }
+
+    .map-card__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+    }
+
+    .map-card__link {
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      color: var(--teal-deep);
+      text-decoration: none;
+      padding: 7px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(184, 151, 115, 0.35);
+      background: var(--gradient-glass);
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .map-card__link:hover {
+      background: var(--rose-mist);
+      border-color: var(--rose);
+    }
+
+    @media (max-width: 640px) {
+      .map-embed { height: 420px; }
+
+      .map-card {
+        left: var(--space-3);
+        right: var(--space-3);
+        bottom: var(--space-3);
+        max-width: none;
+        padding: var(--space-3) var(--space-4);
+      }
+
+      /* Sprechzeiten stehen direkt ueber der Karte schon — hier weglassen,
+         damit die Karte selbst sichtbar bleibt */
+      .map-card__hours { display: none; }
+
+      .map-card__name { font-size: 16px; }
     }
 
     /* ========================================
@@ -4084,12 +4229,52 @@
           </div>
         </div>
 
-        <!-- Anfahrt: Google Maps wird erst nach Klick geladen (DSGVO) -->
+        <!-- Anfahrt: Google Maps wird erst nach Klick geladen (DSGVO).
+             Bis dahin steht hier eine eigene, gezeichnete Kartenvorschau —
+             schematisch, kein Kartenausschnitt eines Anbieters. -->
         <div class="map-embed" id="mapEmbed">
+          <svg class="map-embed__canvas" viewBox="0 0 1200 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="mapGround" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FAF3E8"/>
+                <stop offset="100%" stop-color="#F2E5D1"/>
+              </linearGradient>
+            </defs>
+            <rect width="1200" height="440" fill="url(#mapGround)"/>
+            <!-- Gruenflaechen -->
+            <g fill="#DFC6A8" opacity="0.5">
+              <rect x="60" y="40" width="210" height="130" rx="18"/>
+              <rect x="905" y="255" width="240" height="150" rx="22"/>
+            </g>
+            <!-- Nebenstrassen -->
+            <g stroke="#FDF9F2" stroke-width="12" stroke-linecap="round" opacity="0.9">
+              <path d="M0 120 H1200"/>
+              <path d="M0 330 H1200"/>
+              <path d="M310 0 V440"/>
+              <path d="M700 0 V440"/>
+              <path d="M1010 0 V440"/>
+            </g>
+            <!-- Hauptachse (Leipziger Strasse) -->
+            <path d="M-40 300 L1240 150" stroke="#FDF9F2" stroke-width="30" stroke-linecap="round"/>
+            <path d="M-40 300 L1240 150" stroke="#DFC6A8" stroke-width="2" stroke-dasharray="14 12" opacity="0.8"/>
+            <!-- Baublocks -->
+            <g fill="#DFC6A8" opacity="0.4">
+              <rect x="360" y="160" width="120" height="90" rx="10"/>
+              <rect x="520" y="190" width="90" height="110" rx="10"/>
+              <rect x="760" y="60" width="140" height="80" rx="10"/>
+              <rect x="150" y="360" width="130" height="70" rx="10"/>
+            </g>
+          </svg>
+          <div class="map-embed__scrim" aria-hidden="true"></div>
+
           <div class="map-embed__placeholder" id="mapPlaceholder">
+            <span class="map-marker" aria-hidden="true">
+              <span class="map-marker__pulse"></span>
+              <span class="map-marker__dot"></span>
+            </span>
             <strong>Anfahrt &amp; Karte</strong>
             <p>Leipziger Straße 137 · 09113 Chemnitz</p>
-            <button type="button" class="btn btn--primary" id="mapLoadBtn">Google Maps laden</button>
+            <button type="button" class="btn btn--primary" id="mapLoadBtn">Karte anzeigen</button>
             <small>Erst beim Laden der Karte werden Daten an Google übertragen. Es gilt die Datenschutzerklärung von Google.</small>
           </div>
         </div>
@@ -4276,19 +4461,40 @@
       });
     });
 
-    // Google Maps erst nach Klick laden (DSGVO-Zwei-Klick-Lösung)
+    // Google Maps erst nach Klick laden (DSGVO-Zwei-Klick-Lösung).
+    // Koordinaten statt Adress-Suche, damit die Nadel exakt auf dem Haus sitzt.
     var mapLoadBtn = document.getElementById('mapLoadBtn');
     if (mapLoadBtn) {
+      var PRAXIS_LAT = 50.8473985;
+      var PRAXIS_LNG = 12.8990276;
+      var PRAXIS_ADRESSE = 'Leipziger Straße 137, 09113 Chemnitz';
+
       mapLoadBtn.addEventListener('click', function() {
         var embed = document.getElementById('mapEmbed');
+
         var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.google.com/maps?q=' + encodeURIComponent('Leipziger Straße 137, 09113 Chemnitz') + '&output=embed&hl=de';
+        iframe.src = 'https://www.google.com/maps?q=' + PRAXIS_LAT + ',' + PRAXIS_LNG + '&z=16&output=embed&hl=de';
         iframe.title = 'Google Maps – Anfahrt Dermatologisches Laserzentrum Häusler-Mehlhorn';
         iframe.loading = 'lazy';
         iframe.referrerPolicy = 'no-referrer-when-downgrade';
         iframe.allowFullscreen = true;
+
+        // Praxiskarte liegt auf der Karte, die Karte bleibt darunter bedienbar
+        var card = document.createElement('div');
+        card.className = 'map-card';
+        card.innerHTML =
+          '<span class="map-card__name">Dermatologisches Laserzentrum<br>Häusler-Mehlhorn</span>' +
+          '<span class="map-card__meta">Leipziger Straße 137 · 09113 Chemnitz' +
+          '<span class="map-card__hours"><br>Mo – Do 08:00 – 18:00 Uhr · Fr 08:00 – 14:00 Uhr</span></span>' +
+          '<span class="map-card__actions">' +
+            '<a class="map-card__link" target="_blank" rel="noopener" ' +
+              'href="https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(PRAXIS_ADRESSE) + '">Route planen</a>' +
+            '<a class="map-card__link" href="tel:+493714029824">0371 402 98 24</a>' +
+          '</span>';
+
         embed.innerHTML = '';
         embed.appendChild(iframe);
+        embed.appendChild(card);
       });
     }
 
