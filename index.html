@@ -2463,53 +2463,6 @@
       justify-content: center;
     }
 
-    /* Echte Innenaufnahmen unterhalb der Gebäudekarte */
-    .praxis-building__interior {
-      margin-top: var(--space-9);
-    }
-
-    .praxis-building__interior-label {
-      display: block;
-      text-align: center;
-      margin-bottom: var(--space-5);
-    }
-
-    .praxis-building__interior-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-5);
-    }
-
-    .praxis-building__interior figure {
-      margin: 0;
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      background: var(--gray-100);
-    }
-
-    .praxis-building__interior img {
-      display: block;
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-      transition: transform 600ms var(--ease-out);
-    }
-
-    .praxis-building__interior figure:hover img { transform: scale(1.03); }
-
-    .praxis-building__interior figcaption {
-      padding: var(--space-4) var(--space-5);
-      background: var(--white);
-      font-size: 14px;
-      color: var(--gray-500);
-    }
-
-    @media (max-width: 860px) {
-      .praxis-building__interior-grid { grid-template-columns: 1fr; }
-      .praxis-building__interior img { height: 240px; }
-    }
-
     .praxis-building__card {
       transform-style: preserve-3d;
       transition: transform 0.15s ease-out;
@@ -3766,21 +3719,6 @@
           </div>
         </div>
 
-      </div>
-
-      <!-- Echte Innenaufnahmen aus dem Dachgeschoss der Praxis -->
-      <div class="praxis-building__interior reveal reveal-delay-2">
-        <span class="text-label praxis-building__interior-label">Einblick in unsere Räume</span>
-        <div class="praxis-building__interior-grid">
-          <figure>
-            <img src="praxis-innen-1.webp" alt="Heller Flur im Dachgeschoss der Praxis mit Schrägfenstern, Parkettboden und Moosbild an der Wand" loading="lazy">
-            <figcaption>Der Flur im Dachgeschoss – viel Tageslicht durch die Schrägfenster.</figcaption>
-          </figure>
-          <figure>
-            <img src="praxis-innen-2.webp" alt="Wartebereich der Praxis mit Lounge-Sessel, Holzlamellenwand und Bildschirm" loading="lazy">
-            <figcaption>Unser Wartebereich – zum Ankommen und in Ruhe warten.</figcaption>
-          </figure>
-        </div>
       </div>
 
     </div>
