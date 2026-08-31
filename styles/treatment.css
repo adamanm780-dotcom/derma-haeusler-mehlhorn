@@ -95,7 +95,11 @@ h2.heading em { font-style:italic; }
 .video-band { background:var(--teal-whisper); }
 .video-wrap { border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-lg); background:#000; aspect-ratio:16/9; }
 .video-wrap video, .video-wrap img { width:100%; height:100%; object-fit:cover; }
-.video-note { font-size:13px; color:var(--gray-500); margin-top:12px; text-align:center; }
+/* Selektor bewusst mit .block davor: sonst gewinnt `.block p { font-size:17px }`
+   und die Bildunterschrift wird so gross wie der Fliesstext. */
+.block p.video-note { font-size:13px; color:var(--gray-500); margin-top:12px; margin-bottom:0; text-align:center; }
+/* Knappe Variante: nur der KI-Hinweis, bewusst unauffaellig */
+.block p.video-note--mini { font-size:11px; letter-spacing:.06em; color:var(--gray-500); opacity:.8; margin-top:8px; }
 
 /* Info / facts row */
 .facts { display:flex; flex-wrap:wrap; gap:14px; margin-top:26px; }

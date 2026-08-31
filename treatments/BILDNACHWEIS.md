@@ -75,8 +75,12 @@ ausdrücklichen Wunsch tragen diese Bilder *kein* `KI-generiert`-Badge am
 Medium – anders als die Hero-Videos der ästhetischen Unterseiten, wo das
 Badge bleibt. Die Offenlegung nach Art. 50 der Verordnung (EU) 2024/1689
 erfolgt stattdessen dreifach im Text: in der Bildunterschrift direkt unter
-dem Bild („KI-generiertes Symbolbild …“), im Hinweisabsatz am Seitenende
-und im Transparenzhinweis der Fußzeile. Der Fußzeilensatz dieser neun
+dem Bild, im Hinweisabsatz am Seitenende und im Transparenzhinweis der
+Fußzeile. Die Bildunterschrift wurde am 29.08.2026 auf Kundenwunsch auf
+das bloße Wort „KI-generiert“ gekürzt und mit `.video-note--mini`
+auf 11 px gesetzt; die inhaltliche Einordnung (Symbolbild, keine realen
+Patientinnen und Patienten) steht weiterhin im Hinweisabsatz am
+Seitenende. Der Fußzeilensatz dieser neun
 Seiten wurde entsprechend angepasst: er spricht von „als KI-generiert
 ausgewiesen“ statt von einer Kennzeichnung am Medium, weil Letzteres
 ohne Badge nicht mehr zuträfe.
