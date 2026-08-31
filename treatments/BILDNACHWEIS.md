@@ -48,6 +48,67 @@ daher **nicht** kennzeichnungspflichtig.
 Bearbeitung: Zuschnitt auf 3:2, 1200 × 800 px (Gebäude 1536 × 1024),
 WebP q84.
 
+## Bilder der neun Hautmedizin-Seiten (Stand 29.08.2026)
+
+**Kopfbereiche:** echte Praxisaufnahmen des Kunden (siehe Abschnitt oben),
+mit `alt=""` und `aria-hidden="true"` als dekorativ ausgezeichnet.
+
+| Seite | Kopfbild |
+|---|---|
+| hautkrebsvorsorge-chemnitz | `praxis-innen-1.webp` |
+| muttermal-entfernen-chemnitz | `praxis-innen-2.webp` |
+| ambulante-hautoperationen-chemnitz | `praxis-leipziger-strasse.webp` |
+| allergietest-chemnitz | `praxis-innen-1.webp` |
+| schuppenflechte-neurodermitis-chemnitz | `praxis-innen-2.webp` |
+| akne-behandlung-chemnitz | `praxis-innen-2.webp` |
+| hyperhidrose-behandlung-chemnitz | `praxis-innen-1.webp` |
+| kinderdermatologie-chemnitz | `praxis-leipziger-strasse.webp` |
+| hautarztverfahren-chemnitz | `praxis-leipziger-strasse.webp` |
+
+**Symbolbilder im Textteil: KI-generiert, kennzeichnungspflichtig.**
+Erzeugt am 29.08.2026 mit **OpenAI GPT Image 2** über Higgsfield,
+2k, Qualität „high“, 16:9, anschließend auf 1440 × 810 px
+beschnitten und als WebP q82 gespeichert.
+
+**Kennzeichnung ohne Badge (Entscheidung des Kunden, 29.08.2026):** Auf
+ausdrücklichen Wunsch tragen diese Bilder *kein* `KI-generiert`-Badge am
+Medium – anders als die Hero-Videos der ästhetischen Unterseiten, wo das
+Badge bleibt. Die Offenlegung nach Art. 50 der Verordnung (EU) 2024/1689
+erfolgt stattdessen dreifach im Text: in der Bildunterschrift direkt unter
+dem Bild („KI-generiertes Symbolbild …“), im Hinweisabsatz am Seitenende
+und im Transparenzhinweis der Fußzeile. Der Fußzeilensatz dieser neun
+Seiten wurde entsprechend angepasst: er spricht von „als KI-generiert
+ausgewiesen“ statt von einer Kennzeichnung am Medium, weil Letzteres
+ohne Badge nicht mehr zuträfe.
+
+| Datei | Motiv | Seite |
+|---|---|---|
+| `einblick-hautkrebsvorsorge.webp` | Auflichtmikroskop auf der Haut eines Unterarms | hautkrebsvorsorge-chemnitz |
+| `einblick-muttermal.webp` | Steriles Instrumententablett im Behandlungsraum | muttermal-entfernen-chemnitz |
+| `einblick-operationen.webp` | Behandschuhte Hände richten sterile Instrumente | ambulante-hautoperationen-chemnitz |
+| `einblick-allergietest.webp` | Unterarm mit Punktraster für einen Pricktest | allergietest-chemnitz |
+| `einblick-psoriasis.webp` | Creme aus unbeschrifteter Tube auf einem Unterarm | schuppenflechte-neurodermitis-chemnitz |
+| `einblick-akne.webp` | Unbeschriftete Pflegetuben auf heller Ablage | akne-behandlung-chemnitz |
+| `einblick-hyperhidrose.webp` | Feine Injektionsnadel dicht über der Haut | hyperhidrose-behandlung-chemnitz |
+| `einblick-kinder.webp` | Kinderhand in der Handfläche einer erwachsenen Hand | kinderdermatologie-chemnitz |
+| `einblick-bg.webp` | Arbeitshände mit rissiger Haut, daneben Schutzhandschuhe | hautarztverfahren-chemnitz |
+
+Die Prompts folgten denselben Auswahlkriterien wie bei den Pexels-Motiven
+(siehe unten): **keine erkennbaren Gesichter, keine identifizierbaren
+Personen, keine lesbaren Marken- oder Produktnamen**. Verpackungen und
+Spritzen wurden ausdrücklich blanko angefordert. Die PNG-Originale
+(2688 × 1520) liegen nicht im Repository, sondern im Higgsfield-Konto
+unter den Generierungen vom 29.08.2026.
+
+## Nicht verwendbar: `treatments/*.jpg`
+
+Die neun Dateien `treatments/besenreiser.jpg`, `botox.jpg`, `filler.jpg`,
+`haarentfernung.jpg`, `hautscreening.jpg`, `hydrafacial.jpg`, `laser.jpg`,
+`operationen.jpg` und `tattoo.jpg` (je 900×700) werden von keiner Seite
+eingebunden und haben **keinen dokumentierten Lizenznachweis**. Sie wurden
+für die neuen Seiten bewusst nicht verwendet. Vor einer Nutzung müsste die
+Herkunft geklärt werden – andernfalls sollten sie gelöscht werden.
+
 ## Auswahlkriterien
 
 Bewusst wurden Motive **ohne eindeutig identifizierbare Gesichter** gewählt

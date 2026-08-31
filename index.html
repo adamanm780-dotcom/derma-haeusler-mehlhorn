@@ -1120,8 +1120,15 @@
       margin: 0 auto;
       padding: var(--space-8) var(--space-7);
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-7);
+      /* fuenf Spalten auf grossen Schirmen, bricht darunter selbsttaetig um */
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: var(--space-6) var(--space-7);
+    }
+
+    /* Bei fuenf Spalten die Kachel-Ueberschriften etwas kompakter setzen */
+    .nav__dropdown-inner .nav__dropdown-link {
+      font-size: 18px;
+      line-height: 1.25;
     }
 
     .nav__dropdown-title {
@@ -2893,8 +2900,9 @@
 
     .footer__grid {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr 0.8fr;
-      gap: var(--space-8);
+      /* Marke + fuenf Spalten (Hautmedizin, Aesthetik, Praxis, Sprechzeiten, Rechtliches) */
+      grid-template-columns: 1.4fr 1.1fr 1.1fr 1fr 1fr 0.8fr;
+      gap: var(--space-6) var(--space-7);
       margin-bottom: var(--space-8);
     }
 
@@ -3415,6 +3423,25 @@
             <div class="nav__dropdown" role="menu">
               <div class="nav__dropdown-inner">
                 <div>
+                  <div class="nav__dropdown-title">Hautmedizin</div>
+                  <div class="nav__dropdown-group">
+                    <a href="hautkrebsvorsorge-chemnitz.html" class="nav__dropdown-link">Hautkrebsvorsorge<small>Screening & Auflichtmikroskopie</small></a>
+                    <a href="muttermal-entfernen-chemnitz.html" class="nav__dropdown-link">Muttermal entfernen<small>Mit histologischer Untersuchung</small></a>
+                    <a href="ambulante-hautoperationen-chemnitz.html" class="nav__dropdown-link">Ambulante Hautoperationen<small>Gut- & bösartige Hauttumore</small></a>
+                    <a href="allergietest-chemnitz.html" class="nav__dropdown-link">Allergietest<small>Pricktest & Epikutantest</small></a>
+                  </div>
+                </div>
+                <div>
+                  <div class="nav__dropdown-title">Sprechstunden</div>
+                  <div class="nav__dropdown-group">
+                    <a href="schuppenflechte-neurodermitis-chemnitz.html" class="nav__dropdown-link">Schuppenflechte & Neurodermitis<small>Bis zur Systemtherapie</small></a>
+                    <a href="akne-behandlung-chemnitz.html" class="nav__dropdown-link">Akne<small>Fachärztlich behandelt</small></a>
+                    <a href="hyperhidrose-behandlung-chemnitz.html" class="nav__dropdown-link">Hyperhidrose<small>Übermäßiges Schwitzen</small></a>
+                    <a href="kinderdermatologie-chemnitz.html" class="nav__dropdown-link">Kinderdermatologie<small>Kinder & Jugendliche</small></a>
+                    <a href="hautarztverfahren-chemnitz.html" class="nav__dropdown-link">Hautarztverfahren (BG)<small>Berufsdermatologie & Gutachten</small></a>
+                  </div>
+                </div>
+                <div>
                   <div class="nav__dropdown-title">Laser & Haut</div>
                   <div class="nav__dropdown-group">
                     <a href="laser-pigmentflecken-chemnitz.html" class="nav__dropdown-link">Pigmentflecken lasern<small>Gleichmäßiger Teint</small></a>
@@ -3510,6 +3537,15 @@
     </a>
     <a href="#treatments" onclick="closeMobileMenu()">Unsere Angebote</a>
     <div class="nav__mobile-sub">
+      <a href="hautkrebsvorsorge-chemnitz.html">Hautkrebsvorsorge</a>
+      <a href="muttermal-entfernen-chemnitz.html">Muttermal entfernen</a>
+      <a href="ambulante-hautoperationen-chemnitz.html">Ambulante Hautoperationen</a>
+      <a href="allergietest-chemnitz.html">Allergietest</a>
+      <a href="schuppenflechte-neurodermitis-chemnitz.html">Schuppenflechte &amp; Neurodermitis</a>
+      <a href="akne-behandlung-chemnitz.html">Akne</a>
+      <a href="hyperhidrose-behandlung-chemnitz.html">Hyperhidrose / Schwitzen</a>
+      <a href="kinderdermatologie-chemnitz.html">Kinderdermatologie</a>
+      <a href="hautarztverfahren-chemnitz.html">Hautarztverfahren (BG) &amp; Gutachten</a>
       <a href="hydrafacial-chemnitz.html">Medical Skincare &ndash; Hydrafacial&reg;</a>
       <a href="laser-pigmentflecken-chemnitz.html">Pigmentflecken lasern</a>
       <a href="dauerhafte-haarentfernung-chemnitz.html">Dauerhafte Haarentfernung</a>
@@ -4299,14 +4335,29 @@
           <p>Ihr Dermatologisches Laserzentrum in Chemnitz. Ästhetische Medizin, Lasertherapie und Hautgesundheit – von Expertinnen für Ihre Schönheit.</p>
         </div>
         <div class="footer__col">
-          <h5>Behandlungen</h5>
+          <h5>Hautmedizin</h5>
+          <ul>
+            <li><a href="hautkrebsvorsorge-chemnitz.html">Hautkrebsvorsorge</a></li>
+            <li><a href="muttermal-entfernen-chemnitz.html">Muttermal entfernen</a></li>
+            <li><a href="ambulante-hautoperationen-chemnitz.html">Ambulante Hautoperationen</a></li>
+            <li><a href="allergietest-chemnitz.html">Allergietest</a></li>
+            <li><a href="schuppenflechte-neurodermitis-chemnitz.html">Schuppenflechte &amp; Neurodermitis</a></li>
+            <li><a href="akne-behandlung-chemnitz.html">Akne</a></li>
+            <li><a href="hyperhidrose-behandlung-chemnitz.html">Hyperhidrose</a></li>
+            <li><a href="kinderdermatologie-chemnitz.html">Kinderdermatologie</a></li>
+            <li><a href="hautarztverfahren-chemnitz.html">Hautarztverfahren (BG)</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h5>Ästhetik &amp; Laser</h5>
           <ul>
             <li><a href="hydrafacial-chemnitz.html">Medical Skincare &ndash; Hydrafacial&reg;</a></li>
-            <li><a href="#treatments">Botulinumtoxin</a></li>
-            <li><a href="#treatments">Filler</a></li>
-            <li><a href="#treatments">Lasertherapie</a></li>
-            <li><a href="#treatments">Haarentfernung</a></li>
-            <li><a href="#treatments">Tattooentfernung</a></li>
+            <li><a href="botox-faltenbehandlung-chemnitz.html">Botulinumtoxin</a></li>
+            <li><a href="hyaluron-filler-chemnitz.html">Filler</a></li>
+            <li><a href="laser-pigmentflecken-chemnitz.html">Pigmentflecken lasern</a></li>
+            <li><a href="dauerhafte-haarentfernung-chemnitz.html">Haarentfernung</a></li>
+            <li><a href="laser-tattooentfernung-chemnitz.html">Tattooentfernung</a></li>
+            <li><a href="besenreiser-entfernen-chemnitz.html">Besenreiser entfernen</a></li>
           </ul>
         </div>
         <div class="footer__col">
