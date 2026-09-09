@@ -2219,10 +2219,33 @@
        TESTIMONIALS — Responsive review cards
        ======================================== */
     .testimonials {
-      background: var(--cream);
+      background: #191a18;
       scroll-margin-top: 88px;
       padding-block: clamp(64px, 6vw, 96px);
-      border-block: 1px solid var(--gray-100);
+      isolation: isolate;
+    }
+
+    .testimonials__backdrop {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .testimonials__backdrop img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 42%;
+      display: block;
+    }
+
+    .testimonials__backdrop::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(16, 20, 22, 0.66), rgba(25, 23, 20, 0.7) 50%, rgba(20, 19, 17, 0.86));
     }
 
     .testimonials__container {
@@ -2230,21 +2253,18 @@
     }
 
     .testimonials__intro {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-      align-items: center;
-      gap: clamp(32px, 5vw, 80px);
       margin-bottom: clamp(40px, 4vw, 64px);
     }
 
     .testimonials .testimonials__header {
       min-width: 0;
-      margin: 0;
-      text-align: left;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .testimonials__header .text-label {
-      color: var(--gray-600);
+      color: #f0ddc2;
       letter-spacing: 0.16em;
       margin-bottom: var(--space-5);
     }
@@ -2253,15 +2273,18 @@
       font-size: clamp(38px, 4.2vw, 62px);
       line-height: 1.12;
       margin-bottom: var(--space-5);
+      color: var(--white);
     }
 
     .testimonials__header .heading-display em {
       display: block;
+      color: #f0ddc2;
     }
 
     .testimonials__header .text-body {
-      max-width: 440px;
-      color: var(--gray-600);
+      max-width: 560px;
+      margin-inline: auto;
+      color: #f1eade;
       font-size: 17px;
       line-height: 1.8;
     }
@@ -2271,62 +2294,28 @@
       max-width: 100%;
       white-space: normal;
       text-align: center;
-      border-color: var(--teal-deep);
-      color: var(--gray-700);
+      border-color: rgba(255, 255, 255, 0.55);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
       box-shadow: none;
+    }
+
+    .testimonials__link:hover {
+      background: var(--cream);
+      border-color: var(--cream);
+      color: var(--gray-800);
     }
 
     .testimonials__link svg {
       flex-shrink: 0;
     }
 
-    .testimonials__city {
-      min-width: 0;
-    }
-
-    .testimonials__photo {
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius-xl);
-      background: var(--gray-200);
-      isolation: isolate;
-    }
-
-    .testimonials__photo img {
-      display: block;
-      width: 100%;
-      height: auto;
-      aspect-ratio: 1280 / 853;
-    }
-
-    .testimonials__place {
-      position: absolute;
-      left: var(--space-5);
-      bottom: var(--space-5);
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      padding: 10px 16px;
-      border: 1px solid var(--gray-200);
-      border-radius: var(--radius-full);
-      background: var(--cream);
-      color: var(--gray-700);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-    }
-
-    .testimonials__place svg {
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-    }
-
     .testimonials__credit {
-      margin-top: var(--space-3);
-      color: var(--gray-600);
+      margin-top: var(--space-6);
+      color: #e0d6c8;
       font-size: 12px;
       line-height: 1.6;
+      text-align: center;
     }
 
     .testimonials__credit a {
@@ -2337,7 +2326,7 @@
 
     .testimonials__credit a:focus-visible,
     .testimonials__link:focus-visible {
-      outline: 2px solid var(--gray-700);
+      outline: 2px solid var(--white);
       outline-offset: 4px;
     }
 
@@ -2346,7 +2335,7 @@
       align-items: center;
       gap: var(--space-5);
       margin-bottom: var(--space-5);
-      color: var(--gray-600);
+      color: #f0ddc2;
       font-size: 12px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -2356,7 +2345,7 @@
       content: '';
       flex: 1;
       height: 1px;
-      background: var(--gray-200);
+      background: rgba(255, 255, 255, 0.25);
     }
 
     .testimonials__grid {
@@ -2368,8 +2357,8 @@
     .testimonial-card {
       position: relative;
       min-width: 0;
-      background: var(--white);
-      border: 1px solid var(--gray-200);
+      background: rgba(28, 25, 21, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.24);
       border-radius: var(--radius-lg);
       padding: clamp(24px, 2.5vw, 36px);
       display: flex;
@@ -2377,7 +2366,7 @@
       align-items: flex-start;
       gap: var(--space-4);
       text-align: left;
-      box-shadow: 0 8px 24px rgba(84, 72, 51, 0.025);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
 
     .testimonial-card__heading {
@@ -2385,7 +2374,7 @@
       font-size: 23px;
       font-weight: 400;
       line-height: 1.35;
-      color: var(--gray-800);
+      color: var(--white);
       overflow-wrap: anywhere;
     }
 
@@ -2398,12 +2387,12 @@
     .testimonial-card__stars svg {
       width: 18px;
       height: 18px;
-      color: var(--blush);
+      color: #e3c59c;
     }
 
     .testimonial-card__text {
       font-size: 16px;
-      color: var(--gray-600);
+      color: #f1eade;
       line-height: 1.75;
       font-style: normal;
       overflow-wrap: anywhere;
@@ -2415,7 +2404,7 @@
       gap: var(--space-3);
       margin-top: auto;
       padding-top: var(--space-5);
-      border-top: 1px solid var(--gray-100);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
       width: 100%;
       flex-shrink: 0;
     }
@@ -2425,32 +2414,42 @@
       height: 48px;
       flex-shrink: 0;
       border-radius: 50%;
-      background: var(--gradient-soft);
-      border: 1px solid var(--gray-200);
+      background: rgba(227, 197, 156, 0.12);
+      border: 1px solid rgba(227, 197, 156, 0.4);
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: var(--font-display);
       font-size: 18px;
-      color: var(--teal-deep);
+      color: #f0ddc2;
       font-weight: 500;
     }
 
     .testimonial-card__name {
       font-size: 15px;
       font-weight: 600;
-      color: var(--gray-800);
+      color: var(--white);
       overflow-wrap: anywhere;
     }
 
     .testimonial-card__role {
       font-size: 12px;
-      color: var(--gray-500);
+      color: #ded1bf;
     }
 
     @media (max-width: 1024px) {
+      .testimonials__backdrop {
+        overflow: clip;
+      }
+
+      .testimonials__backdrop img {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        object-position: 48% center;
+      }
+
       .testimonials__intro {
-        grid-template-columns: 1fr;
         max-width: 680px;
         margin-inline: auto;
       }
@@ -2468,12 +2467,6 @@
     }
 
     @media (max-width: 480px) {
-      .testimonials__place {
-        left: var(--space-3);
-        bottom: var(--space-3);
-        padding: 8px 12px;
-      }
-
       .testimonials__link {
         width: 100%;
         padding-inline: var(--space-4);
@@ -4189,6 +4182,9 @@
 
   <!-- ============ TESTIMONIALS ============ -->
   <section class="section testimonials" id="testimonials" aria-labelledby="testimonials-title">
+    <div class="testimonials__backdrop" aria-hidden="true">
+      <img src="chemnitz-marktplatz-1280.webp" width="1280" height="853" loading="lazy" decoding="async" alt="">
+    </div>
     <div class="container testimonials__container">
       <div class="testimonials__intro">
         <div class="section-header testimonials__header">
@@ -4197,13 +4193,6 @@
           <p class="text-body">Eine gute Behandlung beginnt mit einem guten Gefühl. Hier erzählen Patientinnen und Patienten, wie sie den Besuch in unserer Praxis erlebt haben.</p>
           <a href="https://maps.app.goo.gl/7FxZVdCDyGsrUUdh9" target="_blank" rel="noopener" class="btn btn--secondary testimonials__link">Alle Google-Bewertungen ansehen <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-        <figure class="testimonials__city">
-          <div class="testimonials__photo">
-            <img src="chemnitz-marktplatz-1280.webp" srcset="chemnitz-marktplatz-640.webp 640w, chemnitz-marktplatz-1280.webp 1280w" sizes="(max-width: 728px) calc(100vw - 48px), (max-width: 1024px) 680px, (max-width: 1360px) 50vw, 650px" width="1280" height="853" loading="lazy" decoding="async" alt="Altes und Neues Rathaus am Chemnitzer Marktplatz bei Sonnenschein">
-            <span class="testimonials__place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Chemnitz · Marktplatz</span>
-          </div>
-          <figcaption class="testimonials__credit">Foto: <a href="https://commons.wikimedia.org/wiki/File:Altes_und_Neues_Rathaus_am_Chemnitzer_Marktplatz_2015.jpg" target="_blank" rel="noopener">Sandro Schmalfuß</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/de/" target="_blank" rel="noopener">CC BY-SA 3.0 DE</a> · 2015</figcaption>
-        </figure>
       </div>
       <p class="testimonials__divider">Persönliche Erfahrungen</p>
         <div class="testimonials__grid">
@@ -4266,6 +4255,7 @@
           </div>
 
         </div>
+      <p class="testimonials__credit">Foto: <a href="https://commons.wikimedia.org/wiki/File:Altes_und_Neues_Rathaus_am_Chemnitzer_Marktplatz_2015.jpg" target="_blank" rel="noopener">Sandro Schmalfuß</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/de/" target="_blank" rel="noopener">CC BY-SA 3.0 DE</a> · 2015 &middot; Hintergrund abgedunkelt</p>
     </div>
   </section>
 
