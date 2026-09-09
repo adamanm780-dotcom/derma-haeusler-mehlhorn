@@ -2216,53 +2216,42 @@
     }
 
     /* ========================================
-       TESTIMONIALS — Scroll-driven card stack
+       TESTIMONIALS — Responsive review cards
        ======================================== */
     .testimonials {
       background: var(--white);
-      padding: 0;
+      scroll-margin-top: 88px;
     }
 
-    .testimonials__scroll-container {
-      position: relative;
-      height: 300vh;
-      perspective: 1000px;
+    .testimonials__header {
+      margin-bottom: var(--space-8);
     }
 
-    .testimonials__sticky {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: var(--space-8) var(--space-5);
-      overflow: hidden;
+    .testimonials__link {
+      margin-top: var(--space-4);
+      max-width: 100%;
+      white-space: normal;
+      text-align: center;
     }
 
-    .testimonials__stack {
-      position: relative;
-      width: 370px;
-      height: 460px;
-      perspective: 1000px;
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-5);
     }
 
     .testimonial-card {
-      position: absolute;
-      inset: 0;
+      position: relative;
+      min-width: 0;
       background: var(--off-white);
       border: 1px solid var(--gray-100);
       border-radius: var(--radius-xl);
-      padding: var(--space-7) var(--space-6);
+      padding: var(--space-6) var(--space-5);
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      align-items: flex-start;
       gap: var(--space-5);
-      text-align: center;
-      will-change: transform, opacity;
-      backface-visibility: hidden;
+      text-align: left;
       box-shadow: 0 4px 24px rgba(0,0,0,0.08);
       transition: box-shadow var(--duration-normal) var(--ease-out);
     }
@@ -2270,6 +2259,7 @@
     .testimonial-card__stars {
       display: flex;
       gap: 3px;
+      flex-shrink: 0;
     }
 
     .testimonial-card__stars svg {
@@ -2279,26 +2269,28 @@
     }
 
     .testimonial-card__text {
-      font-size: 17px;
+      font-size: 16px;
       color: var(--gray-600);
       line-height: 1.75;
       font-style: italic;
-      max-width: 300px;
+      overflow-wrap: anywhere;
     }
 
     .testimonial-card__author {
       display: flex;
       align-items: center;
       gap: var(--space-3);
+      margin-top: auto;
       padding-top: var(--space-4);
       border-top: 1px solid var(--gray-100);
       width: 100%;
-      justify-content: center;
+      flex-shrink: 0;
     }
 
     .testimonial-card__avatar {
       width: 48px;
       height: 48px;
+      flex-shrink: 0;
       border-radius: 50%;
       background: var(--gradient-soft);
       border: 1px solid var(--gray-200);
@@ -2315,24 +2307,19 @@
       font-size: 15px;
       font-weight: 600;
       color: var(--gray-800);
+      overflow-wrap: anywhere;
     }
 
     .testimonial-card__role {
       font-size: 12px;
-      color: var(--gray-400);
+      color: var(--gray-500);
     }
 
-    @media (max-width: 768px) {
-      .testimonials__stack {
-        width: 300px;
-        height: 420px;
-      }
-      .testimonial-card__text {
-        font-size: 15px;
-        max-width: 250px;
-      }
-      .testimonials__scroll-container {
-        height: 200vh;
+    @media (max-width: 1024px) {
+      .testimonials__grid {
+        grid-template-columns: 1fr;
+        max-width: 680px;
+        margin-inline: auto;
       }
     }
 
@@ -3200,30 +3187,6 @@
         grid-template-columns: repeat(2, 1fr);
       }
 
-      /* Testimonials card stack — mobile */
-      .testimonials__scroll-container {
-        height: 350vh;
-      }
-
-      .testimonials__stack {
-        width: 90vw;
-        max-width: 340px;
-        height: 440px;
-      }
-
-      .testimonial-card {
-        padding: var(--space-6) var(--space-5);
-      }
-
-      .testimonial-card__text {
-        font-size: 15px;
-        max-width: 260px;
-      }
-
-      .testimonials__sticky {
-        padding: var(--space-6) var(--space-4);
-      }
-
       /* Praxis building — mobile */
       .praxis-building__inner {
         grid-template-columns: 1fr;
@@ -3292,24 +3255,6 @@
 
       .technology__features-list {
         grid-template-columns: 1fr;
-      }
-
-      /* Testimonials — smaller phones */
-      .testimonials__stack {
-        width: 92vw;
-        max-width: 300px;
-        height: 400px;
-      }
-
-      .testimonial-card__text {
-        font-size: 14px;
-        max-width: 230px;
-      }
-
-      .testimonial-card__avatar {
-        width: 38px;
-        height: 38px;
-        font-size: 14px;
       }
 
       /* Section headers tighter on mobile */
@@ -4085,22 +4030,21 @@
     </div>
   </section>
 
-  <!-- ============ TESTIMONIALS — Scroll-driven Card Stack ============ -->
-  <section class="testimonials" id="testimonials">
-    <div class="testimonials__scroll-container">
-      <div class="testimonials__sticky">
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
 
-        <div class="section-header reveal" style="margin-bottom: var(--space-8); position: relative; z-index: 2;">
+        <div class="section-header testimonials__header">
           <span class="text-label">Das sagen unsere Patientinnen</span>
           <h2 class="heading-display heading-display--lg">Vertrauen, das <em>man sieht</em></h2>
           <p class="text-body">Echte Google-Rezensionen von Menschen, die sich bei uns in den besten Händen fühlen.</p>
-          <a href="https://maps.app.goo.gl/7FxZVdCDyGsrUUdh9" target="_blank" rel="noopener" class="btn btn--secondary" style="margin-top: var(--space-4);">Alle Bewertungen auf Google ansehen</a>
+          <a href="https://maps.app.goo.gl/7FxZVdCDyGsrUUdh9" target="_blank" rel="noopener" class="btn btn--secondary testimonials__link">Alle Bewertungen auf Google ansehen</a>
         </div>
 
-        <div class="testimonials__stack" id="testimonialStack">
+        <div class="testimonials__grid">
 
-          <div class="testimonial-card" data-stack-card="0">
-            <div class="testimonial-card__stars">
+          <div class="testimonial-card">
+            <div class="testimonial-card__stars" role="img" aria-label="5 von 5 Sternen">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -4117,8 +4061,8 @@
             </div>
           </div>
 
-          <div class="testimonial-card" data-stack-card="1">
-            <div class="testimonial-card__stars">
+          <div class="testimonial-card">
+            <div class="testimonial-card__stars" role="img" aria-label="5 von 5 Sternen">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -4135,8 +4079,8 @@
             </div>
           </div>
 
-          <div class="testimonial-card" data-stack-card="2">
-            <div class="testimonial-card__stars">
+          <div class="testimonial-card">
+            <div class="testimonial-card__stars" role="img" aria-label="5 von 5 Sternen">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -4154,7 +4098,6 @@
           </div>
 
         </div>
-      </div>
     </div>
   </section>
 
@@ -4867,88 +4810,6 @@
 
       targets.forEach(function(el) { headlineObserver.observe(el); });
     }
-  })();
-  </script>
-
-  <!-- Testimonials Card Stack Animation -->
-  <script>
-  (function() {
-    var container = document.querySelector('.testimonials__scroll-container');
-    var cards = document.querySelectorAll('[data-stack-card]');
-    if (!container || !cards.length) return;
-
-    var total = cards.length;
-
-    // Set initial stacked state: card 0 on top (highest z), card 2 on bottom
-    cards.forEach(function(card, i) {
-      card.style.zIndex = (total - i) * 10;
-      card.style.top = (i * 10) + 'px';
-    });
-
-    function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
-
-    function lerp(a, b, t) { return a + (b - a) * t; }
-
-    function onScroll() {
-      var rect = container.getBoundingClientRect();
-      var containerTop = -rect.top;
-      var scrollRange = container.offsetHeight - window.innerHeight;
-      // Cards animate in first 70% of scroll, last 30% scrolls through fast
-      var rawProgress = Math.min(Math.max(containerTop / scrollRange, 0), 1);
-      var progress = Math.min(rawProgress / 0.7, 1);
-
-      cards.forEach(function(card, i) {
-        // Card 0 flies away first, then card 1, then card 2
-        var cardStart = i / (total + 0.5);
-        var cardEnd = (i + 1) / (total + 0.5);
-
-        // Card-local progress: 0 = stacked, 1 = flown away
-        var local = Math.min(Math.max((progress - cardStart) / (cardEnd - cardStart), 0), 1);
-        var eased = easeOutCubic(local);
-
-        // Y: fly up and away
-        var translateY = lerp(0, -200, eased);
-
-        // Rotation: slight tilt as it flies
-        var rotation = lerp(0, -12, eased);
-
-        // Scale: cards behind are slightly smaller, grow as they become front
-        var behindScale = 1 - (i * 0.04);
-        // As previous cards leave, this card scales up
-        var prevProgress = i > 0 ? Math.min(Math.max((progress - (i-1) / (total + 0.5)) / (1 / (total + 0.5)), 0), 1) : 1;
-        var scale = lerp(behindScale, 1, easeOutCubic(prevProgress));
-        // When this card flies away, it keeps scale 1
-        if (local > 0) scale = 1;
-
-        // Opacity: fade out as card flies away
-        var opacity = local > 0.5 ? lerp(1, 0, (local - 0.5) * 2) : 1;
-
-        // Shadow
-        var shadowBlur = lerp(6, 30, eased);
-        var shadowAlpha = lerp(0.05, 0.15, eased);
-
-        // Y offset for stacking (shrinks as cards leave)
-        var stackOffset = i * 10;
-        var removedCards = 0;
-        for (var j = 0; j < i; j++) {
-          var jStart = j / (total + 0.5);
-          var jEnd = (j + 1) / (total + 0.5);
-          var jLocal = Math.min(Math.max((progress - jStart) / (jEnd - jStart), 0), 1);
-          if (jLocal > 0.8) removedCards++;
-        }
-        stackOffset = (i - removedCards) * 10;
-
-        card.style.transform =
-          'translateY(calc(' + stackOffset + 'px + ' + translateY + '%)) ' +
-          'rotate(' + rotation.toFixed(2) + 'deg) ' +
-          'scale(' + scale.toFixed(3) + ')';
-        card.style.opacity = opacity.toFixed(3);
-        card.style.boxShadow = '0 ' + Math.round(shadowBlur * 0.4) + 'px ' + Math.round(shadowBlur) + 'px rgba(0,0,0,' + shadowAlpha.toFixed(3) + ')';
-      });
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll(); // initial state
   })();
   </script>
 
