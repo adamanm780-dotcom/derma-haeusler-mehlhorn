@@ -2219,19 +2219,144 @@
        TESTIMONIALS — Responsive review cards
        ======================================== */
     .testimonials {
-      background: var(--white);
+      background: var(--cream);
       scroll-margin-top: 88px;
+      padding-block: clamp(64px, 6vw, 96px);
+      border-block: 1px solid var(--gray-100);
     }
 
-    .testimonials__header {
-      margin-bottom: var(--space-8);
+    .testimonials__container {
+      max-width: 1360px;
+    }
+
+    .testimonials__intro {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      align-items: center;
+      gap: clamp(32px, 5vw, 80px);
+      margin-bottom: clamp(40px, 4vw, 64px);
+    }
+
+    .testimonials .testimonials__header {
+      min-width: 0;
+      margin: 0;
+      text-align: left;
+    }
+
+    .testimonials__header .text-label {
+      color: var(--gray-600);
+      letter-spacing: 0.16em;
+      margin-bottom: var(--space-5);
+    }
+
+    .testimonials__header .heading-display {
+      font-size: clamp(38px, 4.2vw, 62px);
+      line-height: 1.12;
+      margin-bottom: var(--space-5);
+    }
+
+    .testimonials__header .heading-display em {
+      display: block;
+    }
+
+    .testimonials__header .text-body {
+      max-width: 440px;
+      color: var(--gray-600);
+      font-size: 17px;
+      line-height: 1.8;
     }
 
     .testimonials__link {
-      margin-top: var(--space-4);
+      margin-top: var(--space-6);
       max-width: 100%;
       white-space: normal;
       text-align: center;
+      border-color: var(--teal-deep);
+      color: var(--gray-700);
+      box-shadow: none;
+    }
+
+    .testimonials__link svg {
+      flex-shrink: 0;
+    }
+
+    .testimonials__city {
+      min-width: 0;
+    }
+
+    .testimonials__photo {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      background: var(--gray-200);
+      isolation: isolate;
+    }
+
+    .testimonials__photo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1280 / 853;
+    }
+
+    .testimonials__place {
+      position: absolute;
+      left: var(--space-5);
+      bottom: var(--space-5);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 10px 16px;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-full);
+      background: var(--cream);
+      color: var(--gray-700);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .testimonials__place svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .testimonials__credit {
+      margin-top: var(--space-3);
+      color: var(--gray-600);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .testimonials__credit a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .testimonials__credit a:focus-visible,
+    .testimonials__link:focus-visible {
+      outline: 2px solid var(--gray-700);
+      outline-offset: 4px;
+    }
+
+    .testimonials__divider {
+      display: flex;
+      align-items: center;
+      gap: var(--space-5);
+      margin-bottom: var(--space-5);
+      color: var(--gray-600);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .testimonials__divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gray-200);
     }
 
     .testimonials__grid {
@@ -2243,17 +2368,25 @@
     .testimonial-card {
       position: relative;
       min-width: 0;
-      background: var(--off-white);
-      border: 1px solid var(--gray-100);
-      border-radius: var(--radius-xl);
-      padding: var(--space-6) var(--space-5);
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: clamp(24px, 2.5vw, 36px);
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: var(--space-5);
+      gap: var(--space-4);
       text-align: left;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-      transition: box-shadow var(--duration-normal) var(--ease-out);
+      box-shadow: 0 8px 24px rgba(84, 72, 51, 0.025);
+    }
+
+    .testimonial-card__heading {
+      font-family: var(--font-display);
+      font-size: 23px;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--gray-800);
+      overflow-wrap: anywhere;
     }
 
     .testimonial-card__stars {
@@ -2272,7 +2405,7 @@
       font-size: 16px;
       color: var(--gray-600);
       line-height: 1.75;
-      font-style: italic;
+      font-style: normal;
       overflow-wrap: anywhere;
     }
 
@@ -2281,7 +2414,7 @@
       align-items: center;
       gap: var(--space-3);
       margin-top: auto;
-      padding-top: var(--space-4);
+      padding-top: var(--space-5);
       border-top: 1px solid var(--gray-100);
       width: 100%;
       flex-shrink: 0;
@@ -2316,10 +2449,34 @@
     }
 
     @media (max-width: 1024px) {
+      .testimonials__intro {
+        grid-template-columns: 1fr;
+        max-width: 680px;
+        margin-inline: auto;
+      }
+
       .testimonials__grid {
         grid-template-columns: 1fr;
         max-width: 680px;
         margin-inline: auto;
+      }
+
+      .testimonials__divider {
+        max-width: 680px;
+        margin-inline: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .testimonials__place {
+        left: var(--space-3);
+        bottom: var(--space-3);
+        padding: 8px 12px;
+      }
+
+      .testimonials__link {
+        width: 100%;
+        padding-inline: var(--space-4);
       }
     }
 
@@ -4031,16 +4188,24 @@
   </section>
 
   <!-- ============ TESTIMONIALS ============ -->
-  <section class="section testimonials" id="testimonials">
-    <div class="container">
-
+  <section class="section testimonials" id="testimonials" aria-labelledby="testimonials-title">
+    <div class="container testimonials__container">
+      <div class="testimonials__intro">
         <div class="section-header testimonials__header">
-          <span class="text-label">Das sagen unsere Patientinnen</span>
-          <h2 class="heading-display heading-display--lg">Vertrauen, das <em>man sieht</em></h2>
-          <p class="text-body">Echte Google-Rezensionen von Menschen, die sich bei uns in den besten Händen fühlen.</p>
-          <a href="https://maps.app.goo.gl/7FxZVdCDyGsrUUdh9" target="_blank" rel="noopener" class="btn btn--secondary testimonials__link">Alle Bewertungen auf Google ansehen</a>
+          <span class="text-label">In Chemnitz zu Hause. Für Sie da.</span>
+          <h2 class="heading-display heading-display--lg" id="testimonials-title">Vertrauen, das <em>man spürt.</em></h2>
+          <p class="text-body">Eine gute Behandlung beginnt mit einem guten Gefühl. Hier erzählen Patientinnen und Patienten, wie sie den Besuch in unserer Praxis erlebt haben.</p>
+          <a href="https://maps.app.goo.gl/7FxZVdCDyGsrUUdh9" target="_blank" rel="noopener" class="btn btn--secondary testimonials__link">Alle Google-Bewertungen ansehen <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-
+        <figure class="testimonials__city">
+          <div class="testimonials__photo">
+            <img src="chemnitz-marktplatz-1280.webp" srcset="chemnitz-marktplatz-640.webp 640w, chemnitz-marktplatz-1280.webp 1280w" sizes="(max-width: 728px) calc(100vw - 48px), (max-width: 1024px) 680px, (max-width: 1360px) 50vw, 650px" width="1280" height="853" loading="lazy" decoding="async" alt="Altes und Neues Rathaus am Chemnitzer Marktplatz bei Sonnenschein">
+            <span class="testimonials__place"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Chemnitz · Marktplatz</span>
+          </div>
+          <figcaption class="testimonials__credit">Foto: <a href="https://commons.wikimedia.org/wiki/File:Altes_und_Neues_Rathaus_am_Chemnitzer_Marktplatz_2015.jpg" target="_blank" rel="noopener">Sandro Schmalfuß</a> · <a href="https://creativecommons.org/licenses/by-sa/3.0/de/" target="_blank" rel="noopener">CC BY-SA 3.0 DE</a> · 2015</figcaption>
+        </figure>
+      </div>
+      <p class="testimonials__divider">Persönliche Erfahrungen</p>
         <div class="testimonials__grid">
 
           <div class="testimonial-card">
@@ -4051,6 +4216,7 @@
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
+            <h3 class="testimonial-card__heading">Schnell und unkompliziert.</h3>
             <p class="testimonial-card__text">&bdquo;Ich kam mit einer Überweisung vom Hausarzt hierher und wurde noch am selben Tag behandelt. Da telefonisch niemand erreichbar war, habe ich per Mail um einen Termin gebeten – nach 10 Minuten hatte ich direkt eine Antwort und durfte noch am selben Tag zur Sprechstunde kommen. Im Wartezimmer wartete ich nicht mal 30 Minuten. Vielen Dank für die schnelle Betreuung. Was für eine Erleichterung 👍&ldquo;</p>
             <div class="testimonial-card__author">
               <div class="testimonial-card__avatar">A</div>
@@ -4069,6 +4235,7 @@
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
+            <h3 class="testimonial-card__heading">Gut aufgehoben.</h3>
             <p class="testimonial-card__text">&bdquo;Wirklich tolle Praxis! Die Abläufe funktionieren reibungslos, die Wartezeit war minimal und die Termine wurden pünktlich eingehalten. Das gesamte Team ist durchweg freundlich und kompetent. Man fühlt sich gut aufgehoben und weiß zu jeder Zeit, was als Nächstes passiert – das schafft Vertrauen. Eine Facharztpraxis, die die Herausforderungen der modernen medizinischen Versorgung professionell gemeistert hat. Sehr empfehlenswert!&ldquo;</p>
             <div class="testimonial-card__author">
               <div class="testimonial-card__avatar">F</div>
@@ -4087,6 +4254,7 @@
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             </div>
+            <h3 class="testimonial-card__heading">Mit Herz und Feingefühl.</h3>
             <p class="testimonial-card__text">&bdquo;Ich möchte Ihnen von Herzen für Ihre Professionalität und Ihre warme Betreuung danken. Besonders hervorheben möchte ich Schwester Anja, die während meines Besuchs außergewöhnliche Fürsorge, Aufmerksamkeit und Einfühlungsvermögen gezeigt hat. Nochmals danke!&ldquo;</p>
             <div class="testimonial-card__author">
               <div class="testimonial-card__avatar">M</div>
