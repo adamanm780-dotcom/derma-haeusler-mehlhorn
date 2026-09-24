@@ -20,7 +20,9 @@ Konvertierung nach WebP (Qualität 82).
 
 ## „Einblick"-Motive der Unterseiten (`treatments/einblick-*.webp`)
 
-Diese sechs Bilder haben die zuvor dort eingebundenen KI-Videos ersetzt.
+Diese sechs Pexels-Bilder haben ursprünglich die dort eingebundenen KI-Videos ersetzt.
+Auf der Tattoo-Seite wird seit dem 24.09.2026 stattdessen das unten dokumentierte
+KI-generierte Lasermotiv verwendet; `einblick-tattoo.webp` bleibt als Altbestand erhalten.
 Ebenfalls Pexels-Lizenz, 16:9, 1440 × 810 px, WebP q82. Sie sind als
 **Symbolbild** ausgewiesen, weil sie eine vergleichbare Behandlung zeigen,
 aber nicht in dieser Praxis aufgenommen wurden.
@@ -33,6 +35,22 @@ aber nicht in dieser Praxis aufgenommen wurden.
 | `einblick-haarentfernung.webp` | dauerhafte-haarentfernung-chemnitz | https://www.pexels.com/photo/16032366/ |
 | `einblick-besenreiser.webp` | besenreiser-entfernen-chemnitz | https://www.pexels.com/photo/36930734/ |
 | `einblick-tattoo.webp` | laser-tattooentfernung-chemnitz | https://www.pexels.com/photo/12556702/ |
+
+## Neue KI-Symbolbilder vom 24.09.2026
+
+Auf Wunsch des Auftraggebers mit dem integrierten OpenAI-Imagegen-Werkzeug
+neu erzeugt. Keine Fotos realer Patienten, keine Aufnahme des konkreten
+Praxisgeräts und keine Dokumentation eines Behandlungsergebnisses.
+Beide Bilder tragen unmittelbar darunter den Hinweis „KI-generiertes Symbolbild“.
+
+| Datei | Verwendung | Motiv |
+|---|---|---|
+| `einblick-tattoo-laser-ki.webp` | laser-tattooentfernung-chemnitz | Tattooentfernung am Unterarm mit Laserhandstück und Abstandshalter |
+| `einblick-hyperhidrose-axilla-ki.webp` | hyperhidrose-behandlung-chemnitz | Achselregion bei angehobenem Arm, mit untersuchender behandschuhter Hand |
+
+Ausgabe für die Website: 1440 × 810 px, WebP q82. Die generierten
+Originaldateien bleiben erhalten. Das Botox-Motiv wird auf der Botox-Seite
+unverändert weiterverwendet.
 
 ## Praxis-Aufnahmen (echte Fotos des Kunden)
 
@@ -48,7 +66,7 @@ daher **nicht** kennzeichnungspflichtig.
 Bearbeitung: Zuschnitt auf 3:2, 1200 × 800 px (Gebäude 1536 × 1024),
 WebP q84.
 
-## Bilder der neun Hautmedizin-Seiten (Stand 31.08.2026)
+## Bilder der neun Hautmedizin-Seiten (aktualisiert am 24.09.2026)
 
 **Kopfbereiche:** echte Praxisaufnahmen des Kunden (Abschnitt oben), mit
 `alt=""` und `aria-hidden="true"` als dekorativ ausgezeichnet.
@@ -65,13 +83,12 @@ WebP q84.
 | kinderdermatologie-chemnitz | `praxis-leipziger-strasse.webp` |
 | hautarztverfahren-chemnitz | `praxis-leipziger-strasse.webp` |
 
-**Symbolbilder im Textteil: echte Fotografien unter der Pexels-Lizenz.**
+**Symbolbilder im Textteil:** Pexels-Fotografien; auf der Hyperhidrose-Seite seit 24.09.2026 ein KI-generiertes Axilla-Motiv (siehe unten).
 Die zuvor hier eingesetzten KI-Bilder (GPT Image 2, 29.08.2026) wurden am
 31.08.2026 vollstaendig entfernt – sie wirkten generisch und zeigten keine
 erkennbare Behandlung. Ersatz sind echte Aufnahmen, zugeschnitten auf
-1440 × 810 px, WebP q82. Diese Seiten enthalten damit **keine
-KI-generierten Medien mehr** und tragen folgerichtig auch keine
-Kennzeichnung nach Art. 50 KI-VO.
+1440 × 810 px, WebP q82. Seit dem 24.09.2026 enthält die Hyperhidrose-Seite wieder ein
+KI-generiertes Symbolbild. Es ist direkt unter dem Bild gekennzeichnet.
 
 | Datei | Motiv | Seite | Quelle |
 |---|---|---|---|
@@ -80,7 +97,7 @@ Kennzeichnung nach Art. 50 KI-VO.
 | `einblick-operationen.webp` | Ambulanter Eingriff unter der Stirnlampe, Feld steril abgedeckt | ambulante-hautoperationen-chemnitz | https://www.pexels.com/photo/32260065/ |
 | `einblick-behandlungsraum.webp` | Heller Behandlungsraum einer dermatologischen Praxis | allergietest-chemnitz | https://www.pexels.com/photo/16571735/ |
 | `einblick-akne.webp` | Apparative Behandlung der Gesichtshaut mit einem Handstück | akne-behandlung-chemnitz | https://www.pexels.com/photo/5069609/ |
-| `einblick-botox.webp` | Behandlung mit feiner Injektionsnadel (bereits vorhanden) | hyperhidrose-behandlung-chemnitz | https://www.pexels.com/photo/34220539/ |
+| `einblick-hyperhidrose-axilla-ki.webp` | Untersuchung der Achselregion (Axilla) | hyperhidrose-behandlung-chemnitz | OpenAI Imagegen, KI-generiert am 24.09.2026 |
 
 Zuschnitt in jedem Fall so gewaehlt, dass **kein Gesicht identifizierbar**
 bleibt und **keine Geraete- oder Markennamen** lesbar sind – bei
