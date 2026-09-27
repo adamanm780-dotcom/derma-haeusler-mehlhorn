@@ -153,6 +153,12 @@ h2.heading em { font-style:italic; }
 .site-menu__group-title { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--teal-deep); font-weight:600; margin:24px 0 6px; }
 @media (max-width:600px){ .site-header .header-cta .btn--primary { display:none; } }
 
+/* "Unsere Angebote" im Header: fuehrt zurueck zur Angebotsuebersicht der Startseite */
+.header-offers { padding:12px 22px; font-size:14.5px; border-color:var(--gray-300); color:var(--gray-800); background:rgba(255,255,255,.55); }
+.header-offers:hover { border-color:var(--teal); color:var(--teal-deep); background:var(--teal-whisper); }
+@media (max-width:600px){ .site-header .header-offers { padding:10px 14px; font-size:13px; white-space:nowrap; } .brand-name { font-size:16px; } }
+@media (max-width:380px){ .site-header .header-offers { padding:9px 11px; font-size:12px; } .brand img { width:28px; height:28px; } .brand { gap:8px; } }
+
 @media (prefers-reduced-motion:reduce){ *{ animation:none!important; scroll-behavior:auto!important; } }
 
 /* ========================================
