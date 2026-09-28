@@ -196,6 +196,39 @@
       </div>
     </section>
 
+    <!-- Vorher · Nachher (gleicher Slider wie auf der Startseite) -->
+    <section class="block ba-band" style="padding-top:0">
+      <div class="container">
+        <div class="ba-band__grid">
+          <div class="ba-band__text">
+            <span class="eyebrow">Vorher · Nachher</span>
+            <h2 class="heading">Das Behandlungsziel <em>im Vergleich</em></h2>
+            <p>Ziehen Sie den Schieberegler: Die Darstellung zeigt, worauf die Behandlung von Besenreisern abzielt – feine Äderchen treten zurück, das Hautbild am Bein wird gleichmäßiger.</p>
+            <p class="ba-band__hint">← Ziehen, um das Ergebnis zu enthüllen →</p>
+            <p class="ba-band__note"><strong>Hinweis:</strong> Illustratives Beispielbild zur Veranschaulichung des Behandlungsziels – keine Fotografie realer Patientinnen und Patienten. Behandlungsergebnisse sind individuell verschieden; ein bestimmtes Ergebnis kann nicht zugesichert werden.</p>
+          </div>
+          <figure class="ba-band__media">
+            <div class="ba-slider" data-ba-slider aria-label="Vorher-Nachher-Vergleich: Besenreiser am Bein">
+              <img src="ba/besenreiser-vorher.webp" alt="Vorher – Besenreiser-Behandlung" class="ba-slider__img" loading="lazy">
+              <div class="ba-slider__after-wrap">
+                <img src="ba/besenreiser-nachher.webp" alt="Nachher – Besenreiser-Behandlung" class="ba-slider__img" loading="lazy">
+              </div>
+              <span class="ba-slider__label ba-slider__label--before">Vorher</span>
+              <span class="ba-slider__label ba-slider__label--after">Nachher</span>
+              <div class="ba-slider__divider"></div>
+              <div class="ba-slider__handle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/><polyline points="9 6 15 12 9 18"/></svg>
+              </div>
+            </div>
+            <figcaption class="ba-slider__caption">
+              <div class="ba-slider__caption-title">Besenreiser · Bein</div>
+              <div class="ba-slider__caption-desc">Laser &amp; Verödung · Behandlungsziel: gleichmäßigeres Hautbild</div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <section class="block video-band">
       <div class="container narrow">
         <span class="eyebrow">Einblick</span>
@@ -294,8 +327,10 @@
       document.addEventListener('keydown',function(e){if(e.key==='Escape')closeM();});
     })();
   </script>
-  <!-- Eingangs-Popup "Wir suchen MFA!" -->
+  <!-- Eingangs-Popups: zuerst "Facharzt / Fachärztin", danach "Wir suchen MFA!" -->
+  <script src="js/stellen-popup.js" defer></script>
   <script src="js/mfa-popup.js" defer></script>
+  <script src="js/ba-slider.js" defer></script>
   <script src="js/termin-popup.js" defer></script>
 </body>
 </html>

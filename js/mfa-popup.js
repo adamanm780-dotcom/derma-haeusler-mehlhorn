@@ -6,6 +6,11 @@
 
        <script src="js/mfa-popup.js" defer></script>
 
+   Reihenfolge
+   Das Facharzt-Popup (js/stellen-popup.js) ist das erste Popup. Ist es
+   auf der Seite eingebunden und in diesem Besuch noch nicht gezeigt,
+   erscheint dieses Banner erst nach dessen Schliessen.
+
    Verhalten
    - erscheint direkt beim Aufruf der Seite und legt sich vor den Inhalt;
      der Hintergrund ist bis zum Schliessen nicht bedienbar
@@ -38,7 +43,9 @@
     bild: '',
     bildAlt: 'Zwei medizinische Fachangestellte in unserer Praxis',
     /* Verzoegerung nach dem Laden in Millisekunden */
-    verzoegerung: 450
+    verzoegerung: 450,
+    /* Pause nach dem Schliessen des Facharzt-Popups in Millisekunden */
+    nachFacharzt: 650
   };
 
   /* ---------- schon gesehen? ------------------------------------------- */
@@ -301,6 +308,17 @@
       if (e.target === pop) { schliessen(); return; }
       if (e.target.closest('[data-mfapop-close]')) { e.preventDefault(); schliessen(); }
     });
+
+    /* Das Facharzt-Popup (js/stellen-popup.js) kommt zuerst. Ist es in
+       diesem Besuch noch dran, erscheint das MFA-Banner erst, wenn es
+       geschlossen wurde. */
+    var stellen = window.hmStellenPopup;
+    if (stellen && stellen.offen) {
+      document.addEventListener(stellen.event, function () {
+        window.setTimeout(oeffnen, CONFIG.nachFacharzt);
+      }, { once: true });
+      return;
+    }
 
     /* Startseite: erst nach dem Ladebildschirm zeigen */
     var loader = document.getElementById('loadingScreen');
