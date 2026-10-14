@@ -362,3 +362,11 @@ h2.heading { font-weight:420; letter-spacing:-.01em; margin-bottom:22px; }
   .ba-band__grid { grid-template-columns:1fr; }
   .ba-band__media { max-width:440px; width:100%; margin:0 auto; }
 }
+
+/* Einblick: zwei Bilder nebeneinander, mobil untereinander */
+.einblick-duo { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:34px; }
+.einblick-duo figure { margin:0; }
+.einblick-duo__img { aspect-ratio:3/2; border-radius:var(--radius); overflow:hidden; border:1px solid var(--gray-200); box-shadow:var(--shadow-lg); background:var(--teal-whisper); }
+.einblick-duo img { width:100%; height:100%; object-fit:cover; display:block; }
+.einblick-duo figcaption { font-size:13px; color:var(--gray-500); margin-top:10px; text-align:center; }
+@media (max-width:720px){ .einblick-duo { grid-template-columns:1fr; gap:26px; } }
